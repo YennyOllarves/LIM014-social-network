@@ -1,6 +1,7 @@
 // import { changeView } from './controller/route.js';
 // import { checkSesionActive } from './controller/controller-route.js';
 
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyBG1DkKiw5oz-iRMTKNe2obupYyl1Hu0dg',
@@ -20,3 +21,4 @@ const init = () => {
 };
 window.addEventListener('load', init);
 window.addEventListener('hashchange', init);
+
