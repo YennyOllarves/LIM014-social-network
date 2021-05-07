@@ -16,9 +16,12 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.performance();
 
-const init = () => {
-  checkSesionActive(changeView);
-};
-window.addEventListener('load', init);
-window.addEventListener('hashchange', init);
 
+
+
+import changeViews from './route-controller/routing.js';
+const init = () => {
+    changeViews(window.location.hash);
+    window.addEventListener('hashchange' , () => changeViews(window.location.hash));
+}
+window.addEventListener('load', init); //Cada vez que recargue ejecuta esta ()
