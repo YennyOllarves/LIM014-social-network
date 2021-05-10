@@ -43,5 +43,4 @@ export {
   checkMail,
   logOut,
   currentUser,
-
 };

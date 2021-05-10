@@ -1,6 +1,6 @@
 // import controles
 
-//export default, name registrationPge
+// export default, name registrationPge
 export default () => {
   const viewRegister = document.createElement('section');
   viewRegister.classList.add('login-container');
@@ -40,6 +40,4 @@ export default () => {
       </section>
     </section>
     `;
-
-
 };
