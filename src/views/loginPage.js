@@ -1,4 +1,8 @@
 // import controles
+import {loginEmail, loginGoogle, currentUser } from '../firebase-controllers/auth-controller';
+import {sedGeneralData, getUserData} from '../firebase-controllers/fireStore-controller';
+ 
+
 
 //export default, name loginPage
 export default () => {
