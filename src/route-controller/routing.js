@@ -13,9 +13,6 @@ const changeViews = (route) => {
        case '#/Header':
            main.appendChild(components.Header())
            components.Header.init();
-        
-
-
        default:
            break;
        }
