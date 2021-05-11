@@ -1,9 +1,9 @@
-import viewHeader from '../views/header';
-import viewRegister from '../views/register.js';
+import viewLogin from '../views/loginPage.js';
+import viewRegister from '../views/registrationPage.js';
 
 const components = {
-    Header : viewHeader,
-    Register : viewRegister
-}
+  login: viewLogin,
+  register: viewRegister,
+};
 
 export default components;
