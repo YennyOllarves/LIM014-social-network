@@ -1,6 +1,6 @@
-// import controles
+import { userRegister, checkMail } from '../firebase-controllers/auth-controller';
 
-// export default, name registrationPge
+// export default, name registrationPage
 export default () => {
   const viewRegister = document.createElement('section');
   viewRegister.classList.add('login-container');
@@ -39,5 +39,24 @@ export default () => {
         </form>
       </section>
     </section>
-    `;
+  `;
+  // regresa a iniciar sesión
+  const backLogin = viewRegister.querySelector('.login-change');
+  backLogin.addEventListener('click', () => { window.location.hash = ''; });
+  
+ // creación de usuarios
+ const userSingUp = viewRegister.querySelector('.boxForm-Register');
+ userSingUp.addEventListener('submit', (e) => {
+   e.preventDefault();
+   const emailInput = viewRegister.querySelector('.email').value;
+   const passwordInput = viewRegister.querySelector('.password').value;
+   const msgError = viewRegister.querySelector('.msg-error');
+   userRegister(emailInput, passwordInput)
+   .then(() => {
+     checkMail()
+      .then(() => {
+        msg
+      })
+   })
+ })
 };
