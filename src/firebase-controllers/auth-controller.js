@@ -13,19 +13,19 @@ const loginGoogle = () => {
 };
 
 // Creación de Usuarios
-const userRegister = (email, password) => {
+const userRegister = (email, password) => { // consulta de agregar name al parametro
   const auth = firebase.auth();
   return auth.createUserWithEmailAndPassword(email, password);
 };
 
 // Verificar Mail
 const checkMail = () => {
-  const user = firebase.auth().currentUser();
+  const user = firebase.auth().currentUser;
   return user.sendEmailVerification();
 };
 
 // usuario actual
-const currentUser = firebase.auth().currentUser();
+const currentUser = () => firebase.auth().currentUser;
 
 // Cerrar Sesión
 const logOut = () => firebase.auth().singOut();
