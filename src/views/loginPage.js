@@ -1,6 +1,5 @@
 import { loginEmail, loginGoogle, currentUser } from '../firebase-controllers/auth-controller.js';
 import { sendGeneralData, getUserData } from '../firebase-controllers/fireStore-controller.js';
-import {}
 
 // export default, name loginPage
 export default () => {
