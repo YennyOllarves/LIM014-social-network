@@ -36,11 +36,11 @@ export default () => {
 
   // Inicio de sesión
   const loginButton = viewLogin.querySelector('.login-change');
-  loginButton.addEventListener('click', () => { window.location.hash = '#/loginPage'; });
+  loginButton.addEventListener('click', () => { window.location.hash = '#/register'; });
 
   // Manipulación del DOM para loguearse con GOOGLE
 
-  const googleButton = viewLogin.querySelector('.options-login');
+  const googleButton = viewLogin.querySelector('.login-options');
   googleButton.addEventListener('click', () => {
     loginGoogle()
       .then(() => {
@@ -48,7 +48,7 @@ export default () => {
           .then((doc) => {
             if (doc.exists) {
               window.location.hash = '#/home';
-            } else {
+            } else { // consulta de promesa
               sendGeneralData(currentUser())
                 .then(() => {
                   window.location.hash = '#/home';

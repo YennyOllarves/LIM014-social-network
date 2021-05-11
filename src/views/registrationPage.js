@@ -1,4 +1,4 @@
-import { userRegister, checkMail } from '../firebase-controllers/auth-controller';
+import { userRegister, checkMail } from '../firebase-controllers/auth-controller.js';
 
 // export default, name registrationPage
 export default () => {
@@ -42,21 +42,36 @@ export default () => {
   `;
   // regresa a iniciar sesión
   const backLogin = viewRegister.querySelector('.login-change');
-  backLogin.addEventListener('click', () => { window.location.hash = ''; });
-  
- // creación de usuarios
- const userSingUp = viewRegister.querySelector('.boxForm-Register');
- userSingUp.addEventListener('submit', (e) => {
-   e.preventDefault();
-   const emailInput = viewRegister.querySelector('.email').value;
-   const passwordInput = viewRegister.querySelector('.password').value;
-   const msgError = viewRegister.querySelector('.msg-error');
-   userRegister(emailInput, passwordInput)
-   .then(() => {
-     checkMail()
+  backLogin.addEventListener('click', () => { window.location.hash = '#/login'; });
+
+  // creación de usuarios
+  const userSingUp = viewRegister.querySelector('.boxForm-Register');
+  userSingUp.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const emailInput = viewRegister.querySelector('.email').value;
+    const passwordInput = viewRegister.querySelector('.password').value;
+    const msgError = viewRegister.querySelector('.msg-error');
+    userRegister(emailInput, passwordInput) // revisar el auth para agregar en el registro
       .then(() => {
-        msg
+        checkMail()
+          .then(() => {
+            msgError.classList.add('successful-message');
+            msgError.textContent = 'Please check your inbox to verify your account';
+          })
+          .catch((err) => {
+            msgError.classList.add('error-message');
+            msgError.textContent = err.message;
+          });
+        userSingUp.reset();
       })
-   })
- })
+      .catch((err) => {
+        msgError.classList.remove('successful-message');
+        msgError.classList.add('error-message');
+        msgError.textContent = err.message;
+        setTimeout(() => {
+          msgError.textContent = '';
+        }, 10000);
+      });
+  });
+  return viewRegister;
 };

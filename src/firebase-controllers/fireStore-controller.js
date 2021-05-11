@@ -12,19 +12,18 @@ const sendGeneralData = (user) => {
     photoUrl = user.photoURL;
   } else {
     name = 'viajera';
-    photoUrl = //photo.png
+    // photoUrl = //photo.png
   }
   return dataBase.collection('usuarios').doc(user.uid).set({
     username: name,
     email: user.email,
     photo: photoUrl,
-    photoCover: //'img/default-cover.jpg',
+    // photoCover: //'img/default-cover.jpg',
     birthday: 'yyyy-MM-dd',
     country: 'Country',
     description: 'Description',
-  })
+  });
 };
-
 
 // Obtener información del usuario
 
@@ -46,8 +45,8 @@ const updateUserData = (userIdentity, name, Birthday, Country, Description) => {
   });
 };
 
-export { 
-  sendGeneralData, 
+export {
+  sendGeneralData,
   getUserData,
-  updateUserData
-}
+  updateUserData,
+};

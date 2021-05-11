@@ -1,8 +1,9 @@
 // import { changeView } from './controller/route.js';
 // import { checkSesionActive } from './controller/controller-route.js';
 
-
 // Your web app's Firebase configuration
+import changeViews from './route-controller/routing.js';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyBG1DkKiw5oz-iRMTKNe2obupYyl1Hu0dg',
   authDomain: 'travelingsoul-505.firebaseapp.com',
@@ -14,16 +15,11 @@ const firebaseConfig = {
 };
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.performance();
-
-
-
-
-import changeViews from './route-controller/routing.js';
+// firebase.performance();
 const init = () => {
-    changeViews(window.location.hash);
-    window.addEventListener('hashchange' , () => changeViews(window.location.hash));
-}
-window.addEventListener('load', init); 
+  changeViews(window.location.hash);
+  window.addEventListener('hashchange', () => changeViews(window.location.hash));
+};
+window.addEventListener('load', init);
 
-//Cada vez que recargue ejecuta esta ()
+// Cada vez que recargue ejecuta esta ()
