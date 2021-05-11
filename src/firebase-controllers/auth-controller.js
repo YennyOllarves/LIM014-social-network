@@ -24,6 +24,7 @@ const checkMail = () => {
   return user.sendEmailVerification();
 };
 
+// usuario actual
 const currentUser = firebase.auth().currentUser();
 
 // Cerrar Sesión

@@ -24,4 +24,6 @@ const init = () => {
     changeViews(window.location.hash);
     window.addEventListener('hashchange' , () => changeViews(window.location.hash));
 }
-window.addEventListener('load', init); //Cada vez que recargue ejecuta esta ()
+window.addEventListener('load', init); 
+
+//Cada vez que recargue ejecuta esta ()
