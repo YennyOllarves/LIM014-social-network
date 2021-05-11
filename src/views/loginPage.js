@@ -61,8 +61,8 @@ export default () => {
   const loginEmailForm = viewLogin.querySelector('.boxForm-login');
   loginEmailForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const emailInput = viewLogin.querySelector('.email');
-    const passwordInput = viewLogin.querySelector('.password');
+    const emailInput = viewLogin.querySelector('.email').value;
+    const passwordInput = viewLogin.querySelector('.password').value;
     const msgError = viewLogin.querySelector('.msg-error');
     loginEmail(emailInput, passwordInput)
       .then((data) => {
