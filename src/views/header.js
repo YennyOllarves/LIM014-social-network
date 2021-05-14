@@ -1,17 +1,32 @@
-const Header = () => {
-    const viewHeader = ` 
-      <section class="container-header">
-        <h1 class="container-home">TRAVEILNGSOUL ---- header </h1>
-        <h3 class="container-home">AQUI VA TODO MI CONTENIDO</h3>
-       
-   
-      </section>
-     `;
+import { logOut } from '../firebase-controllers/auth-controller.js';
 
-     const divElement = document.createElement('div')
-     divElement.innerHTML = viewHeader;
-     return divElement;
-     
-}
+const menu = () => {
+  const header = document.getElementById('header');
+  const viewMenu = `
+  <nav  id="menu">
+  <ul>
+      <li class="home-header"><a href="#/home"><span class="the-home"><i class="fas fa-home"></i></span>Inicio</a></li>
+      <li class="profile-header"><a href="#/home"><span class="the-home"><i class="fas fa-user-circle"></i></span>Perfil</a></li>
+      <a href="#/home"><img src="img/airplane.png" class="icon"></a></li>
+      <li id="logOut-header"><a href="#/home"><span class="the-home"><i class="fas fa-sign-out-alt"></i></span>Cerrar sesión</a></li>
+  </ul>
+</nav>
+    `;
 
-export default Header;
+  const divElement = document.createElement('div');
+  divElement.innerHTML = viewMenu;
+
+  // Cerrar sesión
+  const bottomLogout = divElement.querySelector('#logOut-header');
+  bottomLogout.addEventListener('click', (e) => {
+    e.preventDefault();
+    logOut().then(() => {
+      console.log('logOut...');
+      window.location.hash = '#/';
+    });
+  });
+
+  return divElement;
+  // return viewMenu;
+};
+export default menu;

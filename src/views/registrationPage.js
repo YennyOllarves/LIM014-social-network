@@ -1,4 +1,5 @@
 import { userRegister, checkMail } from '../firebase-controllers/auth-controller.js';
+import { loginGoogle, currentUser } from '../firebase-controllers/auth-controller.js';
 
 // export default, name registrationPage
 export default () => {
@@ -14,7 +15,7 @@ export default () => {
         <form class='boxForm-Register'>
           <section class='input-initial'>
             <i class='user-icon'></i>
-            <input type='text' class='user' placeholder='Nombres y Apellidos' required autocomplete='off' spellcheck='false' />
+            <input type='text' class='user' placeholder='Nombres y Apellidos' required autocomplete='off' spellcheck='false' 
           </section>
           <section class='input-initial'>
             <i class='email-icon'></i>
@@ -32,6 +33,7 @@ export default () => {
           <p class='msg-error'></p>
           <p class='login-options'> o bien regístrate con... </p>
           <section class='options-login'>
+          <button id='loginOptionsRegister'>Google</button>
             <!-- imagen de google -->
           </section>
           <p class='login-options'>¿Ya tienes una cuenta?</p>
@@ -44,6 +46,25 @@ export default () => {
   const backLogin = viewRegister.querySelector('.login-change');
   backLogin.addEventListener('click', () => { window.location.hash = '#/login'; });
 
+  // Manipulación del DOM para loguearse con GOOGLE
+
+  const googleButton = viewRegister.querySelector('#loginOptionsRegister');
+  googleButton.addEventListener('click', () => {
+    loginGoogle()
+      .then(() => {
+        getUserData(currentUser().uid)
+          .then((doc) => {
+            if (doc.exists) {
+              window.location.hash = '#/home';
+            } else { // consulta de promesa
+              sendGeneralData(currentUser())
+                .then(() => {
+                  window.location.hash = '#/home';
+                });
+            }
+          });
+      });
+  });
   // creación de usuarios
   const userSingUp = viewRegister.querySelector('.boxForm-Register');
   userSingUp.addEventListener('submit', (e) => {
@@ -70,8 +91,9 @@ export default () => {
         msgError.textContent = err.message;
         setTimeout(() => {
           msgError.textContent = '';
-        }, 10000);
+        }, 4000);
       });
   });
+
   return viewRegister;
 };
