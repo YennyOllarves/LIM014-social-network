@@ -45,8 +45,6 @@ const updateUserData = (userIdentity, name, Birthday, Country, Description) => {
   });
 };
 
-
-
 // Base de Datos de Posts 
 const addPosts = (UserId, Privacy, Publication, URLimg) => {
   const dataBase = firebase.firestore();
