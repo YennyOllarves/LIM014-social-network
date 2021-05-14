@@ -1,7 +1,8 @@
 import { currentUser } from '../firebase-controllers/auth-controller.js';
 import { imgToStorage } from '../firebase-controllers/storage-controller.js';
-// importar posts de firestore controller.js
-// importar itempots de post.js
+import { addPosts} from '../firebase-controllers/fireStore-controller';
+
+// getPosts- fireStore controllers / importar itempots de post.js
 
 export default (userData) => {
   const viewHomePage = document.createElement('section');
@@ -50,59 +51,65 @@ export default (userData) => {
   const removeImg = viewHomePage.querySelector('#removeImg');
   const imgFile = viewHomePage.querySelector('#imgFile');
 
-    // imagen que se va a postear
-    imgFile.addEventListener('change', (e) => {
-        //se crea el objeto FileReader
-        const fileReader = new FileReader();
-        //se lee el archivo subido y se pasa a fileReader
-        fileReader.readAsDataURL(e.target.files[0]);
-        //en cuanto esté listo ejecute el código interno
-        fileReader.onload = () => {
-            postPicture.src = reader.result;
-        };
-        //se muestra el botón de remover la imagen 
-        removeImg.removeAttribute('style'); 
-    });
-    // remover imagen posteado
-    removeImg.addEventListener('click', () => {
-        postPicture.src = '';
-        imgFile.value = '';
-        removeImg.style.display = 'none';
-    });
-     // agregar post
-     const postForm = viewHomePage.querySelector('#postForm');
-    postForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        postPicture.src = '';
-        removeImg.style.display = 'none';
-        //llamar a storage
-        const imagenFile = e.target.closest('#postForm').querySelector('input').files[0];
-        const loadingMsg = viewHomePage.querySelector('#loadingMsg');
-        const containerLoading = viewHomePage.querySelector('.container-loading');
-        const loadingProcess = viewHomePage.querySelector('#loadingProcess');
-        const textPost = viewHomePage.querySelector('.text-post');
-        if (imagenFile) {
-            const postRoute = `imgPicture/${userIdentity}/${imagenFile.name}`;
-            const sendImg = imgToStorage(postRoute, userIdentity);
-            sendImg.on('ChangeOfState', (thePicture) => {
-                //gestionar el proceso
-                const process = (thePicture.bytesTransferred / thePicture.totalBytes) * 100;
-                containerLoading.classList.add('modal');
-                loadingMsg.textContent = 'Tu post está cargando';
-                loadingProcess.value = process;
-            }, () => { 
-                //gestionar cargas incorrectas  
-            }, () => {
-                //gestionar cargas correctas al finalizar
-                loadingProcess.thePicture.ref.getDownloadURL()
-                    .then((download) => {
-                        addPost(user)
-                    })
-            })
-        }
-
-    })
-
-
-
+  // imagen que se va a postear
+  imgFile.addEventListener('change', (e) => {
+    // se crea el objeto FileReader
+    const fileReader = new FileReader();
+    // se lee el archivo subido y se pasa a fileReader
+    fileReader.readAsDataURL(e.target.files[0]);
+    // en cuanto esté listo ejecute el código interno
+    fileReader.onload = () => {
+      postPicture.src = reader.result;
+    };
+    // se muestra el botón de remover la imagen
+    removeImg.removeAttribute('style');
+  });
+  // remover imagen posteado
+  removeImg.addEventListener('click', () => {
+    postPicture.src = '';
+    imgFile.value = '';
+    removeImg.style.display = 'none';
+  });
+  // agregar post
+  const postForm = viewHomePage.querySelector('#postForm');
+  postForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    postPicture.src = '';
+    removeImg.style.display = 'none';
+    // llamar a storage
+    const imagenFile = e.target.closest('#postForm').querySelector('input').files[0];
+    const loadingMsg = viewHomePage.querySelector('#loadingMsg');
+    const containerLoading = viewHomePage.querySelector('.container-loading');
+    const loadingProcess = viewHomePage.querySelector('#loadingProcess');
+    const textPost = viewHomePage.querySelector('.text-post');
+    if (imagenFile) {
+      const postRoute = `imgPicture/${userIdentity}/${imagenFile.name}`;
+      const sendImg = imgToStorage(postRoute, userIdentity);
+      sendImg.on('ChangeOfState', (thePicture) => {
+        // gestionar el proceso
+        const process = (thePicture.bytesTransferred / thePicture.totalBytes) * 100;
+        containerLoading.classList.add('modal');
+        loadingMsg.textContent = 'Tu post está cargando';
+        loadingProcess.value = process;
+      }, () => {
+        // gestionar cargas incorrectas
+      }, () => {
+        // gestionar cargas correctas al finalizar
+        loadingProcess.thePicture.ref.getDownloadURL()
+          .then((download) => {
+            addPost(user, textPost.value, download)
+              .then(() => {
+                containerLoading.classList.remove('modal');
+                postForm.reset();
+              });
+          });
+      });
+    } else {
+      addPosts(user, textPost.value, '')
+        .then(() => {
+          containerLoading.classList.remove('modal');
+          postForm.reset();
+        });
+    }
+  });
 };
