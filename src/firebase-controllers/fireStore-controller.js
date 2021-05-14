@@ -45,8 +45,128 @@ const updateUserData = (userIdentity, name, Birthday, Country, Description) => {
   });
 };
 
+// Base de Datos de Posts 
+const addPosts = (UserId, Privacy, Publication, URLimg) => {
+  const dataBase = firebase.firestore();
+  return dataBase.collection('posts').add({
+    userId: UserId,
+    date: new Date().toLocaleString('es-ES'),
+    privacy: Privacy,
+    publication: Publication,
+    urlimg: URLimg,
+    likes: [],
+    planes: [],
+  });
+};
+
+// Obtener todos los Posts onSnapsshot en vez de Get
+const getPosts = (checkPosts) => {
+  const dataBase = firebase.firestore();
+  dataBase.collection('posts').orderBy('date', 'desc')
+    .onSnapshot((querySnapshot) => {
+      const posts = [];
+      querySnapshot.forEach((doc) => {
+        posts.push({ id: doc.id, ...doc.data() });
+      });
+      checkPosts(posts);
+    });
+};
+
+// Eliminar Posts
+const deletePost = (idPost) => {
+  const dataBase = firebase.firestore();
+  return dataBase.collection('posts').doc(idPost).delete();
+};
+
+// Actualizar Posts
+const updatePost = (idPost, updatePublication) => {
+  const dataBase = firebase.firestore();
+  return dataBase.collection('posts').doc(idPost).update({
+    publication: updatePublication,
+  });
+};
+
+
+// Base de Datos de Comentarios
+const addComment = (UserId, idPost, Comment) => {
+  const dataBase = firebase.firestore();
+  return dataBase.collection('posts').doc(idPost).collection('comentarios').add({
+    userId: UserId,
+    date: new Date().toLocaleString('es-ES'),
+    comment: Comment,
+  });
+};
+
+// Obtener todos los COmentarios onSnapsshot en vez de Get
+const getComment = (idPost, checkComments) => {
+  const dataBase = firebase.firestore();
+  dataBase.collection(`posts/${idPost}/comentarios`).orderBy('date', 'desc')
+    .onSnapshot((querySnapshot) => {
+      const comments = [];
+      querySnapshot.forEach((doc) => {
+        comments.push({ id: doc.id, ...doc.data() });
+      });
+      checkComments(comments);
+    });
+};
+
+// Eliminar COmentarios
+const deleteComment = (idPost, idComment) => {
+  const dataBase = firebase.firestore();
+  return dataBase.collection(`posts/${idPost}/comentarios`).doc(idComment).delete();
+};
+
+
+// Actualizar Comentarios
+const updateComment = (idPost, idComment, comment) => {
+  const dataBase = firebase.firestore();
+  return dataBase.collection(`posts/${idPost}/comentarios`).doc(idComment).update({ comment });
+};
+
+// Actualizar foto de perfil
+const updateProfilePhoto = (userId, photo) => {
+  const dataBase = firebase.firestore();
+  return dataBase.collection('usuarios').doc(userId).update({ photo });
+};
+
+// Actualizar foto de portada
+/* const updateCoverPhoto = (userId, photoCover) => {
+  const dataBase = firebase.firestore();
+  return dataBase.collection('usuarios').doc(userId).update({ photoCover });
+}; */
+
+
+// Actualizar Provacidad
+const updatePrivacy = (id, privacy) => {
+  const dataBase = firebase.firestore();
+  return dataBase.collection('posts').doc(id).update({ privacy });
+};
+
+// Actualizar Likes
+const updateLike = (id, likes) => {
+  const dataBase = firebase.firestore();
+  return dataBase.collection('posts').doc(id).update({ likes });
+};
+
+// Actualizar planes
+const updatePlane = (id, planes) => {
+  const dataBase = firebase.firestore();
+  return dataBase.collection('posts').doc(id).update({ planes });
+};
 export {
   sendGeneralData,
   getUserData,
   updateUserData,
+  addPosts,
+  getPosts,
+  deletePost,
+  updatePost,
+  addComment,
+  getComment,
+  deleteComment,
+  updateComment,
+  updateProfilePhoto,
+  updatePrivacy,
+  updateLike,
+  updatePlane
 };

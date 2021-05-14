@@ -25,6 +25,7 @@ export default () => {
           <p class='msg-error'></p>
           <p class='login-options'> o bien ingresa con... </p>
           <section class='options-login'>
+          <button id='loginOptions' >Google</button>
             <!-- imagen de google -->
           </section>
           <p class='login-options'>¿No tienes una cuenta?</p>
@@ -40,7 +41,7 @@ export default () => {
 
   // Manipulación del DOM para loguearse con GOOGLE
 
-  const googleButton = viewLogin.querySelector('.login-options');
+  const googleButton = viewLogin.querySelector('#loginOptions');
   googleButton.addEventListener('click', () => {
     loginGoogle()
       .then(() => {
