@@ -1,6 +1,6 @@
-import { logOut } from '../firebase-controllers/auth-controller.js';
+import { logOut, loginEmail } from '../firebase-controllers/auth-controller.js';
 
-const menu = () => {
+const menu = (user) => {
   const header = document.getElementById('header');
   const viewMenu = `
   <nav  id="menu">
@@ -17,9 +17,10 @@ const menu = () => {
   divElement.innerHTML = viewMenu;
 
   // Cerrar sesión
-  const bottomLogout = divElement.querySelector('#logOut-header');
-  bottomLogout.addEventListener('click', (e) => {
+  const logout = divElement.querySelector('#logOut-header');
+  logout.addEventListener('click', (e) => {
     e.preventDefault();
+    // container.innerHTML = '';
     window.location.hash = '#/login';
     logOut();
   });
