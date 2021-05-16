@@ -9,27 +9,32 @@ export default () => {
     <section class='login-page'>
       <section class='boxLogin-page'>
         <header>
-          <h1 class='login-page'> Traveling Soul</h1>
-          <h2 class>Bienvenidas viajeras</h2>
+        <img src='../img/foto1.jpg' class='header--img border--img'>
+        <img src='../img/logo.svg' class='header-logo '>
+          <h1 class='title-h1'> ¡Bienvenidas Viajeras! </h1>
         </header>
-        <form class='boxForm-login'>
+        <form class='boxForm--login'>
           <section class='email-login'>
             <i class='email-icon'></i>
-            <input type='email' class='email' placeholder='Correo electrónico' required autocomplete='off' spellcheck='false' />
+            <input type='email' class='form-one' placeholder='Correo electrónico' required autocomplete='off' spellcheck='false' />
           </section>
           <section class='email-login'>
             <i class='password-icon'></i>
-            <input type='password' class='password' pattern='[a-zA-Z0-9]{6,20}' placeholder='Contraseña' required />
+            <input type='password' class='form-one' pattern='[a-zA-Z0-9]{6,20}' placeholder='Contraseña' required />
           </section>
-          <button type='submit' class='btn-login'>Iniciar sesión</button>
+          <button type='submit' class='form-one btn-login'>Iniciar sesión</button>
           <p class='msg-error'></p>
-          <p class='login-options'> o bien ingresa con... </p>
+          <p class='login-options'> También puedes ingresar con... </p>
           <section class='options-login'>
-          <button id='loginOptions' >Google</button>
+          
+          <a hrf="" id='loginOptions' class="icon--login" > <img src="./img/google.svg" /> </a>
+          <a hrf="" class="icon--login" > <img src="./img/facebook.svg" /> </a>
             <!-- imagen de google -->
           </section>
-          <p class='login-options'>¿No tienes una cuenta?</p>
+          <div class='end'>
+          <p class='login--options'>¿No tienes una cuenta?</p>
           <p class='login-change'> Regístrate</p>
+          </div>
         </form>
       </section>
     </section>
@@ -59,7 +64,7 @@ export default () => {
       });
   });
   // Inicio de sesión con correo electrónico
-  const loginEmailForm = viewLogin.querySelector('.boxForm-login');
+  const loginEmailForm = viewLogin.querySelector('.boxForm--login');
   loginEmailForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const emailInput = viewLogin.querySelector('.email').value;

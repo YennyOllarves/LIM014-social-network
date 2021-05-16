@@ -9,36 +9,41 @@ export default () => {
     <section class='login-page'>
       <section class='boxLogin-page'>
         <header>
-          <h1 class='login-page'> Traveling Soul</h1>
-          <h2 class>¡Regístrate!</h2>
+        <img src='../img/foto1.jpg' class='header--img border--img'>
+        <img src='../img/logoRegister.svg' class='header--logo '>
+          <h1 class='title-h1'>¡Regístrate!</h1>
         </header>
-        <form class='boxForm-Register'>
-          <section class='input-initial'>
-            <i class='user-icon'></i>
-            <input type='text' class='user' placeholder='Nombres y Apellidos' required autocomplete='off' spellcheck='false' 
-          </section>
-          <section class='input-initial'>
-            <i class='email-icon'></i>
-            <input type='email' class='email' placeholder='Correo electrónico' required autocomplete='off' spellcheck='false' />
-          </section>
-          <section class='input-initial'>
-            <i class='password-icon'></i>
-            <input type='password' class='password' pattern='[a-zA-Z0-9]{6,20}' placeholder='Crea una contraseña' required />
-          </section>
-          <section class="terms">
-            <input type="checkbox" class='terms-conditions' />
-            <label for="termConditions">Acepto los <a href="./docs/terms-and-conditions.pdf" target="_blank">Términos, Condiciones y Política de Privacidad.</a></label>
-          </section>
-          <button type='submit' class='btn-login'>Continuar</button>
-          <p class='msg-error'></p>
-          <p class='login-options'> o bien regístrate con... </p>
-          <section class='options-login'>
-          <button id='loginOptionsRegister'>Google</button>
-            <!-- imagen de google -->
-          </section>
-          <p class='login-options'>¿Ya tienes una cuenta?</p>
-          <p class='login-change'>Inicia Sesión</p>
-        </form>
+        <form class='boxLogin-page' id='boxForm-Register'>
+        <section class='input-initial'>
+        <i class='user-icon'></i>
+        <input type='text' class='form-one' placeholder='Nombres y Apellidos' required autocomplete='off' spellcheck='false' 
+      </section>
+      <section class='input-initial'>
+        <i class='email-icon'></i>
+        <input type='email' class='form-one' placeholder='Correo electrónico' required autocomplete='off' spellcheck='false' />
+      </section>
+      <section class='input-initial'>
+        <i class='password-icon'></i>
+        <input type='password' class='form-one' pattern='[a-zA-Z0-9]{6,20}' placeholder='Crea una contraseña' required />
+      </section>
+      <section class="boxLogin-page" >
+      <input type="checkbox" />
+      <label class="boxLogin-page" for="termConditions">Acepto los <a  href="./docs/terms-and-conditions.pdf" target="_blank" class="boxLogin-page">Términos, Condiciones y Política de Privacidad.</a></label>
+    </section>
+    <button type='submit' class='form-one btn-login'>Continuar</button>
+    <p class='msg-error'></p>
+    <p class='login-options'> o bien regístrate con... </p>
+    <section class='options-login'>
+        
+        <a hrf="" id='loginOptionsRegister' class="icon-login" > <img src="./img/google.svg" /> </a>
+        <a hrf="" class="icon-login" > <img src="./img/facebook.svg" /> </a>
+          <!-- imagen de google -->
+        </section>
+        <div class='end'>
+        <p class='login-text'>¿Ya tienes una cuenta?</p>
+        <p class='login-change'>Inicia Sesión</p>
+        </div>
+      </form>
       </section>
     </section>
   `;
@@ -66,7 +71,7 @@ export default () => {
       });
   });
   // creación de usuarios
-  const userSingUp = viewRegister.querySelector('.boxForm-Register');
+  const userSingUp = viewRegister.querySelector('#boxForm-Register');
   userSingUp.addEventListener('submit', (e) => {
     e.preventDefault();
     const emailInput = viewRegister.querySelector('.email').value;

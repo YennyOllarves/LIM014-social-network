@@ -1,0 +1,88 @@
+header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header--img {
+  width: 130px;
+  height: 130px;
+  border-radius: 100px;
+  margin-top: 20px;
+}
+.border--img {
+  border: solid 5px transparent;
+  border-radius: 100px;
+  background-image: radial-gradient(
+      circle at top left,
+      rgba(245, 137, 72, 1),
+      transparent 0px
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(245, 137, 72, 1),
+      transparent 250px
+    ),
+    radial-gradient(at bottom left, rgba(0, 161, 161, 1), transparent 0px),
+    radial-gradient(at bottom right, rgba(0, 161, 161, 1), transparent 300px);
+
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.header--logo {
+  width: 250px;
+  height: 200px;
+  padding-left: 40px;
+  margin-top: -50px;
+  margin-bottom: -80px;
+}
+.title-h1 {
+  margin: 5px;
+}
+.boxLogin-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-one {
+  border-radius: 8px;
+  margin: 8px;
+
+  padding: 5px;
+}
+.input-initial {
+  display: contents;
+}
+.btn-login {
+  background-image: radial-gradient(rgba(245, 137, 72, 1), transparent 100px);
+  border-color: rgba(0, 161, 161, 1);
+}
+.options-login {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.icon-login {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  margin-top: -5px;
+}
+.login-options {
+  margin-top: -20px;
+}
+
+.login-change {
+  color: rgba(0, 161, 161, 1);
+  margin-top: 17px;
+}
+.end {
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  margin: 10px;
+}
