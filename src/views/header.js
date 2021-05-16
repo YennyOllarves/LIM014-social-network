@@ -20,10 +20,8 @@ const menu = () => {
   const bottomLogout = divElement.querySelector('#logOut-header');
   bottomLogout.addEventListener('click', (e) => {
     e.preventDefault();
-    logOut().then(() => {
-      console.log('logOut...');
-      window.location.hash = '#/';
-    });
+    window.location.hash = '#/login';
+    logOut();
   });
 
   return divElement;

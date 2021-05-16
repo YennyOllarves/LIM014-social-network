@@ -17,11 +17,11 @@ const sendGeneralData = (user) => {
   return dataBase.collection('usuarios').doc(user.uid).set({
     username: name,
     email: user.email,
-    photo: photoUrl,
-    // photoCover: //'img/default-cover.jpg',
-    birthday: 'yyyy-MM-dd',
-    country: 'Country',
-    description: 'Description',
+    // photo: photoUrl,
+    // // photoCover: //'img/default-cover.jpg',
+    // birthday: 'yyyy-MM-dd',
+    // country: 'Country',
+    // description: 'Description',
   });
 };
 
