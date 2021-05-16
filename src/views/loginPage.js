@@ -15,11 +15,11 @@ export default () => {
         <form class='boxForm-login'>
           <section class='email-login'>
             <i class='email-icon'></i>
-            <input type='email' class='email' placeholder='Correo electrónico' required autocomplete='off' spellcheck='false' />
+            <input type='email' class='email' placeholder='Correo electrónico' autocomplete='off' spellcheck='false' />
           </section>
           <section class='email-login'>
             <i class='password-icon'></i>
-            <input type='password' class='password' pattern='[a-zA-Z0-9]{6,20}' placeholder='Contraseña' required />
+            <input type='password' class='password' pattern='[a-zA-Z0-9]{6,20}' placeholder='Contraseña' />
           </section>
           <button type='submit' class='btn-login'>Iniciar sesión</button>
           <p class='msg-error'></p>
