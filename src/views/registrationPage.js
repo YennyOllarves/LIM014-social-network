@@ -1,5 +1,7 @@
-import { userRegister, checkMail } from '../firebase-controllers/auth-controller.js';
-import { loginGoogle, currentUser } from '../firebase-controllers/auth-controller.js';
+import {
+  userRegister, checkMail, loginGoogle, currentUser,
+} from '../firebase-controllers/auth-controller.js';
+import { sendGeneralData, getUserData } from '../firebase-controllers/fireStore-controller.js';
 
 // export default, name registrationPage
 export default () => {
@@ -20,11 +22,11 @@ export default () => {
       </section>
       <section class='input-initial'>
         <i class='email-icon'></i>
-        <input type='email' class='form-one' placeholder='Correo electrónico' required autocomplete='off' spellcheck='false' />
+        <input type='email' id='email' class='form-one' placeholder='Correo electrónico' required autocomplete='off' spellcheck='false' />
       </section>
       <section class='input-initial'>
         <i class='password-icon'></i>
-        <input type='password' class='form-one' pattern='[a-zA-Z0-9]{6,20}' placeholder='Crea una contraseña' required />
+        <input type='password' id='password' class='form-one' pattern='[a-zA-Z0-9]{6,20}' placeholder='Crea una contraseña' required />
       </section>
       <section class="boxLogin-page" >
       <input type="checkbox" />
@@ -74,8 +76,8 @@ export default () => {
   const userSingUp = viewRegister.querySelector('#boxForm-Register');
   userSingUp.addEventListener('submit', (e) => {
     e.preventDefault();
-    const emailInput = viewRegister.querySelector('.email').value;
-    const passwordInput = viewRegister.querySelector('.password').value;
+    const emailInput = viewRegister.querySelector('#email').value;
+    const passwordInput = viewRegister.querySelector('#password').value;
     const msgError = viewRegister.querySelector('.msg-error');
     userRegister(emailInput, passwordInput) // revisar el auth para agregar en el registro
       .then(() => {

@@ -17,26 +17,14 @@ const menu = (user) => {
   divElement.innerHTML = viewMenu;
 
   // Cerrar sesión
-const auth = firebase.auth();
-
- const logout= divElement.querySelector('#logOut-header');
- logout.addEventListener('click',(e) => {
+  const logout = divElement.querySelector('#logOut-header');
+  logout.addEventListener('click', (e) => {
     e.preventDefault();
-    container.innerHTML ='';
-    window.location.hash ='#/login';
-   logOut().then(() => {
-     console.log('ya salio');
-   })
- })
-  // const bottomLogout = divElement.querySelector('#logOut-header');
-  // bottomLogout.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   logOut().then(() => {
-  //     console.log('logOut...');
-  //     window.location.hash = '#/login';
-  //   });
-  // });
-  
+    // container.innerHTML = '';
+    window.location.hash = '#/login';
+    logOut();
+  });
+
   return divElement;
   // return viewMenu;
 };

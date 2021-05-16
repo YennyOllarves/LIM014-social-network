@@ -1,12 +1,13 @@
 import { currentUser } from '../firebase-controllers/auth-controller.js';
 import { imgToStorage } from '../firebase-controllers/storage-controller.js';
-import { addPosts} from '../firebase-controllers/fireStore-controller';
+import { addPosts } from '../firebase-controllers/fireStore-controller.js';
+// import { sendGeneralData} from '../firebase-controllers/fireStore-controller';
 
 // getPosts- fireStore controllers / importar itempots de post.js
 
 export default (userData) => {
   const viewHomePage = document.createElement('section');
-  const userIdentity = currentUser().uid;
+  const userIdentity = currentUser.uid;
   viewHomePage.classList.add('homePage-container');
   viewHomePage.innerHTML = `
     <!-- Left column -->
@@ -15,9 +16,7 @@ export default (userData) => {
         <!-- post -->
         <section class='the-post'>    
             <section class='the-user'>
-                <img class='default-avatar' src='${userData.photo}'/>
-                <p class='name'>${userData.username}</p>
-            </section> 
+
             <section class='new-post'>
                 <form id='postForm'>
                 <textarea class='text-post' placeholder='¿Qué quieres compartir?' spellcheck='false' required></textarea>
@@ -59,7 +58,7 @@ export default (userData) => {
     fileReader.readAsDataURL(e.target.files[0]);
     // en cuanto esté listo ejecute el código interno
     fileReader.onload = () => {
-      postPicture.src = reader.result;
+      postPicture.src = fileReader.result;
     };
     // se muestra el botón de remover la imagen
     removeImg.removeAttribute('style');
@@ -97,7 +96,7 @@ export default (userData) => {
         // gestionar cargas correctas al finalizar
         loadingProcess.thePicture.ref.getDownloadURL()
           .then((download) => {
-            addPost(user, textPost.value, download)
+            addPosts(userIdentity, textPost.value, download)
               .then(() => {
                 containerLoading.classList.remove('modal');
                 postForm.reset();
@@ -105,11 +104,18 @@ export default (userData) => {
           });
       });
     } else {
-      addPosts(user, textPost.value, '')
+      addPosts(userIdentity, textPost.value, '')
         .then(() => {
           containerLoading.classList.remove('modal');
           postForm.reset();
         });
     }
   });
+  return viewHomePage;
 };
+
+
+    //       linea 19
+    // <img class='default-avatar' src='${userData.photo}'/>
+    //   <p class='name'>${userData.username}</p>
+    //         </section> 

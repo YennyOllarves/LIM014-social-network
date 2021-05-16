@@ -9,7 +9,7 @@ const sendGeneralData = (user) => {
   // let photoUrl;
   if (user.displayName != null && user.photoURL != null) {
     name = user.displayName;
-    photoUrl = user.photoURL;
+    photo = user.photo;
   } else {
     name = 'viajera';
     // photoUrl = //photo.png
@@ -17,7 +17,7 @@ const sendGeneralData = (user) => {
   return dataBase.collection('usuarios').doc(user.uid).set({
     username: name,
     email: user.email,
-    // photo: photoUrl,
+    // photo: photo,
     // photoCover: //'img/default-cover.jpg',
     // birthday: 'yyyy-MM-dd',
     // country: 'Country',
@@ -45,7 +45,7 @@ const updateUserData = (userIdentity, name, Birthday, Country, Description) => {
   });
 };
 
-// Base de Datos de Posts 
+// Base de Datos de Posts
 const addPosts = (UserId, Privacy, Publication, URLimg) => {
   const dataBase = firebase.firestore();
   return dataBase.collection('posts').add({
@@ -86,7 +86,6 @@ const updatePost = (idPost, updatePublication) => {
   });
 };
 
-
 // Base de Datos de Comentarios
 const addComment = (UserId, idPost, Comment) => {
   const dataBase = firebase.firestore();
@@ -116,7 +115,6 @@ const deleteComment = (idPost, idComment) => {
   return dataBase.collection(`posts/${idPost}/comentarios`).doc(idComment).delete();
 };
 
-
 // Actualizar Comentarios
 const updateComment = (idPost, idComment, comment) => {
   const dataBase = firebase.firestore();
@@ -134,7 +132,6 @@ const updateProfilePhoto = (userId, photo) => {
   const dataBase = firebase.firestore();
   return dataBase.collection('usuarios').doc(userId).update({ photoCover });
 }; */
-
 
 // Actualizar Provacidad
 const updatePrivacy = (id, privacy) => {

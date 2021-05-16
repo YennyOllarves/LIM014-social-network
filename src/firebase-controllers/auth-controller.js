@@ -36,11 +36,11 @@ const loginGoogle = () => {
     return auth.sendPasswordResetEmail(email);
 } */
 
- export {
- loginEmail,
+export {
+  loginEmail,
   loginGoogle,
   userRegister,
   checkMail,
- logOut,
+  logOut,
   currentUser,
- };
+};
