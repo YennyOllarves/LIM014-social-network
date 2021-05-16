@@ -39,9 +39,9 @@ const updateUserData = (userIdentity, name, Birthday, Country, Description) => {
   return dataBase.collection('usuarios').doc(userIdentity).update({
     username: name,
     email: user.email,
-    birthday: Birthday,
-    country: Country,
-    description: Description,
+    // birthday: Birthday,
+    // country: Country,
+    // description: Description,
   });
 };
 
