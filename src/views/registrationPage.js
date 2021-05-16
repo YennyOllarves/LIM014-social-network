@@ -1,5 +1,7 @@
-import { userRegister, checkMail } from '../firebase-controllers/auth-controller.js';
-import { loginGoogle, currentUser } from '../firebase-controllers/auth-controller.js';
+import {
+  userRegister, checkMail, loginGoogle, currentUser,
+} from '../firebase-controllers/auth-controller.js';
+import { sendGeneralData, getUserData } from '../firebase-controllers/fireStore-controller.js';
 
 // export default, name registrationPage
 export default () => {
@@ -15,15 +17,15 @@ export default () => {
         <form class='boxForm-Register'>
           <section class='input-initial'>
             <i class='user-icon'></i>
-            <input type='text' class='user' placeholder='Nombres y Apellidos' required autocomplete='off' spellcheck='false' 
+            <input type='text' class='user' placeholder='Nombres y Apellidos' autocomplete='off' spellcheck='false' 
           </section>
           <section class='input-initial'>
             <i class='email-icon'></i>
-            <input type='email' class='email' placeholder='Correo electrónico' required autocomplete='off' spellcheck='false' />
+            <input type='email' class='email' placeholder='Correo electrónico' autocomplete='off' spellcheck='false' />
           </section>
           <section class='input-initial'>
             <i class='password-icon'></i>
-            <input type='password' class='password' pattern='[a-zA-Z0-9]{6,20}' placeholder='Crea una contraseña' required />
+            <input type='password' class='password' pattern='[a-zA-Z0-9]{6,20}' placeholder='Crea una contraseña' />
           </section>
           <section class="terms">
             <input type="checkbox" class='terms-conditions' />
