@@ -8,6 +8,7 @@ const changeViews = (route) => {
   const header = document.getElementById('header');
   window.location.hash = route;
   container.innerHTML = '';
+  header.innerHTML = '';
   switch (route) {
     case '#/login':
       container.appendChild(components.login());

@@ -6,7 +6,7 @@ es el punto de entrada para todas las operaciones de Cloud Firestore. */
 const sendGeneralData = (user) => {
   const dataBase = firebase.firestore();
   let name;
-  let photoUrl;
+  // let photoUrl;
   if (user.displayName != null && user.photoURL != null) {
     name = user.displayName;
     photoUrl = user.photoURL;
@@ -17,11 +17,11 @@ const sendGeneralData = (user) => {
   return dataBase.collection('usuarios').doc(user.uid).set({
     username: name,
     email: user.email,
-    photo: photoUrl,
+    // photo: photoUrl,
     // photoCover: //'img/default-cover.jpg',
-    birthday: 'yyyy-MM-dd',
-    country: 'Country',
-    description: 'Description',
+    // birthday: 'yyyy-MM-dd',
+    // country: 'Country',
+    // description: 'Description',
   });
 };
 
@@ -39,9 +39,9 @@ const updateUserData = (userIdentity, name, Birthday, Country, Description) => {
   return dataBase.collection('usuarios').doc(userIdentity).update({
     username: name,
     email: user.email,
-    birthday: Birthday,
-    country: Country,
-    description: Description,
+    // birthday: Birthday,
+    // country: Country,
+    // description: Description,
   });
 };
 
@@ -168,5 +168,5 @@ export {
   updateProfilePhoto,
   updatePrivacy,
   updateLike,
-  updatePlane
+  updatePlane,
 };
