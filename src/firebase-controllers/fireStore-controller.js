@@ -128,10 +128,10 @@ const updateProfilePhoto = (userId, photo) => {
 };
 
 // Actualizar foto de portada
-/* const updateCoverPhoto = (userId, photoCover) => {
+const updateCoverPhoto = (userId, photoCover) => {
   const dataBase = firebase.firestore();
   return dataBase.collection('usuarios').doc(userId).update({ photoCover });
-}; */
+};
 
 // Actualizar Provacidad
 const updatePrivacy = (id, privacy) => {
