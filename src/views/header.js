@@ -1,8 +1,8 @@
-import { logOut, loginEmail } from '../firebase-controllers/auth-controller.js';
+import { logOut } from '../firebase-controllers/auth-controller.js';
 
-const menu = (user) => {
-  const header = document.getElementById('header');
-  const viewMenu = `
+const menu = () => {
+  const viewMenu = document.createElement('section');
+  viewMenu.innerHTML = `
   <nav  id="menu">
   <ul>
       <li class="home-header"><a href="#/home"><span class="the-home"><i class="fas fa-home"></i></span>Inicio</a></li>
@@ -13,11 +13,8 @@ const menu = (user) => {
 </nav>
     `;
 
-  const divElement = document.createElement('div');
-  divElement.innerHTML = viewMenu;
-
   // Cerrar sesión
-  const logout = divElement.querySelector('#logOut-header');
+  const logout = viewMenu.querySelector('#logOut-header');
   logout.addEventListener('click', (e) => {
     e.preventDefault();
     // container.innerHTML = '';
@@ -25,7 +22,7 @@ const menu = (user) => {
     logOut();
   });
 
-  return divElement;
+  return viewMenu;
   // return viewMenu;
 };
 export default menu;
