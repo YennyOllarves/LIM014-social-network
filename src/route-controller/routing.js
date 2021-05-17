@@ -19,12 +19,13 @@ const changeViews = (route) => {
     case '#/home':
       header.appendChild(components.menuHeader());
       header.appendChild(components.home());
+      header.appendChild(components.viewPost());
       // getUserData(currentUser().uid)
       //   .then((doc) => {
       //     container.appendChild(components.home(doc.data()));
       //   });
       break;
-
+    
     default:
       break;
   }
