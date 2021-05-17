@@ -1,6 +1,6 @@
 import { logOut } from '../firebase-controllers/auth-controller.js';
 
-const menu = (user) => {
+const menu = () => {
   const viewMenu = document.createElement('section');
   viewMenu.innerHTML = `
   <nav  id="menu">
