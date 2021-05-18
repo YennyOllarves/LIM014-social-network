@@ -1,11 +1,9 @@
 import { currentUser } from '../firebase-controllers/auth-controller.js';
 import { imgToStorage } from '../firebase-controllers/storage-controller.js';
-import { addPosts } from '../firebase-controllers/fireStore-controller.js';
-// import { sendGeneralData} from '../firebase-controllers/fireStore-controller';
+import { addPosts, getPosts } from '../firebase-controllers/fireStore-controller.js';
+import publicationTopic from './post.js';
 
-// getPosts- fireStore controllers / importar itempots de post.js
-
-export default (userData) => {
+export default () => {
   const viewHomePage = document.createElement('section');
   const userIdentity = currentUser.uid;
   viewHomePage.classList.add('homePage-container');
@@ -16,6 +14,9 @@ export default (userData) => {
         <!-- post -->
         <section class='the-post'>    
             <section class='the-user'>
+            <img class='default-avatar'/>
+           <p class='name'></p>
+           </section>
             <section class='new-post'>
                 <form id='postForm'>
                 <textarea class='text-post' placeholder='¿Qué quieres compartir?' spellcheck='false' required></textarea>
@@ -110,11 +111,22 @@ export default (userData) => {
         });
     }
   });
+
+  // agregar post
+  const containerPostAdd = viewHomePage.querySelector('#postContainer');
+  getPosts((thePost) => {
+    containerPostAdd.innerHTML = '';
+    thePost.forEach((objPublication) => {
+      containerPostAdd.appendChild(publicationTopic(objPublication));
+    });
+  });
+
   return viewHomePage;
 };
 
-
-    //       linea 19
-    // <img class='default-avatar' src='${userData.photo}'/>
-    //   <p class='name'>${userData.username}</p>
-    //         </section> 
+// linea 16
+// AGREGAR LOS SRC EN etiqueta img y p
+// <section class='the-user'>
+//   <img class='default-avatar' src='${idUser.picture}'/>
+//  <p class='name'>${idUser.username}</p>
+//  </section>
