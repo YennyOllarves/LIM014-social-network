@@ -6,10 +6,11 @@ es el punto de entrada para todas las operaciones de Cloud Firestore. */
 const sendGeneralData = (user) => {
   const dataBase = firebase.firestore();
   let name;
+  let photo;
   // let photoUrl;
   if (user.displayName != null && user.photoURL != null) {
     name = user.displayName;
-    photo = user.photo;
+    photo = user.photoURL;
   } else {
     name = 'viajera';
     // photoUrl = //photo.png
@@ -17,7 +18,7 @@ const sendGeneralData = (user) => {
   return dataBase.collection('usuarios').doc(user.uid).set({
     username: name,
     email: user.email,
-    // photo: photo,
+    picture: photo,
     // photoCover: //'img/default-cover.jpg',
     // birthday: 'yyyy-MM-dd',
     // country: 'Country',
@@ -55,7 +56,6 @@ const addPosts = (UserId, Privacy, Publication, URLimg) => {
     publication: Publication,
     urlimg: URLimg,
     likes: [],
-    planes: [],
   });
 };
 
