@@ -16,7 +16,6 @@ export default (userData) => {
         <!-- post -->
         <section class='the-post'>    
             <section class='the-user'>
-
             <section class='new-post'>
                 <form id='postForm'>
                 <textarea class='text-post' placeholder='¿Qué quieres compartir?' spellcheck='false' required></textarea>
