@@ -127,6 +127,7 @@ export default () => {
 
 
           // linea 16
+          //AGREGAR LOS SRC EN etiqueta img y p 
           //<section class='the-user'>
           //   <img class='default-avatar' src='${idUser.picture}'/>
           //  <p class='name'>${idUser.username}</p>
