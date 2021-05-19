@@ -19,10 +19,7 @@ const sendGeneralData = (user) => {
     username: name,
     email: user.email,
     picture: photo,
-    // photoCover: //'img/default-cover.jpg',
-    // birthday: 'yyyy-MM-dd',
-    // country: 'Country',
-    // description: 'Description',
+
   });
 };
 
@@ -35,14 +32,11 @@ const getUserData = (userIdentity) => {
 
 // Actualización de información del usuario
 
-const updateUserData = (userIdentity, name, Birthday, Country, Description) => {
+const updateUserData = (userIdentity, name) => {
   const dataBase = firebase.firestore();
   return dataBase.collection('usuarios').doc(userIdentity).update({
     username: name,
     email: user.email,
-    // birthday: Birthday,
-    // country: Country,
-    // description: Description,
   });
 };
 
@@ -145,11 +139,7 @@ const updateLike = (id, likes) => {
   return dataBase.collection('posts').doc(id).update({ likes });
 };
 
-// Actualizar planes
-const updatePlane = (id, planes) => {
-  const dataBase = firebase.firestore();
-  return dataBase.collection('posts').doc(id).update({ planes });
-};
+
 export {
   sendGeneralData,
   getUserData,
@@ -163,7 +153,7 @@ export {
   deleteComment,
   updateComment,
   updateProfilePhoto,
+  updateCoverPhoto,
   updatePrivacy,
   updateLike,
-  updatePlane,
 };
