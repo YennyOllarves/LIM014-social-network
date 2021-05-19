@@ -76,16 +76,24 @@ export default () => {
   const userSingUp = viewRegister.querySelector('#boxForm-Register');
   userSingUp.addEventListener('submit', (e) => {
     e.preventDefault();
+    const usernameInput = viewRegister.querySelector('.form-one').value;
     const emailInput = viewRegister.querySelector('#email').value;
     const passwordInput = viewRegister.querySelector('#password').value;
     const msgError = viewRegister.querySelector('.msg-error');
     userRegister(emailInput, passwordInput) // revisar el auth para agregar en el registro
       .then(() => {
+        const user = firebase.auth().currentUser;
+        user.updateProfile({
+          displayName: usernameInput,
+        });
+        sendGeneralData(emailInput, usernameInput, user.uid);
         checkMail()
+
           .then(() => {
             msgError.classList.add('successful-message');
             msgError.textContent = 'Please check your inbox to verify your account';
           })
+
           .catch((err) => {
             msgError.classList.add('error-message');
             msgError.textContent = err.message;

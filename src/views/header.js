@@ -17,12 +17,10 @@ const menu = () => {
   const logout = viewMenu.querySelector('#logOut-header');
   logout.addEventListener('click', (e) => {
     e.preventDefault();
-    // container.innerHTML = '';
     window.location.hash = '#/login';
     logOut();
   });
 
   return viewMenu;
-  // return viewMenu;
 };
 export default menu;

@@ -3,26 +3,13 @@ es el punto de entrada para todas las operaciones de Cloud Firestore. */
 
 // Enviar información del usuario al cloud Firestore
 
-const sendGeneralData = (user) => {
+const sendGeneralData = (email, username, userId, picture) => {
   const dataBase = firebase.firestore();
-  let name;
-  let photo;
-  // let photoUrl;
-  if (user.displayName != null && user.photoURL != null) {
-    name = user.displayName;
-    photo = user.photoURL;
-  } else {
-    name = 'viajera';
-    // photoUrl = //photo.png
-  }
-  return dataBase.collection('usuarios').doc(user.uid).set({
-    username: name,
-    email: user.email,
-    picture: photo,
-    // photoCover: //'img/default-cover.jpg',
-    // birthday: 'yyyy-MM-dd',
-    // country: 'Country',
-    // description: 'Description',
+  return dataBase.collection('usuarios').doc(userId).set({
+    userId,
+    username,
+    email,
+    picture,
   });
 };
 
@@ -35,14 +22,11 @@ const getUserData = (userIdentity) => {
 
 // Actualización de información del usuario
 
-const updateUserData = (userIdentity, name, Birthday, Country, Description) => {
+const updateUserData = (userIdentity, name, email) => {
   const dataBase = firebase.firestore();
   return dataBase.collection('usuarios').doc(userIdentity).update({
     username: name,
-    email: user.email,
-    // birthday: Birthday,
-    // country: Country,
-    // description: Description,
+    email,
   });
 };
 
