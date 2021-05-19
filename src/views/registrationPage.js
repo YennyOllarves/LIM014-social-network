@@ -18,7 +18,7 @@ export default () => {
         <form class='boxLogin-page' id='boxForm-Register'>
         <section class='input-initial'>
         <i class='user-icon'></i>
-        <input type='text' class='form-one' placeholder='Nombres y Apellidos' required autocomplete='off' spellcheck='false' 
+        <input type='text' class='form-one' id='theName' placeholder='Nombres y Apellidos' required autocomplete='off' spellcheck='false' /> 
       </section>
       <section class='input-initial'>
         <i class='email-icon'></i>
@@ -76,10 +76,12 @@ export default () => {
   const userSingUp = viewRegister.querySelector('#boxForm-Register');
   userSingUp.addEventListener('submit', (e) => {
     e.preventDefault();
+    // const nameInput = viewRegister.querySelector('#theName').value;
     const emailInput = viewRegister.querySelector('#email').value;
     const passwordInput = viewRegister.querySelector('#password').value;
     const msgError = viewRegister.querySelector('.msg-error');
-    userRegister(emailInput, passwordInput) // revisar el auth para agregar en el registro
+    userRegister(emailInput, passwordInput)
+    // revisar el auth para agregar en el registro
       .then(() => {
         checkMail()
           .then(() => {
@@ -102,5 +104,18 @@ export default () => {
       });
   });
 
+  // var user = firebase.auth().currentUser;
+
   return viewRegister;
 };
+
+// console.log(data);
+// currentUser.updateProfile({
+
+//   displayName: nameInput,
+// //   photoURL: "https://example.com/jane-q-user/profile.jpg"
+// // }).then(function() {
+// //   // Update successful.
+// // }).catch(function(error) {
+// //   // An error happened.
+// });
