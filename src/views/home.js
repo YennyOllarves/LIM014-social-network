@@ -3,19 +3,19 @@ import { imgToStorage } from '../firebase-controllers/storage-controller.js';
 import { addPosts, getPosts } from '../firebase-controllers/fireStore-controller.js';
 import publicationTopic from './post.js';
 
-
 export default () => {
+  // const user = currentUser();
+  // console.log('nombre', currentUser());
   const viewHomePage = document.createElement('section');
   const userIdentity = currentUser.uid;
   viewHomePage.classList.add('homePage-container');
   viewHomePage.innerHTML = `
-    <!-- Left column -->
     <!-- Middle column -->
     <main class='home-column'>
         <!-- post -->
         <section class='the-post'>    
             <section class='the-user'>
-            <img class='default-avatar'/>
+            <img class='default-avatar' />
            <p class='name'></p>
            </section>
             <section class='new-post'>
@@ -84,7 +84,7 @@ export default () => {
     const textPost = viewHomePage.querySelector('.text-post');
     if (imagenFile) {
       const postRoute = `imgPicture/${userIdentity}/${imagenFile.name}`;
-      const sendImg = imgToStorage(postRoute, userIdentity);
+      const sendImg = imgToStorage(postRoute, imagenFile);
       sendImg.on('ChangeOfState', (thePicture) => {
         // gestionar el proceso
         const process = (thePicture.bytesTransferred / thePicture.totalBytes) * 100;
@@ -124,11 +124,3 @@ export default () => {
 
   return viewHomePage;
 };
-
-
-          // linea 16
-          //AGREGAR LOS SRC EN etiqueta img y p 
-          //<section class='the-user'>
-          //   <img class='default-avatar' src='${idUser.picture}'/>
-          //  <p class='name'>${idUser.username}</p>
-          //  </section>
