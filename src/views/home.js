@@ -1,13 +1,9 @@
-import { currentUser } from '../firebase-controllers/auth-controller.js';
 import { imgToStorage } from '../firebase-controllers/storage-controller.js';
 import { addPosts, getPosts } from '../firebase-controllers/fireStore-controller.js';
-import publicationTopic from './post.js';
 
-export default () => {
-  // const user = currentUser();
-  // console.log('nombre', currentUser());
+export default (user) => {
   const viewHomePage = document.createElement('section');
-  const userIdentity = currentUser.uid;
+  const userIdentity = user.uid;
   viewHomePage.classList.add('homePage-container');
   viewHomePage.innerHTML = `
     <!-- Middle column -->
@@ -15,8 +11,8 @@ export default () => {
         <!-- post -->
         <section class='the-post'>    
             <section class='the-user'>
-            <img class='default-avatar' />
-           <p class='name'></p>
+            <img src= '${user.picture}'class='default-avatar'>
+           <p class='name'>${user.username}</p>
            </section>
             <section class='new-post'>
                 <form id='postForm'>
@@ -111,15 +107,6 @@ export default () => {
           postForm.reset();
         });
     }
-  });
-
-  // agregar post
-  const containerPostAdd = viewHomePage.querySelector('#postContainer');
-  getPosts((thePost) => {
-    containerPostAdd.innerHTML = '';
-    thePost.forEach((objPublication) => {
-      containerPostAdd.appendChild(publicationTopic(objPublication));
-    });
   });
 
   return viewHomePage;

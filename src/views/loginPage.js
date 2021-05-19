@@ -1,4 +1,4 @@
-import { loginEmail, loginGoogle, currentUser } from '../firebase-controllers/auth-controller.js';
+import { loginEmail, loginGoogle, currentUser, onAuthStateChanged } from '../firebase-controllers/auth-controller.js';
 import { sendGeneralData, getUserData } from '../firebase-controllers/fireStore-controller.js';
 
 // export default, name loginPage
@@ -49,13 +49,13 @@ export default () => {
   const googleButton = viewLogin.querySelector('#loginOptions');
   googleButton.addEventListener('click', () => {
     loginGoogle()
-      .then(() => {
-        getUserData(currentUser().uid)
+      .then((data) => {
+        getUserData(onAuthStateChanged().uid)
           .then((doc) => {
             if (doc.exists) {
               window.location.hash = '#/home';
             } else { // consulta de promesa
-              sendGeneralData(currentUser())
+              sendGeneralData(onAuthStateChanged(user))
                 .then(() => {
                   window.location.hash = '#/home';
                 });
@@ -73,12 +73,12 @@ export default () => {
     loginEmail(emailInput, passwordInput)
       .then((data) => {
         if (data.user.emailVerified) {
-          getUserData(currentUser().uid)
+          getUserData(onAuthStateChanged().uid)
             .then((doc) => {
               if (doc.exists) {
                 window.location.hash = '#/home';
               } else {
-                sendGeneralData(currentUser())
+                sendGeneralData(onAuthStateChanged())
                   .then(() => {
                     window.location.hash = '#/home';
                   });

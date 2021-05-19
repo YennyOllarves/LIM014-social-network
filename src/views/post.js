@@ -5,8 +5,7 @@ import { currentUser } from '../firebase-controllers/auth-controller.js';
 
 // agregar getComment en la linea 2
 // agregar utem comment.js de la carpeta comentario
-
-const publicationTopic = (objPublication) => {
+export const publicationTopic = (objPublication) => {
   const idUser = firebase.auth().currentUser.uid;
   /* conteo de likes */
   const countLikes = objPublication.likes.length;
@@ -108,7 +107,6 @@ const publicationTopic = (objPublication) => {
     deletePost(objPublication.id);
   });
   // actualizar meEncanta
-  // if:agrega los likes identificando a los usuarios, -1 pq no le dió like (indexOf genera el -1, por eso se iguala a -1), Else: el usuario le dió like y con -splice- se agregó 1 like a totalLove.
   const btnLove = sectionPost.querySelector('#btnLove');
   btnLove.addEventListener('click', () => {
     const totalLove = objPublication.likes.indexOf(idUser);
@@ -136,7 +134,5 @@ const publicationTopic = (objPublication) => {
         commentForm.reset();
       });
   });
-  // obtener comentario - match con comentario.js
 };
 
-export default publicationTopic;

@@ -8,14 +8,17 @@ const loginEmail = (email, password) => {
 const loginGoogle = () => {
   const auth = firebase.auth();
   const googleProvider = new firebase.auth.GoogleAuthProvider();
-  return auth.signInWithRedirect(googleProvider);
-  // return auth.signInWithPopup(googleProvider);
+  return auth.signInWithPopup(googleProvider);
 };
 
 // Creación de Usuarios
 const userRegister = (email, password) => { // consulta de agregar name al parametro
   const auth = firebase.auth();
   return auth.createUserWithEmailAndPassword(email, password);
+};
+
+const onAuthStateChanged = (callback) => {
+  firebase.auth().onAuthStateChanged(callback);
 };
 
 // Verificar Mail
@@ -30,12 +33,6 @@ const currentUser = () => firebase.auth().currentUser;
 // Cerrar Sesión
 const logOut = () => firebase.auth().logOut;
 
-// Recuperar Pass
-/* const recoverPassword = (email) => {
-    const auth = firebase.auth();
-    return auth.sendPasswordResetEmail(email);
-} */
-
 export {
   loginEmail,
   loginGoogle,
@@ -43,4 +40,5 @@ export {
   checkMail,
   logOut,
   currentUser,
+  onAuthStateChanged,
 };

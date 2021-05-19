@@ -1,5 +1,3 @@
-// import { changeView } from './controller/route.js';
-// import { checkSesionActive } from './controller/controller-route.js';
 import { firebaseConfig } from './firebase-controllers/firebase-configuration.js';
 
 // Your web app's Firebase configuration
