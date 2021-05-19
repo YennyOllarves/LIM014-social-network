@@ -8,7 +8,6 @@ const components = {
   register: viewRegister,
   menuHeader: viewMenu,
   home: viewHomePage,
-  post: viewPost,
 };
 
 export default components;
