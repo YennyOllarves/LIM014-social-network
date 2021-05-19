@@ -1,9 +1,11 @@
 import {
-  updatePost, deletePost, addComment, getComment, getUserData, updateLike, updatePlane,
+  updatePost, deletePost, addComment, getUserData, updateLike,
 } from '../firebase-controllers/fireStore-controller.js';
 import { currentUser } from '../firebase-controllers/auth-controller.js';
 
+// agregar getComment en la linea 2
 // agregar utem comment.js de la carpeta comentario
+
 const publicationTopic = (objPublication) => {
   const idUser = firebase.auth().currentUser.uid;
   /* conteo de likes */
@@ -138,5 +140,3 @@ const publicationTopic = (objPublication) => {
 };
 
 export default publicationTopic;
-
-
