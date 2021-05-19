@@ -23,6 +23,5 @@ const menu = () => {
   });
 
   return viewMenu;
-  // return viewMenu;
 };
 export default menu;
