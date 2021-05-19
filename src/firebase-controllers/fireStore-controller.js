@@ -22,19 +22,11 @@ const getUserData = (userIdentity) => {
 
 // Actualización de información del usuario
 
-<<<<<<< HEAD
-const updateUserData = (userIdentity, name) => {
-  const dataBase = firebase.firestore();
-  return dataBase.collection('usuarios').doc(userIdentity).update({
-    username: name,
-    email: user.email,
-=======
 const updateUserData = (userIdentity, name, email) => {
   const dataBase = firebase.firestore();
   return dataBase.collection('usuarios').doc(userIdentity).update({
     username: name,
     email,
->>>>>>> 3792c08a7a48d6510d833e9cf0871f5a46a22f04
   });
 };
 

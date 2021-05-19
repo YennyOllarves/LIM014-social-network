@@ -1,4 +1,4 @@
-import { loginEmail, loginGoogle, currentUser, onAuthStateChanged } from '../firebase-controllers/auth-controller.js';
+import { loginEmail, loginGoogle, currentUser } from '../firebase-controllers/auth-controller.js';
 import { sendGeneralData, getUserData } from '../firebase-controllers/fireStore-controller.js';
 
 // export default, name loginPage
@@ -49,13 +49,13 @@ export default () => {
   const googleButton = viewLogin.querySelector('#loginOptions');
   googleButton.addEventListener('click', () => {
     loginGoogle()
-      .then((data) => {
-        getUserData(onAuthStateChanged().uid)
+      .then(() => {
+        getUserData(currentUser().uid)
           .then((doc) => {
             if (doc.exists) {
               window.location.hash = '#/home';
             } else { // consulta de promesa
-              sendGeneralData(onAuthStateChanged(user))
+              sendGeneralData(currentUser())
                 .then(() => {
                   window.location.hash = '#/home';
                 });
@@ -63,6 +63,7 @@ export default () => {
           });
       });
   });
+
   // Inicio de sesión con correo electrónico
   const loginEmailForm = viewLogin.querySelector('#formLogin');
   loginEmailForm.addEventListener('submit', (e) => {
@@ -73,12 +74,12 @@ export default () => {
     loginEmail(emailInput, passwordInput)
       .then((data) => {
         if (data.user.emailVerified) {
-          getUserData(onAuthStateChanged().uid)
+          getUserData(currentUser().uid)
             .then((doc) => {
               if (doc.exists) {
                 window.location.hash = '#/home';
               } else {
-                sendGeneralData(onAuthStateChanged())
+                sendGeneralData(currentUser())
                   .then(() => {
                     window.location.hash = '#/home';
                   });

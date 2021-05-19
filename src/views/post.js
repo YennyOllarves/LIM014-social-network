@@ -30,7 +30,7 @@ export const publicationTopic = (objPublication) => {
     </span>
     </p>
     <time class="time-post">${objPublication.date}</time>
-      <section class= 'post-container'>
+      <section class= 'post-container' id='postContainer'>
         <p class= 'post-text'>${objPublication.publication}</p>
           <section class= 'hide post-edit'>
             <textarea class= 'text-edit'>${objPublication.publication}</textarea>

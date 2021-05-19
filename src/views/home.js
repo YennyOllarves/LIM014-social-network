@@ -16,7 +16,7 @@ export default (user) => {
            </section>
             <section class='new-post'>
                 <form id='postForm'>
-                <textarea class='text-post' placeholder='¿Qué quieres compartir?' spellcheck='false' required></textarea>
+                <textarea class='text-post' id='textPost' placeholder='¿Qué quieres compartir?' spellcheck='false' required></textarea>
                 <i id='removeImg' style='display:none' class='remove-img'></i>
                 <img id ='postPicture' class='post-picture' src=''/>
                 <section class='publish-buttons'>

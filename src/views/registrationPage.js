@@ -76,11 +76,7 @@ export default () => {
   const userSingUp = viewRegister.querySelector('#boxForm-Register');
   userSingUp.addEventListener('submit', (e) => {
     e.preventDefault();
-<<<<<<< HEAD
-    // const nameInput = viewRegister.querySelector('#theName').value;
-=======
-    const usernameInput = viewRegister.querySelector('.form-one').value;
->>>>>>> 3792c08a7a48d6510d833e9cf0871f5a46a22f04
+    const usernameInput = viewRegister.querySelector('#theName').value;
     const emailInput = viewRegister.querySelector('#email').value;
     const passwordInput = viewRegister.querySelector('#password').value;
     const msgError = viewRegister.querySelector('.msg-error');
@@ -119,14 +115,3 @@ export default () => {
 
   return viewRegister;
 };
-
-// console.log(data);
-// currentUser.updateProfile({
-
-//   displayName: nameInput,
-// //   photoURL: "https://example.com/jane-q-user/profile.jpg"
-// // }).then(function() {
-// //   // Update successful.
-// // }).catch(function(error) {
-// //   // An error happened.
-// });
