@@ -57,35 +57,34 @@ export default () => {
 
   const googleButton = viewRegister.querySelector('#loginOptionsRegister');
   googleButton.addEventListener('click', () => {
-    loginGoogle()
-      .then(() => {
-        getUserData(currentUser().uid)
-          .then((doc) => {
-            if (doc.exists) {
-              window.location.hash = '#/home';
-            } else { // consulta de promesa
-              sendGeneralData(currentUser())
-                .then(() => {
-                  window.location.hash = '#/home';
-                });
-            }
-          });
-      });
+    loginGoogle();
+    // .then(() => {
+    //   getUserData(currentUser().userId)
+    //     .then((doc) => {
+    //       if (doc.exists) {
+    //         window.location.hash = '#/home';
+    //       } else { // consulta de promesa
+    //         sendGeneralData(currentUser())
+    //           .then(() => {
+    //             window.location.hash = '#/home';
+    //           });
+    //       }
+    //     });
+    // });
   });
   // creación de usuarios
   const userSingUp = viewRegister.querySelector('#boxForm-Register');
   userSingUp.addEventListener('submit', (e) => {
     e.preventDefault();
-<<<<<<< HEAD
-    // const nameInput = viewRegister.querySelector('#theName').value;
-=======
-    const usernameInput = viewRegister.querySelector('.form-one').value;
->>>>>>> 3792c08a7a48d6510d833e9cf0871f5a46a22f04
+
+    const nameInput = viewRegister.querySelector('#theName').value;
     const emailInput = viewRegister.querySelector('#email').value;
     const passwordInput = viewRegister.querySelector('#password').value;
     const msgError = viewRegister.querySelector('.msg-error');
+
     userRegister(emailInput, passwordInput)
     // revisar el auth para agregar en el registro
+
       .then(() => {
         const user = firebase.auth().currentUser;
         user.updateProfile({

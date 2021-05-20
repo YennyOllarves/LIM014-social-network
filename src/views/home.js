@@ -1,5 +1,5 @@
 import { imgToStorage } from '../firebase-controllers/storage-controller.js';
-import { addPosts, getPosts } from '../firebase-controllers/fireStore-controller.js';
+import { addPosts } from '../firebase-controllers/fireStore-controller.js';
 
 export default (user) => {
   const viewHomePage = document.createElement('section');
