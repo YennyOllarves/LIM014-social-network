@@ -20,7 +20,7 @@ const changeViews = (route) => {
       onAuthStateChanged((user) => {
         if (user) {
           getUserData(user.uid).then((doc) => {
-            header.appendChild(components.home(doc.data()));
+            header.appendChild(components.home({ ...doc.data(), uid: user.uid }));
           });
         }
       });
