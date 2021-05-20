@@ -1,9 +1,11 @@
 import { imgToStorage } from '../firebase-controllers/storage-controller.js';
 import { addPosts, getPosts } from '../firebase-controllers/fireStore-controller.js';
+import { currentUser } from '../firebase-controllers/auth-controller.js';
+import { publicationTopic } from '../views/post.js';
 
 export default (user) => {
   const viewHomePage = document.createElement('section');
-  const userIdentity = user.uid;
+  const userIdentity = currentUser.uid;
   viewHomePage.classList.add('homePage-container');
   viewHomePage.innerHTML = `
     <!-- Middle column -->
@@ -11,7 +13,7 @@ export default (user) => {
         <!-- post -->
         <section class='the-post'>    
             <section class='the-user'>
-            <img src= '${user.picture}'class='default-avatar'>
+            <img class='default-avatar' src='${user.picture}'>
            <p class='name'>${user.username}</p>
            </section>
             <section class='new-post'>
@@ -79,7 +81,7 @@ export default (user) => {
     const loadingProcess = viewHomePage.querySelector('#loadingProcess');
     const textPost = viewHomePage.querySelector('.text-post');
     if (imagenFile) {
-      const postRoute = `imgPicture/${userIdentity}/${imagenFile.name}`;
+      const postRoute = `imgPicture/${userIdentity}/${imagenFile.username}`;
       const sendImg = imgToStorage(postRoute, imagenFile);
       sendImg.on('ChangeOfState', (thePicture) => {
         // gestionar el proceso
@@ -107,6 +109,15 @@ export default (user) => {
           postForm.reset();
         });
     }
+  });
+
+  // agregar post
+  const containerPostAdd = viewHomePage.querySelector('#postContainer');
+  getPosts((thePost) => {
+    containerPostAdd.innerHTML = '';
+    thePost.forEach((objPublication) => {
+      containerPostAdd.appendChild(publicationTopic(objPublication));
+    });
   });
 
   return viewHomePage;

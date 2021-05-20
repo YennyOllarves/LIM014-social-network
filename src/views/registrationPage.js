@@ -16,10 +16,10 @@ export default () => {
           <h1 class='title-h1'>¡Regístrate!</h1>
         </header>
         <form class='boxLogin-page' id='boxForm-Register'>
-        <section class='input-initial'>
+        <section class='input-initial' >
         <i class='user-icon'></i>
-        <input type='text' class='form-one' id='theName' placeholder='Nombres y Apellidos' required autocomplete='off' spellcheck='false' /> 
-      </section>
+        <input type='text' class='form-one' id='theName' placeholder='Nombres y Apellidos' required autocomplete='off' spellcheck='false'/>
+        </section>
       <section class='input-initial'>
         <i class='email-icon'></i>
         <input type='email' id='email' class='form-one' placeholder='Correo electrónico' required autocomplete='off' spellcheck='false' />

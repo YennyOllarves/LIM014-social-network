@@ -5,7 +5,7 @@ es el punto de entrada para todas las operaciones de Cloud Firestore. */
 
 const sendGeneralData = (email, username, userId, picture) => {
   const dataBase = firebase.firestore();
-  return dataBase.collection('usuarios').doc(userId).set({
+  return dataBase.collection('usuarios').doc(userId).get({
     userId,
     username,
     email,
@@ -15,9 +15,9 @@ const sendGeneralData = (email, username, userId, picture) => {
 
 // Obtener información del usuario
 
-const getUserData = (userIdentity) => {
+const getUserData = (userId) => {
   const dataBase = firebase.firestore();
-  return dataBase.collection('usuarios').doc(userIdentity).get();
+  return dataBase.collection('usuarios').doc(userId).get();
 };
 
 // Actualización de información del usuario
@@ -106,9 +106,9 @@ const updateComment = (idPost, idComment, comment) => {
 };
 
 // Actualizar foto de perfil
-const updateProfilePhoto = (userId, photo) => {
+const updateProfilePhoto = (userId, picture) => {
   const dataBase = firebase.firestore();
-  return dataBase.collection('usuarios').doc(userId).update({ photo });
+  return dataBase.collection('usuarios').doc(userId).update({ picture });
 };
 
 // Actualizar foto de portada
@@ -128,7 +128,6 @@ const updateLike = (id, likes) => {
   const dataBase = firebase.firestore();
   return dataBase.collection('posts').doc(id).update({ likes });
 };
-
 
 export {
   sendGeneralData,

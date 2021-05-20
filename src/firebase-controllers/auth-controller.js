@@ -17,9 +17,9 @@ const userRegister = (email, password) => { // consulta de agregar name al param
   return auth.createUserWithEmailAndPassword(email, password);
 };
 
-// const onAuthStateChanged = (callback) => {
-//   firebase.auth().onAuthStateChanged(callback);
-// };
+const onAuthStateChanged = (callback) => {
+  firebase.auth().onAuthStateChanged(callback);
+};
 
 // Verificar Mail
 const checkMail = () => {
@@ -40,4 +40,5 @@ export {
   checkMail,
   logOut,
   currentUser,
+  onAuthStateChanged,
 };

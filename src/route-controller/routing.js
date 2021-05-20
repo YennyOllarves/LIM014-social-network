@@ -9,9 +9,9 @@ const changeViews = (route) => {
   container.innerHTML = '';
   header.innerHTML = '';
   switch (route) {
-    // case '':
-    //   container.appendChild(components.login());  
-    //   break;
+    case '':
+      container.appendChild(components.login());
+      break;
     case '#/login':
       container.appendChild(components.login());
       break;
@@ -22,9 +22,10 @@ const changeViews = (route) => {
       header.appendChild(components.menuHeader());
       onAuthStateChanged((user) => {
         if (user) {
-          getUserData(user.uid).then((doc) => {
-            header.appendChild(components.home(doc.data()));
-          });
+          getUserData(user.uid)
+            .then((doc) => {
+              header.appendChild(components.home(doc.data()));
+            });
         }
       });
       break;
