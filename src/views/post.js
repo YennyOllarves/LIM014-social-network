@@ -3,6 +3,7 @@ import {
 } from '../firebase-controllers/fireStore-controller.js';
 import { currentUser } from '../firebase-controllers/auth-controller.js';
 
+// agregar getComment en la linea 2
 // agregar utem comment.js de la carpeta comentario
 export const publicationTopic = (objPublication) => {
   const idUser = firebase.auth().currentUser.uid;
