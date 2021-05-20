@@ -9,7 +9,7 @@ const sendGeneralData = (email, username, userId, picture) => {
     userId,
     username,
     email,
-    picture,
+    picture: picture || '',
   });
 };
 
@@ -31,14 +31,14 @@ const updateUserData = (userIdentity, name, email) => {
 };
 
 // Base de Datos de Posts
-const addPosts = (UserId, Privacy, Publication, URLimg) => {
+const addPosts = (UserId, Publication, URLimage) => {
   const dataBase = firebase.firestore();
   return dataBase.collection('posts').add({
     userId: UserId,
+    urlimg: URLimage,
     date: new Date().toLocaleString('es-ES'),
-    privacy: Privacy,
+    // privacy: Privacy,
     publication: Publication,
-    urlimg: URLimg,
     likes: [],
   });
 };
