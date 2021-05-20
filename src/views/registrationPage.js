@@ -57,7 +57,16 @@ export default () => {
 
   const googleButton = viewRegister.querySelector('#loginOptionsRegister');
   googleButton.addEventListener('click', () => {
-    loginGoogle();
+    loginGoogle()
+      .then((result) => {
+        console.log(result.user);
+        if (result.user.emailVerified) {
+          // redirect
+          window.location.hash = '#/home';
+        } else {
+          alert('verifica tu email');
+        }
+      }).catch(console.log);
     // .then(() => {
     //   getUserData(currentUser().userId)
     //     .then((doc) => {
