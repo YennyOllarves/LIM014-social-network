@@ -1,11 +1,9 @@
 import { imgToStorage } from '../firebase-controllers/storage-controller.js';
-import { addPosts, getPosts } from '../firebase-controllers/fireStore-controller.js';
-import { currentUser } from '../firebase-controllers/auth-controller.js';
-import { publicationTopic } from '../views/post.js';
+import { addPosts } from '../firebase-controllers/fireStore-controller.js';
 
 export default (user) => {
   const viewHomePage = document.createElement('section');
-  const userIdentity = currentUser.uid;
+  const userIdentity = user.uid;
   viewHomePage.classList.add('homePage-container');
   viewHomePage.innerHTML = `
     <!-- Middle column -->
@@ -111,14 +109,14 @@ export default (user) => {
     }
   });
 
-  // agregar post
-  const containerPostAdd = viewHomePage.querySelector('#postContainer');
-  getPosts((thePost) => {
-    containerPostAdd.innerHTML = '';
-    thePost.forEach((objPublication) => {
-      containerPostAdd.appendChild(publicationTopic(objPublication));
-    });
-  });
+  // // agregar post
+  // const containerPostAdd = viewHomePage.querySelector('#postContainer');
+  // getPosts((thePost) => {
+  //   containerPostAdd.innerHTML = '';
+  //   thePost.forEach((objPublication) => {
+  //     containerPostAdd.appendChild(publicationTopic(objPublication));
+  //   });
+  // });
 
   return viewHomePage;
 };
