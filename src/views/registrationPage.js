@@ -57,20 +57,20 @@ export default () => {
 
   const googleButton = viewRegister.querySelector('#loginOptionsRegister');
   googleButton.addEventListener('click', () => {
-    loginGoogle()
-      .then(() => {
-        getUserData(currentUser().uid)
-          .then((doc) => {
-            if (doc.exists) {
-              window.location.hash = '#/home';
-            } else { // consulta de promesa
-              sendGeneralData(currentUser())
-                .then(() => {
-                  window.location.hash = '#/home';
-                });
-            }
-          });
-      });
+    loginGoogle();
+    // .then(() => {
+    //   getUserData(currentUser().userId)
+    //     .then((doc) => {
+    //       if (doc.exists) {
+    //         window.location.hash = '#/home';
+    //       } else { // consulta de promesa
+    //         sendGeneralData(currentUser())
+    //           .then(() => {
+    //             window.location.hash = '#/home';
+    //           });
+    //       }
+    //     });
+    // });
   });
   // creación de usuarios
   const userSingUp = viewRegister.querySelector('#boxForm-Register');
@@ -80,6 +80,7 @@ export default () => {
     const emailInput = viewRegister.querySelector('#email').value;
     const passwordInput = viewRegister.querySelector('#password').value;
     const msgError = viewRegister.querySelector('.msg-error');
+
     userRegister(emailInput, passwordInput) // revisar el auth para agregar en el registro
       .then(() => {
         const user = firebase.auth().currentUser;
