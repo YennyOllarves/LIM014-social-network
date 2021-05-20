@@ -6,7 +6,6 @@ export default (user) => {
   const userIdentity = user.uid;
   viewHomePage.classList.add('homePage-container');
   viewHomePage.innerHTML = `
-    <!-- Left column -->
     <!-- Middle column -->
     <main class='home-column'>
         <!-- post -->
@@ -81,7 +80,7 @@ export default (user) => {
     const textPost = viewHomePage.querySelector('.text-post');
     if (imagenFile) {
       const postRoute = `imgPicture/${userIdentity}/${imagenFile.name}`;
-      const sendImg = imgToStorage(postRoute, userIdentity);
+      const sendImg = imgToStorage(postRoute, imagenFile);
       sendImg.on('ChangeOfState', (thePicture) => {
         // gestionar el proceso
         const process = (thePicture.bytesTransferred / thePicture.totalBytes) * 100;
