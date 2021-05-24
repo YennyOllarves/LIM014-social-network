@@ -15,20 +15,26 @@ export default (user) => {
            <p class='name'>${user.username}</p>
            </section>
             <section class='new-post'>
-                <form id='postForm'>
-                <textarea id='text-post' placeholder='¿Qué quieres compartir?' spellcheck='false' required></textarea>
-                <i id='removeImg' style='display:none' class='remove-img'></i>
-                <div class="container">
-                <div class="row">
-                    <div class="column">
+              <div class="card">
+                <div class="card-body">
+                  <form id='postForm'>
+                  <div class="form-group">
+                  <textarea id='text-post' placeholder='¿Qué quieres compartir?' spellcheck='false' required autofocus></textarea>
+                  </div>
+                  <i id='removeImg' style='display:none' class='remove-img'></i>
+                    <div class="container">
+                      <div class="row">
+                        <div class="column">
                         <input type="file" id="photo">
-                    </div>
-                    <div class="column">
+                        </div>
+                        <div class="column">
                         <button onclick="uploadImage()" id="buttonImage">Subir imagen</button>
+                        </div>
+                      </div>
                     </div>
+                  </form>
                 </div>
-            </div>
-                </form>
+              </div>
             </section>   
         </section>
         <section id='postContainer'></section>
@@ -59,7 +65,8 @@ export default (user) => {
     addPosts(user.uid, textarea.value, user.picture);
   });
   getPosts((data) => {
-    const publicate = viewHomePage.querySelector('#postContainer')
+    const publicate = viewHomePage.querySelector('#postContainer');
+    publicate.innerHTML = '';
     if (data.length) {
       data.forEach((doc) => {
         const section = textName(doc);
