@@ -57,7 +57,22 @@ export default () => {
 
   const googleButton = viewRegister.querySelector('#loginOptionsRegister');
   googleButton.addEventListener('click', () => {
-    loginGoogle();
+    loginGoogle()
+      .then((result) => {
+        if (result.user.emailVerified) {
+          // redirect
+          window.location.hash = '#/home';
+        } else {
+          alert('verifica tu email');
+        }
+      }).then(() => {
+        const googleate = firebase.auth().currentUser;
+        // const userDisplayName = googleate.displayName;
+        sendGeneralData(googleate.email, googleate.displayName, googleate.uid, googleate.photoURL);
+        // sendGeneralData(currentUser().displayName);
+      });
+
+    // }).catch(console.log);
     // .then(() => {
     //   getUserData(currentUser().userId)
     //     .then((doc) => {
@@ -87,10 +102,11 @@ export default () => {
 
       .then(() => {
         const user = firebase.auth().currentUser;
-        user.updateProfile({
-          displayName: usernameInput,
-        });
-        sendGeneralData(emailInput, usernameInput, user.uid);
+        // Actualizar datos del perfil
+        // user.updateProfile({
+        //   displayName: usernameInput,
+        // });
+        sendGeneralData(emailInput, nameInput, user.uid);
         checkMail()
 
           .then(() => {
