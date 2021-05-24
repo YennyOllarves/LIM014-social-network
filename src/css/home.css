@@ -1,0 +1,53 @@
+.the-user {
+    padding-top: 70px;
+}
+
+.default-avatar {
+    position: absolute;
+    width: 61px;
+    height: 62px;
+    left: 36px;
+    top: 78px;
+    border-radius: 100px;
+}
+
+.name {
+    position: absolute;
+
+height: 30px;
+left: 129px;
+top: 78px;
+
+font-family: Reem Kufi;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 30px;
+}
+
+#text-post {
+position: absolute;
+width: 264px;
+height: 67px;
+left: 56px;
+top: 163px;
+
+border: 1px solid rgba(0, 0, 0, 0.28);
+box-sizing: border-box;
+
+}
+
+#photo {
+position: absolute;
+left: 75px;
+top: 237px;
+}
+
+#buttonImage{
+position: absolute;
+left: 75px;
+top: 260px;
+}
+
+
+

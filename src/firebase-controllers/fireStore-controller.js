@@ -55,7 +55,6 @@ const getPosts = (checkPosts) => {
       checkPosts(posts);
     });
 };
-
 // Eliminar Posts
 const deletePost = (idPost) => {
   const dataBase = firebase.firestore();
