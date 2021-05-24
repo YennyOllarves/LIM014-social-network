@@ -57,21 +57,21 @@ export default () => {
 
   const googleButton = viewRegister.querySelector('#loginOptionsRegister');
   googleButton.addEventListener('click', () => {
-    loginGoogle();
-    // .then(() => {
-    //   getUserData(currentUser().userId)
-    //     .then((doc) => {
-    //       if (doc.exists) {
-    //         window.location.hash = '#/home';
-    //       } else { // consulta de promesa
-    //         sendGeneralData(currentUser())
-    //           .then(() => {
-    //             window.location.hash = '#/home';
-    //           });
-    //       }
-    //     });
-    // });
-  });
+    loginGoogle()
+      .then((result) => {
+        // console.log(result.user);
+        if (result.user.emailVerified) {
+          // redirect
+          window.location.hash = '#/home';
+        } else {
+          alert('verifica tu email');
+        }
+      }).then((res) => {
+        getUserData(currentUser().displayName);
+        console.log(res.user.displayName);
+      });
+});
+
   // creación de usuarios
   const userSingUp = viewRegister.querySelector('#boxForm-Register');
   userSingUp.addEventListener('submit', (e) => {

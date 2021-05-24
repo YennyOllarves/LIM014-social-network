@@ -49,20 +49,16 @@ export default () => {
   const googleButton = viewLogin.querySelector('#loginOptions');
   googleButton.addEventListener('click', () => {
     loginGoogle()
-      .then(() => {
-        getUserData(currentUser().uid)
-          .then((doc) => {
-            if (doc.exists) {
-              window.location.hash = '#/home';
-            } else { // consulta de promesa
-              sendGeneralData(currentUser())
-                .then(() => {
-                  window.location.hash = '#/home';
-                });
-            }
-          });
-      });
-  });
+      .then((result) => {
+        // console.log(result.user);
+        if (result.user.emailVerified) {
+          // redirect
+          window.location.hash = '#/home';
+        } else {
+          alert('Revisa tu conexión de internet');
+        }
+      }).catch(console.log);
+});
 
   // Inicio de sesión con correo electrónico
   const loginEmailForm = viewLogin.querySelector('#formLogin');
