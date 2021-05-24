@@ -1,7 +1,6 @@
-// eslint-disable-next-line import/named
 import components from '../components/index.js';
-// import {getUserData} from '../firebase-controllers/fireStore-controller.js';
-// import {currentUser} from '../firebase-controllers/auth-controller.js';
+import { onAuthStateChanged } from '../firebase-controllers/auth-controller.js';
+import { getUserData } from '../firebase-controllers/fireStore-controller.js';
 
 const changeViews = (route) => {
   const container = document.getElementById('container');
@@ -10,6 +9,9 @@ const changeViews = (route) => {
   container.innerHTML = '';
   header.innerHTML = '';
   switch (route) {
+    // case '':
+    //   container.appendChild(components.login());  
+    //   break;
     case '#/login':
       container.appendChild(components.login());
       break;
@@ -18,11 +20,13 @@ const changeViews = (route) => {
       break;
     case '#/home':
       header.appendChild(components.menuHeader());
-      header.appendChild(components.home());
-      // getUserData(currentUser().uid)
-      //   .then((doc) => {
-      //     container.appendChild(components.home(doc.data()));
-      //   });
+      onAuthStateChanged((user) => {
+        if (user) {
+          getUserData(user.uid).then((doc) => {
+            header.appendChild(components.home({ ...doc.data(), uid: user.uid }));
+          });
+        }
+      });
       break;
 
     default:

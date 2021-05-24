@@ -3,26 +3,13 @@ es el punto de entrada para todas las operaciones de Cloud Firestore. */
 
 // Enviar información del usuario al cloud Firestore
 
-const sendGeneralData = (user) => {
+const sendGeneralData = (email, username, userId, picture) => {
   const dataBase = firebase.firestore();
-  let name;
-  let photo;
-  // let photoUrl;
-  if (user.displayName != null && user.photoURL != null) {
-    name = user.displayName;
-    photo = user.photoURL;
-  } else {
-    name = 'viajera';
-    // photoUrl = //photo.png
-  }
-  return dataBase.collection('usuarios').doc(user.uid).set({
-    username: name,
-    email: user.email,
-    picture: photo,
-    // photoCover: //'img/default-cover.jpg',
-    // birthday: 'yyyy-MM-dd',
-    // country: 'Country',
-    // description: 'Description',
+  return dataBase.collection('usuarios').doc(userId).set({
+    userId,
+    username,
+    email,
+    picture: picture || '',
   });
 };
 
@@ -35,26 +22,23 @@ const getUserData = (userIdentity) => {
 
 // Actualización de información del usuario
 
-const updateUserData = (userIdentity, name, Birthday, Country, Description) => {
+const updateUserData = (userIdentity, name, email) => {
   const dataBase = firebase.firestore();
   return dataBase.collection('usuarios').doc(userIdentity).update({
     username: name,
-    email: user.email,
-    // birthday: Birthday,
-    // country: Country,
-    // description: Description,
+    email,
   });
 };
 
 // Base de Datos de Posts
-const addPosts = (UserId, Privacy, Publication, URLimg) => {
+const addPosts = (UserId, Publication, URLimage) => {
   const dataBase = firebase.firestore();
   return dataBase.collection('posts').add({
     userId: UserId,
+    urlimg: URLimage,
     date: new Date().toLocaleString('es-ES'),
-    privacy: Privacy,
+    // privacy: Privacy,
     publication: Publication,
-    urlimg: URLimg,
     likes: [],
   });
 };
@@ -71,7 +55,6 @@ const getPosts = (checkPosts) => {
       checkPosts(posts);
     });
 };
-
 // Eliminar Posts
 const deletePost = (idPost) => {
   const dataBase = firebase.firestore();
@@ -145,11 +128,6 @@ const updateLike = (id, likes) => {
   return dataBase.collection('posts').doc(id).update({ likes });
 };
 
-// Actualizar planes
-const updatePlane = (id, planes) => {
-  const dataBase = firebase.firestore();
-  return dataBase.collection('posts').doc(id).update({ planes });
-};
 export {
   sendGeneralData,
   getUserData,
@@ -163,7 +141,7 @@ export {
   deleteComment,
   updateComment,
   updateProfilePhoto,
+  updateCoverPhoto,
   updatePrivacy,
   updateLike,
-  updatePlane,
 };
