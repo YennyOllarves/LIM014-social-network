@@ -16,10 +16,10 @@ export default () => {
           <h1 class='title-h1'>¡Regístrate!</h1>
         </header>
         <form class='boxLogin-page' id='boxForm-Register'>
-        <section class='input-initial'>
+        <section class='input-initial' >
         <i class='user-icon'></i>
-        <input type='text' class='form-one' id='theName' placeholder='Nombres y Apellidos' required autocomplete='off' spellcheck='false' /> 
-      </section>
+        <input type='text' class='form-one' id='theName' placeholder='Nombres y Apellidos' required autocomplete='off' spellcheck='false'/>
+        </section>
       <section class='input-initial'>
         <i class='email-icon'></i>
         <input type='email' id='email' class='form-one' placeholder='Correo electrónico' required autocomplete='off' spellcheck='false' />
@@ -91,8 +91,7 @@ export default () => {
   const userSingUp = viewRegister.querySelector('#boxForm-Register');
   userSingUp.addEventListener('submit', (e) => {
     e.preventDefault();
-
-    const nameInput = viewRegister.querySelector('#theName').value;
+    const usernameInput = viewRegister.querySelector('#theName').value;
     const emailInput = viewRegister.querySelector('#email').value;
     const passwordInput = viewRegister.querySelector('#password').value;
     const msgError = viewRegister.querySelector('.msg-error');
@@ -134,14 +133,3 @@ export default () => {
 
   return viewRegister;
 };
-
-// console.log(data);
-// currentUser.updateProfile({
-
-//   displayName: nameInput,
-// //   photoURL: "https://example.com/jane-q-user/profile.jpg"
-// // }).then(function() {
-// //   // Update successful.
-// // }).catch(function(error) {
-// //   // An error happened.
-// });

@@ -11,7 +11,7 @@ export default (user) => {
         <!-- post -->
         <section class='the-post'>    
             <section class='the-user'>
-            <img src= '${user.picture}'class='default-avatar'>
+            <img class='default-avatar' src='${user.picture}'>
            <p class='name'>${user.username}</p>
            </section>
             <section class='new-post'>
@@ -19,18 +19,11 @@ export default (user) => {
                 <div class="card-body">
                   <form id='postForm'>
                   <div class="form-group">
-                  <textarea id='text-post' placeholder='¿Qué quieres compartir?' spellcheck='false' required autofocus></textarea>
+                  <textarea id='text-post' placeholder='¿Qué quieres compartir?' spellcheck='false' required ></textarea>
                   </div>
                   <i id='removeImg' style='display:none' class='remove-img'></i>
                     <div class="container">
-                      <div class="row">
-                        <div class="column">
-                        <input type="file" id="photo">
-                        </div>
-                        <div class="column">
-                        <button onclick="uploadImage()" id="buttonImage">Subir imagen</button>
-                        </div>
-                      </div>
+                        <button id="buttonImage">Compartir</button>
                     </div>
                   </form>
                 </div>
@@ -43,14 +36,13 @@ export default (user) => {
   const textName = (doc) => {
     const section = document.createElement('section');
     const template = `
-<div class="row" >
+
     <div class="column">
         <div class="card">
         <p id="text-publication">${doc.publication}</p>
-            <img src="" id="image">
+            <img src="" id="image">            
         </div>
-    </div>
-</div>`;
+    </div>`;
     section.innerHTML = template;
     return section;
   };
@@ -75,28 +67,29 @@ export default (user) => {
     }
   });
 
-  postPicture.addEventListener('click', () => {
-    const ref = firebase.storage().ref();
-    const file = document.querySelector('#photo').files[0];
-    const name = `${new Date()}-${file.name}`;
-    if (file === null) {
-      // alert('Debe seleccionar una imagen');
-    } else {
-      const metadata = {
-        contentType: file.type,
-      };
-      const task = ref.child(name).put(file, metadata); // cuando la imagen suba de manera correcta,
-      task
-        .then((snapshot) => snapshot.ref.getDownloadURL()) // va a descargar la imagen,
-        .then((url) => { // obtenemos la url de la imagen
-          // console.log(url);
-          // alert('Image upload')
-          const imageElement = document.querySelector('#image'); //  asignar directamente a la etiqueta image
-          imageElement.src = url; // al imageElement queremos entrar a la propiedad src
-        });
-    }
-    console.log(ref);
-  });
+  //IMAGEN
+  // postPicture.addEventListener('click', () => {
+  //   const ref = firebase.storage().ref();
+  //   const file = document.querySelector('#photo').files[0];
+  //   const name = `${new Date()}-${file.name}`;
+  //   if (file === null) {
+  //     // alert('Debe seleccionar una imagen');
+  //   } else {
+  //     const metadata = {
+  //       contentType: file.type,
+  //     };
+  //     const task = ref.child(name).put(file, metadata); // cuando la imagen suba de manera correcta,
+  //     task
+  //       .then((snapshot) => snapshot.ref.getDownloadURL()) // va a descargar la imagen,
+  //       .then((url) => { // obtenemos la url de la imagen
+  //         // console.log(url);
+  //         // alert('Image upload')
+  //         const imageElement = document.querySelector('#image'); //  asignar directamente a la etiqueta image
+  //         imageElement.src = url; // al imageElement queremos entrar a la propiedad src
+  //       });
+  //   }
+  //   console.log(ref);
+  // });
 
   // POSTS
   // const postArea = viewHomePage.querySelector('#text-post');
