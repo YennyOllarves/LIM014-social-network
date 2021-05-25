@@ -36,14 +36,13 @@ export default (user) => {
   const textName = (doc) => {
     const section = document.createElement('section');
     const template = `
-<div class="row" >
+
     <div class="column">
         <div class="card">
         <p id="text-publication">${doc.publication}</p>
-            <img src="" id="image">
+            <img src="" id="image">            
         </div>
-    </div>
-</div>`;
+    </div>`;
     section.innerHTML = template;
     return section;
   };
