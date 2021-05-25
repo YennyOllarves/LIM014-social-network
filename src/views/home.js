@@ -1,8 +1,9 @@
 import { imgToStorage } from '../firebase-controllers/storage-controller.js';
-import { deletePost, addPosts, getPosts, updateLike } from '../firebase-controllers/fireStore-controller.js';
+import {
+  deletePost, addPosts, getPosts, updateLike,
+} from '../firebase-controllers/fireStore-controller.js';
 
 export default (user) => {
-  console.log(user);
   const viewHomePage = document.createElement('section');
   // const userIdentity = user.uid;
   // const totalLikes = user.likes;
@@ -59,13 +60,6 @@ export default (user) => {
         </div>
     </div>`;
     section.innerHTML = template;
-    // getUserData(doc.uid)
-    //   .then((docito) => {
-    //     console.log(docito);
-    //     const thisName = section.querySelector('#thisName');
-    //     thisName.textContent = docito.data().username;
-    //   });
-
     const likes = section.querySelector('#corazon');
     likes.addEventListener('click', () => {
       const result = doc.likes.indexOf(user.userId);
@@ -92,6 +86,14 @@ export default (user) => {
   //   const
   // })
 
+      // getUserData(doc.uid)
+    //   .then((docito) => {
+    //     console.log(docito);
+    //     const thisName = section.querySelector('#thisName');
+    //     thisName.textContent = docito.data().username;
+    //   });
+
+
   const postPicture = viewHomePage.querySelector('#buttonImage');
   const textarea = viewHomePage.querySelector('#text-post');
   postPicture.addEventListener('click', () => {
@@ -107,7 +109,7 @@ export default (user) => {
       });
     }
   });
-  //IMAGEN
+  // IMAGEN
 
   // postPicture.addEventListener('click', () => {
   //   const ref = firebase.storage().ref();
