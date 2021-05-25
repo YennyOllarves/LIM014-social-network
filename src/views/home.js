@@ -1,5 +1,6 @@
 import { imgToStorage } from '../firebase-controllers/storage-controller.js';
-import { addPosts, getPosts } from '../firebase-controllers/fireStore-controller.js';
+import { addPosts, getPosts, getUserData } from '../firebase-controllers/fireStore-controller.js';
+import {currentUser} from '../firebase-controllers/auth-controller.js';
 
 export default (user) => {
   const viewHomePage = document.createElement('section');
@@ -34,16 +35,28 @@ export default (user) => {
     </main>
     `;
   const textName = (doc) => {
+// const userIdentity = user.uid;
     const section = document.createElement('section');
     const template = `
 
     <div class="column">
         <div class="card">
+          <section class= 'userContent'>
+            <img class='default-user' src='${user.picture}'>
+            <p class='thisName'>${user.username}</p>
+          </section>
         <p id="text-publication">${doc.publication}</p>
             <img src="" id="image">            
         </div>
     </div>`;
     section.innerHTML = template;
+    getUserData(doc.uid)
+      .then((docito) => {
+        console.log(docito);
+        const thisName = section.querySelector('#thisName');
+        thisName.textContent = docito.data().username;
+      });
+
     return section;
   };
   // const textoPublic = viewHomePage.querySelector('#text-post');
@@ -67,7 +80,7 @@ export default (user) => {
     }
   });
 
-  //IMAGEN
+  // IMAGEN
   // postPicture.addEventListener('click', () => {
   //   const ref = firebase.storage().ref();
   //   const file = document.querySelector('#photo').files[0];
