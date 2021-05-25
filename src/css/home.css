@@ -11,9 +11,14 @@
     border-radius: 100px;
 }
 
-.name {
-    position: absolute;
+.default-user {
+    display: flex;
+    width: 38px;
+    border-radius: 50px;
+}
 
+.name {
+position: absolute;
 height: 30px;
 left: 129px;
 top: 78px;
@@ -23,6 +28,19 @@ font-style: normal;
 font-weight: normal;
 font-size: 20px;
 line-height: 30px;
+}
+
+.this-name {
+    display: flex;
+    flex-wrap: wrap;
+    height: 15px;
+    left: 129px;
+    top: 78px;
+    font-family: Reem Kufi;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
 }
 
 #text-post {
@@ -49,6 +67,9 @@ left: 75px;
 top: 260px;
 }
 
+
+
+
 .card {
 display: flex;
 flex-direction: column;
@@ -57,8 +78,13 @@ padding: 20px 20px 20px 20px;
 border: gray 3px solid;
 }
 
+
+
 .column {
 padding-top: 50px;
 
 }
 
+.form-group {
+    display: flex;
+    padding-top: 150px;

@@ -1,8 +1,9 @@
 import { imgToStorage } from '../firebase-controllers/storage-controller.js';
-import { deletePost, addPosts, getPosts, updateLike } from '../firebase-controllers/fireStore-controller.js';
+import {
+  deletePost, addPosts, getPosts, updateLike,
+} from '../firebase-controllers/fireStore-controller.js';
 
 export default (user) => {
-  console.log(user);
   const viewHomePage = document.createElement('section');
   // const userIdentity = user.uid;
   // const totalLikes = user.likes;
@@ -43,6 +44,10 @@ export default (user) => {
 
     <div class="column">
         <div class="card">
+          <section class= 'userContent'>
+            <img class='default-user' src='${user.picture}'>
+            <p class='thisName'>${user.username}</p>
+          </section>
         <p id="text-publication">${doc.publication}</p>
             <img src="" id="image">
             <button id="borrar">Delete</button>
@@ -81,6 +86,14 @@ export default (user) => {
   //   const
   // })
 
+      // getUserData(doc.uid)
+    //   .then((docito) => {
+    //     console.log(docito);
+    //     const thisName = section.querySelector('#thisName');
+    //     thisName.textContent = docito.data().username;
+    //   });
+
+
   const postPicture = viewHomePage.querySelector('#buttonImage');
   const textarea = viewHomePage.querySelector('#text-post');
   postPicture.addEventListener('click', () => {
@@ -96,7 +109,7 @@ export default (user) => {
       });
     }
   });
-  //IMAGEN
+  // IMAGEN
 
   // postPicture.addEventListener('click', () => {
   //   const ref = firebase.storage().ref();
