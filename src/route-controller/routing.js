@@ -9,9 +9,10 @@ const changeViews = (route) => {
   container.innerHTML = '';
   header.innerHTML = '';
   switch (route) {
-    // case '':
-    //   container.appendChild(components.login());  
-    //   break;
+    case '':
+      container.appendChild(components.login());  
+      break;
+
     case '#/login':
       container.appendChild(components.login());
       break;

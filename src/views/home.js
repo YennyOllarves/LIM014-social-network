@@ -1,9 +1,11 @@
 import { imgToStorage } from '../firebase-controllers/storage-controller.js';
-import { addPosts, getPosts } from '../firebase-controllers/fireStore-controller.js';
+import { deletePost, addPosts, getPosts, updateLike } from '../firebase-controllers/fireStore-controller.js';
 
 export default (user) => {
+  console.log(user);
   const viewHomePage = document.createElement('section');
   // const userIdentity = user.uid;
+  // const totalLikes = user.likes;
   viewHomePage.classList.add('homePage-container');
   viewHomePage.innerHTML = `
     <!-- Middle column -->
@@ -23,14 +25,8 @@ export default (user) => {
                   </div>
                   <i id='removeImg' style='display:none' class='remove-img'></i>
                     <div class="container">
-                      <div class="row">
-                        <div class="column">
-                        <input type="file" id="photo">
+                        <button id="buttonImage">Compartir</button>
                         </div>
-                        <div class="column">
-                        <button onclick="uploadImage()" id="buttonImage">Subir imagen</button>
-                        </div>
-                      </div>
                     </div>
                   </form>
                 </div>
@@ -40,7 +36,9 @@ export default (user) => {
         <section id='postContainer'></section>
     </main>
     `;
+
   const textName = (doc) => {
+    const totalLikes = doc.likes.length;
     const section = document.createElement('section');
     const template = `
 <div class="row" >
@@ -48,12 +46,39 @@ export default (user) => {
         <div class="card">
         <p id="text-publication">${doc.publication}</p>
             <img src="" id="image">
+            <button id="borrar">Delete</button>
+            <p class=""${totalLikes === 0 ? 'hide' : 'counter-like'}" > ${totalLikes} reactions" 
+              <span class = "tooltiptext"><i class="far fa-heart"></i> ${user.userId.likes} </span>
+            </p>
+            <p id = "count-comment" class="count-comment"></p>   
+            <hr>
+          <button type="button" id="corazon" ${doc.likes.length === -1 ? 'inactive-reaction' : 'active-reaction'}"><i class="far fa-heart"></i>Like</button>
+            
         </div>
     </div>
 </div>`;
     section.innerHTML = template;
+    const likes = section.querySelector('#corazon');
+    likes.addEventListener('click', () => {
+      const result = doc.likes.indexOf(user.userId);
+      if (result === -1) {
+        doc.likes.push(user.userId);
+        updateLike(doc.id, doc.likes);
+      } else {
+        doc.likes.splice(result, 1);
+        updateLike(doc.id, doc.likes);
+      }
+    });
+    section.innerHTML = template;
+    section.querySelector('#borrar')
+      .addEventListener('click', () => {
+        deletePost(doc.id);
+      });
     return section;
   };
+
+  document.getElementById('header').classList.remove('hide');
+
   // const textoPublic = viewHomePage.querySelector('#text-post');
   // textoPublic.addEventListener('click' (e) {
   //   const
@@ -75,28 +100,28 @@ export default (user) => {
     }
   });
 
-  postPicture.addEventListener('click', () => {
-    const ref = firebase.storage().ref();
-    const file = document.querySelector('#photo').files[0];
-    const name = `${new Date()}-${file.name}`;
-    if (file === null) {
-      // alert('Debe seleccionar una imagen');
-    } else {
-      const metadata = {
-        contentType: file.type,
-      };
-      const task = ref.child(name).put(file, metadata); // cuando la imagen suba de manera correcta,
-      task
-        .then((snapshot) => snapshot.ref.getDownloadURL()) // va a descargar la imagen,
-        .then((url) => { // obtenemos la url de la imagen
-          // console.log(url);
-          // alert('Image upload')
-          const imageElement = document.querySelector('#image'); //  asignar directamente a la etiqueta image
-          imageElement.src = url; // al imageElement queremos entrar a la propiedad src
-        });
-    }
-    console.log(ref);
-  });
+  // postPicture.addEventListener('click', () => {
+  //   const ref = firebase.storage().ref();
+  //   const file = document.querySelector('#photo').files[0];
+  //   const name = `${new Date()}-${file.name}`;
+  //   if (file === null) {
+  //     // alert('Debe seleccionar una imagen');
+  //   } else {
+  //     const metadata = {
+  //       contentType: file.type,
+  //     };
+  //     const task = ref.child(name).put(file, metadata); // cuando la imagen suba de manera correcta,
+  //     task
+  //       .then((snapshot) => snapshot.ref.getDownloadURL()) // va a descargar la imagen,
+  //       .then((url) => { // obtenemos la url de la imagen
+  //         // console.log(url);
+  //         // alert('Image upload')
+  //         const imageElement = document.querySelector('#image'); //  asignar directamente a la etiqueta image
+  //         imageElement.src = url; // al imageElement queremos entrar a la propiedad src
+  //       });
+  //   }
+  //   console.log(ref);
+  // });
 
   // POSTS
   // const postArea = viewHomePage.querySelector('#text-post');
