@@ -1,9 +1,11 @@
 import { imgToStorage } from '../firebase-controllers/storage-controller.js';
-import { addPosts, getPosts } from '../firebase-controllers/fireStore-controller.js';
+import { deletePost, addPosts, getPosts, updateLike } from '../firebase-controllers/fireStore-controller.js';
 
 export default (user) => {
+  console.log(user);
   const viewHomePage = document.createElement('section');
   // const userIdentity = user.uid;
+  // const totalLikes = user.likes;
   viewHomePage.classList.add('homePage-container');
   viewHomePage.innerHTML = `
     <!-- Middle column -->
@@ -33,19 +35,47 @@ export default (user) => {
         <section id='postContainer'></section>
     </main>
     `;
+
   const textName = (doc) => {
+    const totalLikes = doc.likes.length;
     const section = document.createElement('section');
     const template = `
 
     <div class="column">
         <div class="card">
         <p id="text-publication">${doc.publication}</p>
-            <img src="" id="image">            
+            <img src="" id="image">
+            <button id="borrar">Delete</button>
+            <p class=""${totalLikes === 0 ? 'hide' : 'counter-like'}" > ${totalLikes} reactions" 
+              <span class = "tooltiptext"><i class="far fa-heart"></i> ${user.userId.likes} </span>
+            </p>
+            <p id = "count-comment" class="count-comment"></p>   
+            <hr>
+          <button type="button" id="corazon" ${doc.likes.length === -1 ? 'inactive-reaction' : 'active-reaction'}"><i class="far fa-heart"></i>Like</button>
         </div>
     </div>`;
     section.innerHTML = template;
+    const likes = section.querySelector('#corazon');
+    likes.addEventListener('click', () => {
+      const result = doc.likes.indexOf(user.userId);
+      if (result === -1) {
+        doc.likes.push(user.userId);
+        updateLike(doc.id, doc.likes);
+      } else {
+        doc.likes.splice(result, 1);
+        updateLike(doc.id, doc.likes);
+      }
+    });
+    section.innerHTML = template;
+    section.querySelector('#borrar')
+      .addEventListener('click', () => {
+        deletePost(doc.id);
+      });
     return section;
   };
+
+  document.getElementById('header').classList.remove('hide');
+
   // const textoPublic = viewHomePage.querySelector('#text-post');
   // textoPublic.addEventListener('click' (e) {
   //   const
@@ -66,8 +96,8 @@ export default (user) => {
       });
     }
   });
-
   //IMAGEN
+
   // postPicture.addEventListener('click', () => {
   //   const ref = firebase.storage().ref();
   //   const file = document.querySelector('#photo').files[0];
