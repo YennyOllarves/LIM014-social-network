@@ -30,7 +30,7 @@ export const publicationTopic = (objPublication) => {
     </span>
     </p>
     <time class="time-post">${objPublication.date}</time>
-      <section class= 'post-container'>
+      <section class= 'post-container' id='postContainer'>
         <p class= 'post-text'>${objPublication.publication}</p>
           <section class= 'hide post-edit'>
             <textarea class= 'text-edit'>${objPublication.publication}</textarea>
@@ -71,68 +71,4 @@ export const publicationTopic = (objPublication) => {
       strongName.textContent = doc.data().userName.toUpperCase();
       zoomImg.src = doc.data().picture;
     });
-  // menu 3 puntos, editar post
-  const editionBtn = sectionPost.querySelector('.btnMenu-post');
-  editionBtn.addEventListener('click', () => {
-    sectionPost.querySelector('#postContent').classList.toggle('show');
-  });
-  // click en cualquier parte del windows (afuera del editionBtn)
-  window.addEventListener('click', (e) => {
-    if (e.target !== editionBtn) {
-      sectionPost.querySelector('#postContent').classList.remove('show');
-    }
-  });
-  // editar: guardar o borrar
-  const postEdit = sectionPost.querySelector('#postEdit');
-  const textEdit = sectionPost.querySelector('.text-edit');
-  const btnSaveText = sectionPost.querySelector(`.btn-save-text-${objPublication.id}`);
-  const btnCancelText = sectionPost.querySelector('.btn-cancel-text');
-  // click en editar para que muestre caja de edición
-  postEdit.addEventListener('click', () => {
-    sectionPost.querySelector('.post-edit').classList.remove('hide');
-    sectionPost.querySelector('.text-edit').classList.add('hide');
-  });
-  // click en cancelar edición
-  btnCancelText.addEventListener('click', () => {
-    sectionPost.querySelector('.post-edit').classList.add('hide');
-    sectionPost.querySelector('.text-edit').classList.remove('hide');
-    textEdit.value = objPublication.publication;
-  });
-  // click en guardar lo editado-Actualizar
-  btnSaveText.addEventListener('click', () => {
-    updatePost(objPublication.id, textEdit.value);
-  });
-  // click en eliminar post
-  sectionPost.querySelector(`#postDelete-${objPublication.id}`).addEventListener('click', () => {
-    deletePost(objPublication.id);
-  });
-  // actualizar meEncanta
-  const btnLove = sectionPost.querySelector('#btnLove');
-  btnLove.addEventListener('click', () => {
-    const totalLove = objPublication.likes.indexOf(idUser);
-    if (totalLove === -1) {
-      objPublication.likes.push(idUser);
-      updateLike(objPublication, objPublication.likes);
-    } else {
-      objPublication.likes.splice(totalLove, 1);
-      updateLike(objPublication, objPublication.likes);
-    }
-  });
-  // mostrar y ocultar comentarios
-  // clase agregada con toggle: commentButton-active
-  sectionPost.querySelector('#commentButton').addEventListener('click', () => {
-    sectionPost.querySelector('#commentButton').classList.toggle('commentButton-active');
-    sectionPost.querySelector('#commentBox').classList.toggle('hide');
-  });
-  // Agregar post
-  const commentForm = sectionPost.querySelector('.comment-form');
-  commentForm.addEventListener('submit', (e) => {
-    const theComment = sectionPost.querySelector('.theComment').value;
-    e.preventDefault();
-    addComment(currentUser().uid, objPublication.id, theComment)
-      .then(() => {
-        commentForm.reset();
-      });
-  });
 };
-

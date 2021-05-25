@@ -49,5 +49,16 @@ left: 75px;
 top: 260px;
 }
 
+.card {
+display: flex;
+flex-direction: column;
+text-align: center;
+padding: 20px 20px 20px 20px;
+border: gray 3px solid;
+}
 
+.column {
+padding-top: 50px;
+
+}
 

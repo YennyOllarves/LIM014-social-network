@@ -13,7 +13,7 @@ export default (user) => {
         <!-- post -->
         <section class='the-post'>    
             <section class='the-user'>
-            <img src= '${user.picture}'class='default-avatar'>
+            <img class='default-avatar' src='${user.picture}'>
            <p class='name'>${user.username}</p>
            </section>
             <section class='new-post'>
@@ -21,12 +21,11 @@ export default (user) => {
                 <div class="card-body">
                   <form id='postForm'>
                   <div class="form-group">
-                  <textarea id='text-post' placeholder='¿Qué quieres compartir?' spellcheck='false' required autofocus></textarea>
+                  <textarea id='text-post' placeholder='¿Qué quieres compartir?' spellcheck='false' required ></textarea>
                   </div>
                   <i id='removeImg' style='display:none' class='remove-img'></i>
                     <div class="container">
                         <button id="buttonImage">Compartir</button>
-                        </div>
                     </div>
                   </form>
                 </div>
@@ -41,7 +40,7 @@ export default (user) => {
     const totalLikes = doc.likes.length;
     const section = document.createElement('section');
     const template = `
-<div class="row" >
+
     <div class="column">
         <div class="card">
         <p id="text-publication">${doc.publication}</p>
@@ -53,10 +52,8 @@ export default (user) => {
             <p id = "count-comment" class="count-comment"></p>   
             <hr>
           <button type="button" id="corazon" ${doc.likes.length === -1 ? 'inactive-reaction' : 'active-reaction'}"><i class="far fa-heart"></i>Like</button>
-            
         </div>
-    </div>
-</div>`;
+    </div>`;
     section.innerHTML = template;
     const likes = section.querySelector('#corazon');
     likes.addEventListener('click', () => {
@@ -99,6 +96,7 @@ export default (user) => {
       });
     }
   });
+  //IMAGEN
 
   // postPicture.addEventListener('click', () => {
   //   const ref = firebase.storage().ref();
