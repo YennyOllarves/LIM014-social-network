@@ -1,7 +1,6 @@
 import { imgToStorage } from '../firebase-controllers/storage-controller.js';
 import {
-  deletePost, addPosts, getPosts, updateLike,
-} from '../firebase-controllers/fireStore-controller.js';
+  deletePost, addPosts, getPosts, updateLike, getUserData} from '../firebase-controllers/fireStore-controller.js';
 
 export default (user) => {
   const viewHomePage = document.createElement('section');
@@ -45,21 +44,31 @@ export default (user) => {
     <div class="column">
         <div class="card">
           <section class= 'userContent'>
-            <img class='default-user' src='${user.picture}'>
-            <p class='thisName'>${user.username}</p>
+            <img id='pictureName' class='default-user' >
+            <p id='thisName'></p>
           </section>
         <p id="text-publication">${doc.publication}</p>
             <img src="" id="image">
             <button id="borrar">Delete</button>
-            <p class=""${totalLikes === 0 ? 'hide' : 'counter-like'}" > ${totalLikes} reactions" 
-              <span class = "tooltiptext"><i class="far fa-heart"></i> ${user.userId.likes} </span>
+            <p class=""${totalLikes === 0 ? 'hide' : 'counter-like'}" > ${totalLikes} Me encanta 
+        <!--      <span class = "tooltiptext"><i class="far fa-heart"></i> ${user.likes} </span> -->
             </p>
             <p id = "count-comment" class="count-comment"></p>   
             <hr>
-          <button type="button" id="corazon" ${doc.likes.length === -1 ? 'inactive-reaction' : 'active-reaction'}"><i class="far fa-heart"></i>Like</button>
+          <button type="button" id="corazon" ${doc.likes.length === -1 ? 'inactive-reaction' : 'active-reaction'}"><i class="far fa-heart"></i>Me encanta</button>
         </div>
     </div>`;
     section.innerHTML = template;
+
+    getUserData(doc.userId)
+      .then((docito) => {
+        console.log(docito.data());
+        const thisName = section.querySelector('#thisName');
+        thisName.textContent = docito.data().username;
+        const pictureName = section.querySelector('#pictureName');
+        pictureName.src = docito.data().picture;
+      });
+
     const likes = section.querySelector('#corazon');
     likes.addEventListener('click', () => {
       const result = doc.likes.indexOf(user.userId);
@@ -71,7 +80,7 @@ export default (user) => {
         updateLike(doc.id, doc.likes);
       }
     });
-    section.innerHTML = template;
+
     section.querySelector('#borrar')
       .addEventListener('click', () => {
         deletePost(doc.id);
@@ -79,20 +88,14 @@ export default (user) => {
     return section;
   };
 
+
+
   document.getElementById('header').classList.remove('hide');
 
   // const textoPublic = viewHomePage.querySelector('#text-post');
   // textoPublic.addEventListener('click' (e) {
   //   const
   // })
-
-      // getUserData(doc.uid)
-    //   .then((docito) => {
-    //     console.log(docito);
-    //     const thisName = section.querySelector('#thisName');
-    //     thisName.textContent = docito.data().username;
-    //   });
-
 
   const postPicture = viewHomePage.querySelector('#buttonImage');
   const textarea = viewHomePage.querySelector('#text-post');
