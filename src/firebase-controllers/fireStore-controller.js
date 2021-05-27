@@ -63,6 +63,7 @@ const deletePost = (idPost) => {
 
 // Actualizar Posts
 const updatePost = (idPost, updatePublication) => {
+  console.log(idPost, updatePublication)
   const dataBase = firebase.firestore();
   return dataBase.collection('posts').doc(idPost).update({
     publication: updatePublication,

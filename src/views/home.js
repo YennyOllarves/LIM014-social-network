@@ -1,12 +1,10 @@
 import { imgToStorage } from '../firebase-controllers/storage-controller.js';
 import {
-  deletePost, addPosts, getPosts, updateLike,
+  deletePost, addPosts, getPosts, updateLike, getUserData, updatePost,
 } from '../firebase-controllers/fireStore-controller.js';
 
 export default (user) => {
   const viewHomePage = document.createElement('section');
-  // const userIdentity = user.uid;
-  // const totalLikes = user.likes;
   viewHomePage.classList.add('homePage-container');
   viewHomePage.innerHTML = `
     <!-- Middle column -->
@@ -29,6 +27,10 @@ export default (user) => {
                         <button id="buttonImage">Compartir</button>
                     </div>
                   </form>
+                  <section>
+                  <button id="editar">Guardar</button>
+                  <button id="cancelar">Cancelar</button>
+                  </section>
                 </div>
               </div>
             </section>   
@@ -41,27 +43,51 @@ export default (user) => {
     const totalLikes = doc.likes.length;
     const section = document.createElement('section');
     const template = `
-
     <div class="column">
         <div class="card">
           <section class= 'userContent'>
-            <img class='default-user' src='${user.picture}'>
-            <p class='thisName'>${user.username}</p>
+            <img id="pictureName" class="default-user">
+            <p id='thisName'></p>
           </section>
         <p id="text-publication">${doc.publication}</p>
-            <img src="" id="image">
-            <button id="borrar">Delete</button>
-            <p class=""${totalLikes === 0 ? 'hide' : 'counter-like'}" > ${totalLikes} reactions" 
-              <span class = "tooltiptext"><i class="far fa-heart"></i> ${user.userId.likes} </span>
+            <i class="btn-menuPost"></i>
+            <ul id="menu-post-content" class="menu-post-content">
+              <li href="" id="edit-post"><i class="fas fa-edit select"></i>Editar</li>
+              <li id="delete-post"><i class="fas fa-trash-alt select"></i>Eliminar</li>
+            </ul>
+            <div class="content-post">
+            <p class="text-post">${doc.publication}</p>
+            <div class = "hide edit-text-post" id="modal-window">
+              <textarea  id= "editado" class="edit-text"></textarea>
+              <div class = "edit-text-btns">
+                <button type="button" class="btn-guardar">Guardar</button>
+                <button type="button" class="btn-cancelar">Cancelar</button>
+              </div>
+            </div>
+            <div id= "window-delete" class= "hide button-delete">
+              <p id="text-publication">¿Estás segura que quieres eliminar la ´publicación?</p>
+                <button type="button" class="btn-yes">Si</button>
+                <button type="button" class="btn-no">No</button>
+            </div>
+            <p class=""${totalLikes === 0 ? 'hide' : 'counter-like'}" > ${totalLikes} ¡Me encanta!
+              <span class = "tooltiptext"><i class="far fa-heart"></i></span>
             </p>
             <p id = "count-comment" class="count-comment"></p>   
             <hr>
-          <button type="button" id="corazon" ${doc.likes.length === -1 ? 'inactive-reaction' : 'active-reaction'}"><i class="far fa-heart"></i>Like</button>
+          <button type="button" id="corazon" ${doc.likes.length === -1 ? 'inactive-reaction' : 'active-reaction'}><i class="far fa-heart"></i>Like</button>
         </div>
     </div>`;
     section.innerHTML = template;
     const likes = section.querySelector('#corazon');
-    likes.addEventListener('click', () => {
+    getUserData(doc.userId)
+      .then((docito) => {
+        const thisName = section.querySelector('#thisName');
+        thisName.textContent = docito.data().username;
+        const pictureName = section.querySelector('#pictureName');
+        pictureName.src = docito.data().picture;
+      });
+    likes.addEventListener('click', (e) => {
+      e.preventDefault();
       const result = doc.likes.indexOf(user.userId);
       if (result === -1) {
         doc.likes.push(user.userId);
@@ -71,28 +97,66 @@ export default (user) => {
         updateLike(doc.id, doc.likes);
       }
     });
-    section.innerHTML = template;
-    section.querySelector('#borrar')
+
+    // section.querySelector('#edit-post')
+    //   .addEventListener('click', () => {
+    // li del menu boton
+    const editPost = section.querySelector('#edit-post');
+    const publication = section.querySelector('#text-publication');
+    const buttonSave = section.querySelector('.btn-guardar');
+    const buttonDelete = section.querySelector('.btn-cancelar');
+
+    editPost.addEventListener('click', () => {
+      section.querySelector('.edit-text-post').classList.remove('hide');
+      section.querySelector('.text-post').classList.add('hide');
+    });
+    buttonDelete.addEventListener('click', () => {
+      document.getElementById('modal-window').style.display = 'none';
+    });
+    section.querySelector('.btn-guardar')
       .addEventListener('click', () => {
-        deletePost(doc.id);
+        const editado = section.querySelector('#text-publication');
+        updatePost(doc.id, editado.value)
+          .then(() => {
+            editado.value = '';
+          });
       });
+
+    const modal = section.querySelector('#edit-post');
+    modal.addEventListener('click', () => {
+      document.getElementById('modal-window').style.display = 'block';
+    });
+
+    // const buttonYes = section.querySelector('.btn-yes');
+    const buttonNo = section.querySelector('.btn-no');
+
+    // buttonYes.addEventListener('click', () => {
+    //   document.getElementById('window-delete').style.display = 'none';
+    // });
+
+    buttonNo.addEventListener('click', () => {
+      document.getElementById('window-delete').style.display = 'none';
+    });
+
+    const botonEliminar = section.querySelector('#delete-post');
+    botonEliminar.addEventListener('click', () => {
+      document.getElementById('window-delete').style.display = 'block';
+      // deletePost(doc.id);
+    });
+
+    const botonYes = section.querySelector('.btn-yes');
+    botonYes.addEventListener('click', () => {
+      deletePost(doc.id);
+    });
+
+    // buttonSave.addEventListener('click', () => {
+    //   updatePost(doc.id, publication.value);
+    // });
+
     return section;
   };
 
   document.getElementById('header').classList.remove('hide');
-
-  // const textoPublic = viewHomePage.querySelector('#text-post');
-  // textoPublic.addEventListener('click' (e) {
-  //   const
-  // })
-
-      // getUserData(doc.uid)
-    //   .then((docito) => {
-    //     console.log(docito);
-    //     const thisName = section.querySelector('#thisName');
-    //     thisName.textContent = docito.data().username;
-    //   });
-
 
   const postPicture = viewHomePage.querySelector('#buttonImage');
   const textarea = viewHomePage.querySelector('#text-post');
@@ -109,7 +173,6 @@ export default (user) => {
       });
     }
   });
-  // IMAGEN
 
   // postPicture.addEventListener('click', () => {
   //   const ref = firebase.storage().ref();

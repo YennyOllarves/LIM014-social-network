@@ -88,3 +88,21 @@ padding-top: 50px;
 .form-group {
     display: flex;
     padding-top: 150px;
+}
+
+.edit-text-post{
+    background: blue;
+    position: absolute;
+    left: 30%;
+    padding: 20px;
+    display: none;
+}
+
+
+#window-delete{
+    background: green;
+    position: absolute;
+    left: 30%;
+    padding: 20px;
+    display: none;
+}
