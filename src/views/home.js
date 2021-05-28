@@ -167,7 +167,6 @@ export default (user) => {
     const publicate = viewHomePage.querySelector('#postContainer');
     publicate.innerHTML = '';
     if (data.length) {
-      console.log(data);
       data.forEach((doc) => {
         const section = textName(doc);
         publicate.appendChild(section);

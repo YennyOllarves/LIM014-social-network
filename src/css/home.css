@@ -18,17 +18,6 @@
 }
 
 .name {
-<<<<<<< HEAD
-position: absolute;
-height: 30px;
-left: 129px;
-top: 78px;
-font-family: Reem Kufi;
-font-style: normal;
-font-weight: normal;
-font-size: 20px;
-line-height: 30px;
-=======
     position: absolute;
     height: 30px;
     left: 129px;
@@ -38,7 +27,6 @@ line-height: 30px;
     font-weight: normal;
     font-size: 20px;
     line-height: 30px;
->>>>>>> developer
 }
 
 .this-name {
@@ -101,11 +89,7 @@ line-height: 30px;
     padding-top: 150px;
 }
 
-<<<<<<< HEAD
-.edit-text-post{
-=======
 .edit-text-post {
->>>>>>> developer
     background: blue;
     position: absolute;
     left: 30%;
@@ -114,11 +98,7 @@ line-height: 30px;
 }
 
 
-<<<<<<< HEAD
-#window-delete{
-=======
 #window-delete {
->>>>>>> developer
     background: green;
     position: absolute;
     left: 30%;

@@ -18,13 +18,6 @@ const menu = () => {
   </ul>
   </nav>
     `;
-  const hamburgerMenu = viewMenu.querySelector('#hamburger-menu');
-  const leftMenu = viewMenu.querySelector('#left-menu-header');
-  const rightMenu = viewMenu.querySelector('#log-out-header');
-  hamburgerMenu.addEventListener('click', () => {
-    leftMenu.classList.toggle('active');
-    rightMenu.classList.toggle('active');
-  });
 
   // Cerrar sesión
   const logout = viewMenu.querySelector('#logOut-header');
