@@ -1,4 +1,4 @@
-import { imgToStorage } from '../firebase-controllers/storage-controller.js';
+// import { imgToStorage } from '../firebase-controllers/storage-controller.js';
 import {
   deletePost, addPosts, getPosts, updateLike, getUserData, updatePost,
 } from '../firebase-controllers/fireStore-controller.js';
@@ -65,7 +65,7 @@ export default (user) => {
               </div>
             </div>
             <div id= "window-delete" class= "hide button-delete">
-              <p id="text-publication">¿Estás segura que quieres eliminar la ´publicación?</p>
+              <p id="text-publication">¿Estás segura que quieres eliminar la publicación?</p>
                 <button type="button" class="btn-yes">Si</button>
                 <button type="button" class="btn-no">No</button>
             </div>
@@ -102,8 +102,8 @@ export default (user) => {
     //   .addEventListener('click', () => {
     // li del menu boton
     const editPost = section.querySelector('#edit-post');
-    const publication = section.querySelector('#text-publication');
-    const buttonSave = section.querySelector('.btn-guardar');
+    // const publication = section.querySelector('#text-publication');
+    // const buttonSave = section.querySelector('.btn-guardar');
     const buttonDelete = section.querySelector('.btn-cancelar');
 
     editPost.addEventListener('click', () => {
@@ -115,7 +115,8 @@ export default (user) => {
     });
     section.querySelector('.btn-guardar')
       .addEventListener('click', () => {
-        const editado = section.querySelector('#text-publication');
+        const editado = section.querySelector('#editado');
+        // console.log(editado.value, doc.id)
         updatePost(doc.id, editado.value)
           .then(() => {
             editado.value = '';
@@ -173,112 +174,5 @@ export default (user) => {
       });
     }
   });
-
-  // postPicture.addEventListener('click', () => {
-  //   const ref = firebase.storage().ref();
-  //   const file = document.querySelector('#photo').files[0];
-  //   const name = `${new Date()}-${file.name}`;
-  //   if (file === null) {
-  //     // alert('Debe seleccionar una imagen');
-  //   } else {
-  //     const metadata = {
-  //       contentType: file.type,
-  //     };
-  //     const task = ref.child(name).put(file, metadata); // cuando la imagen suba de manera correcta,
-  //     task
-  //       .then((snapshot) => snapshot.ref.getDownloadURL()) // va a descargar la imagen,
-  //       .then((url) => { // obtenemos la url de la imagen
-  //         // console.log(url);
-  //         // alert('Image upload')
-  //         const imageElement = document.querySelector('#image'); //  asignar directamente a la etiqueta image
-  //         imageElement.src = url; // al imageElement queremos entrar a la propiedad src
-  //       });
-  //   }
-  //   console.log(ref);
-  // });
-
-  // POSTS
-  // const postArea = viewHomePage.querySelector('#text-post');
-  // postArea.addEventListener('click', (e) => {
-
-  // })
-
-  // // MY POSTS SECTION
-  // myPosts.addEventListener('click', (e) => {
-  //   e.stopPropagation();
-  //   Array.from(divElement.querySelectorAll('.divPost'))
-  //     .forEach((div) => {
-  //       // eslint-disable-next-line no-param-reassign
-  //       div.style.display = 'none';
-  //     });
-  //   myownPosts(showPosts, postArea, user.uid);
-  // });
-
-  // const postPicture = viewHomePage.querySelector('#postPicture');
-  // const removeImg = viewHomePage.querySelector('#removeImg');
-  // const imgFile = viewHomePage.querySelector('#imgFile');
-
-  // // imagen que se va a postear
-  // imgFile.addEventListener('change', (e) => {
-  //   // se crea el objeto FileReader
-  //   const fileReader = new FileReader();
-  //   // se lee el archivo subido y se pasa a fileReader
-  //   fileReader.readAsDataURL(e.target.files[0]);
-  //   // en cuanto esté listo ejecute el código interno
-  //   fileReader.onload = () => {
-  //     postPicture.src = fileReader.result;
-  //   };
-  //   // se muestra el botón de remover la imagen
-  //   removeImg.removeAttribute('style');
-  // });
-  // // remover imagen posteado
-  // removeImg.addEventListener('click', () => {
-  //   postPicture.src = '';
-  //   imgFile.value = '';
-  //   removeImg.style.display = 'none';
-  // });
-  // // agregar post
-  // const postForm = viewHomePage.querySelector('#postForm');
-  // postForm.addEventListener('submit', (e) => {
-  //   e.preventDefault();
-  //   postPicture.src = '';
-  //   removeImg.style.display = 'none';
-  //   // llamar a storage
-  //   const imagenFile = e.target.closest('#postForm').querySelector('input').files[0];
-  //   const loadingMsg = viewHomePage.querySelector('#loadingMsg');
-  //   const containerLoading = viewHomePage.querySelector('.container-loading');
-  //   const loadingProcess = viewHomePage.querySelector('#loadingProcess');
-  //   const textPost = viewHomePage.querySelector('.text-post');
-  //   if (imagenFile) {
-  //     const postRoute = `imgPicture/${userIdentity}/${imagenFile.name}`;
-  //     const sendImg = imgToStorage(postRoute, imagenFile);
-  //     sendImg.on('ChangeOfState', (thePicture) => {
-  //       // gestionar el proceso
-  //       const process = (thePicture.bytesTransferred / thePicture.totalBytes) * 100;
-  //       containerLoading.classList.add('modal');
-  //       loadingMsg.textContent = 'Tu post está cargando';
-  //       loadingProcess.value = process;
-  //     }, () => {
-  //       // gestionar cargas incorrectas
-  //     }, () => {
-  //       // gestionar cargas correctas al finalizar
-  //       loadingProcess.thePicture.ref.getDownloadURL()
-  //         .then((download) => {
-  //           addPosts(userIdentity, textPost.value, download)
-  //             .then(() => {
-  //               containerLoading.classList.remove('modal');
-  //               postForm.reset();
-  //             });
-  //         });
-  //     });
-  //   } else {
-  //     addPosts(userIdentity, textPost.value, '')
-  //       .then(() => {
-  //         containerLoading.classList.remove('modal');
-  //         postForm.reset();
-  //       });
-  //   }
-  // });
-
   return viewHomePage;
 };

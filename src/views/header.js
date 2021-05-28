@@ -16,7 +16,7 @@ const menu = () => {
       </a>
       <li id="logOut-header"><a href="#/home"><span class="the-home"><i class="fas fa-sign-out-alt"></i></span>Cerrar sesión</a></li>
   </ul>
-</nav>
+  </nav>
 
     `;
 

@@ -1,14 +1,17 @@
 
 
 #menu {
-    position: sticky;
   top: 0;
   width: 100%;
-  display: flex; 
-  z-index: 2;
+  /* display: flex;  */
+  /* z-index: 2; */
   border: none; 
   margin: 0;
   padding: 0;
+  display:block;
+  position: fixed;
+  z-index: 10;
+  height: 50px;
   background: linear-gradient(180deg, #F58948 0%, rgba(255, 255, 255, 0) 100%),
 linear-gradient(180deg, #E8B54F 0%, rgba(255, 255, 255, 0) 100%),
 linear-gradient(180deg, #034147 0%, rgba(255, 255, 255, 0) 100%),
@@ -16,13 +19,7 @@ linear-gradient(180deg, #94CBD1 0%, rgba(255, 255, 255, 0) 100%),
 linear-gradient(180deg, #00A1A1 99.99%, rgba(3, 65, 71, 0) 100%);
   }
 
-#menu {
-    display:block;
-  width: 100%;
- position: fixed;
-  z-index: 10;
-  height: 50px;
-}
+
 header label {
     display: none;
     width: 10px;
@@ -58,10 +55,7 @@ header label {
     flex-grow: 2;
     text-align: center;
   }
-  
-  #menu-button {
-    display: none;
-  }
+
 
   label:hover{
     cursor: pointer;
