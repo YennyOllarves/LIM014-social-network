@@ -22,7 +22,6 @@ export default (user) => {
                   <div class="form-group">
                   <textarea id='text-post' placeholder='¿Qué quieres compartir?' spellcheck='false' required ></textarea>
                   </div>
-                  <i id='removeImg' style='display:none' class='remove-img'></i>
                     <div class="container">
                         <button id="buttonImage">Compartir</button>
                     </div>
@@ -57,14 +56,14 @@ export default (user) => {
             </ul>
             <div class="content-post">
             <p class="text-post">${doc.publication}</p>
-            <div class = "hide edit-text-post" id="modal-window">
+            <div class = "hide edit-text-post modal-window">
               <textarea  id= "editado" class="edit-text"></textarea>
               <div class = "edit-text-btns">
-                <button type="button" class="btn-guardar">Guardar</button>
+                <button type="button" data-id= ${doc.id} class="btn-guardar">Guardar</button>
                 <button type="button" class="btn-cancelar">Cancelar</button>
               </div>
             </div>
-            <div id= "window-delete" class= "hide button-delete">
+            <div class= "hide button-delete window-delete">
               <p id="text-publication">¿Estás segura que quieres eliminar la publicación?</p>
                 <button type="button" class="btn-yes">Si</button>
                 <button type="button" class="btn-no">No</button>
@@ -111,13 +110,14 @@ export default (user) => {
       section.querySelector('.text-post').classList.add('hide');
     });
     buttonDelete.addEventListener('click', () => {
-      document.getElementById('modal-window').style.display = 'none';
+      section.querySelector('.modal-window').style.display = 'none';
     });
     section.querySelector('.btn-guardar')
-      .addEventListener('click', () => {
-        const editado = section.querySelector('#editado');
-        // console.log(editado.value, doc.id)
-        updatePost(doc.id, editado.value)
+      .addEventListener('click', (e) => {
+        const editado = section.querySelector('.edit-text');
+        console.log(doc.id);
+        const idPost = e.target.dataset.id;
+        updatePost(idPost, editado.value)
           .then(() => {
             editado.value = '';
           });
@@ -125,7 +125,7 @@ export default (user) => {
 
     const modal = section.querySelector('#edit-post');
     modal.addEventListener('click', () => {
-      document.getElementById('modal-window').style.display = 'block';
+      section.querySelector('.modal-window').style.display = 'block';
     });
 
     // const buttonYes = section.querySelector('.btn-yes');
@@ -136,12 +136,12 @@ export default (user) => {
     // });
 
     buttonNo.addEventListener('click', () => {
-      document.getElementById('window-delete').style.display = 'none';
+      section.querySelector('.window-delete').style.display = 'none';
     });
 
     const botonEliminar = section.querySelector('#delete-post');
     botonEliminar.addEventListener('click', () => {
-      document.getElementById('window-delete').style.display = 'block';
+      section.querySelector('.window-delete').style.display = 'block';
       // deletePost(doc.id);
     });
 
@@ -161,13 +161,15 @@ export default (user) => {
 
   const postPicture = viewHomePage.querySelector('#buttonImage');
   const textarea = viewHomePage.querySelector('#text-post');
-  postPicture.addEventListener('click', () => {
+  postPicture.addEventListener('click', (e) => {
+    e.preventDefault();
     addPosts(user.uid, textarea.value, user.picture);
   });
   getPosts((data) => {
     const publicate = viewHomePage.querySelector('#postContainer');
     publicate.innerHTML = '';
     if (data.length) {
+      console.log(data);
       data.forEach((doc) => {
         const section = textName(doc);
         publicate.appendChild(section);
