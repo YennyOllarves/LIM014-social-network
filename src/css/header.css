@@ -1,35 +1,98 @@
 
 
 #menu {
-    position: sticky;
   top: 0;
   width: 100%;
-  display: flex; 
-  z-index: 2;
+  /* display: flex;  */
+  /* z-index: 2; */
   border: none; 
   margin: 0;
-  padding: 0;
-  background: linear-gradient(180deg, #F58948 0%, rgba(255, 255, 255, 0) 100%),
+  display:block;
+  position: fixed;
+  /* background: linear-gradient(180deg, #F58948 0%, rgba(255, 255, 255, 0) 100%),
 linear-gradient(180deg, #E8B54F 0%, rgba(255, 255, 255, 0) 100%),
 linear-gradient(180deg, #034147 0%, rgba(255, 255, 255, 0) 100%),
 linear-gradient(180deg, #94CBD1 0%, rgba(255, 255, 255, 0) 100%),
-linear-gradient(180deg, #00A1A1 99.99%, rgba(3, 65, 71, 0) 100%);
-  }
+linear-gradient(180deg, #00A1A1 99.99%, rgba(3, 65, 71, 0) 100%); */
+  opacity: 0;
+}
 
-#menu {
-    display:block;
+
+
+body {
+  font-family: Reem Kufi;
+}
+
+.topnav{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  max-width: 980px;
+  margin: 0 auto;
+  left: 0;
+  top: 0;
   width: 100%;
- position: fixed;
-  z-index: 10;
-  height: 50px;
 }
-header label {
-    display: none;
-    width: 10px;
-    height: 10px;
-    padding: 10px;
+
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-#menu-button {
+
+.menu li{
+  padding: 0 15px;
+
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  line-height: 50px;
+}
+
+.abrir-menu{
+  display: none;
+  position: absolute; 
+  top: 1.7rem; 
+  font-size: 1.8rem; 
+  left: 2rem;
+  cursor: pointer; 
+}
+
+
+@media (max-width:950px){
+  .menu {
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    align-items: center;
+    background: chocolate;
+    color:white;
+  }
+  
+  .menu li{
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+
+  }
+  
+  #abrir-menu{
+    display: block;
+    cursor: pointer;
+    align-self: flex-end;
+    background: none;
+  }
+  
+}
+/* #menu-button {
     display: none;
   }
 #menu nav {
@@ -58,10 +121,7 @@ header label {
     flex-grow: 2;
     text-align: center;
   }
-  
-  #menu-button {
-    display: none;
-  }
+
 
   label:hover{
     cursor: pointer;
@@ -73,4 +133,4 @@ header label {
   }
   .icon {
     height: 80px;
-  }
+  } */

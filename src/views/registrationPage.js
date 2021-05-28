@@ -1,7 +1,7 @@
 import {
-  userRegister, checkMail, loginGoogle, currentUser,
+  userRegister, checkMail, loginGoogle,
 } from '../firebase-controllers/auth-controller.js';
-import { sendGeneralData, getUserData } from '../firebase-controllers/fireStore-controller.js';
+import { sendGeneralData } from '../firebase-controllers/fireStore-controller.js';
 
 // export default, name registrationPage
 export default () => {
@@ -91,7 +91,7 @@ export default () => {
   const userSingUp = viewRegister.querySelector('#boxForm-Register');
   userSingUp.addEventListener('submit', (e) => {
     e.preventDefault();
-    const usernameInput = viewRegister.querySelector('#theName').value;
+    // const usernameInput = viewRegister.querySelector('#theName').value;
     const emailInput = viewRegister.querySelector('#email').value;
     const passwordInput = viewRegister.querySelector('#password').value;
     const msgError = viewRegister.querySelector('.msg-error');
@@ -105,7 +105,7 @@ export default () => {
         // user.updateProfile({
         //   displayName: usernameInput,
         // });
-        sendGeneralData(emailInput, nameInput, user.uid);
+        sendGeneralData(emailInput, user.uid);
         checkMail()
 
           .then(() => {
