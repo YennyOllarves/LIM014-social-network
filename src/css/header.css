@@ -1,76 +1,72 @@
-
-
 #menu {
-    position: sticky;
   top: 0;
   width: 100%;
-  display: flex; 
-  z-index: 2;
-  border: none; 
+  /* display: flex;  */
+  /* z-index: 2; */
+  border: none;
   margin: 0;
   padding: 0;
-  background: linear-gradient(180deg, #F58948 0%, rgba(255, 255, 255, 0) 100%),
-linear-gradient(180deg, #E8B54F 0%, rgba(255, 255, 255, 0) 100%),
-linear-gradient(180deg, #034147 0%, rgba(255, 255, 255, 0) 100%),
-linear-gradient(180deg, #94CBD1 0%, rgba(255, 255, 255, 0) 100%),
-linear-gradient(180deg, #00A1A1 99.99%, rgba(3, 65, 71, 0) 100%);
-  }
-
-#menu {
-    display:block;
-  width: 100%;
- position: fixed;
+  display: block;
+  position: fixed;
   z-index: 10;
   height: 50px;
+  background: linear-gradient(180deg, #F58948 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #E8B54F 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #034147 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #94CBD1 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #00A1A1 99.99%, rgba(3, 65, 71, 0) 100%);
 }
+
+
 header label {
-    display: none;
-    width: 10px;
-    height: 10px;
-    padding: 10px;
+  display: none;
+  width: 10px;
+  height: 10px;
+  padding: 10px;
 }
+
 #menu-button {
-    display: none;
-  }
+  display: none;
+}
+
 #menu nav {
-    width: 100%;
-    display: flex; 
+  width: 100%;
+  display: flex;
 }
 
 #menu ul {
-    margin: 0;
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-  }
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
 
 #menu li:hover {
-    background: rgba(13, 192, 224, 0.705);
+  background: rgba(13, 192, 224, 0.705);
 }
 
 #menu li a {
-    display: block;
-    padding: 20px 30px;
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Viga', sans-serif;
-    flex-grow: 2;
-    text-align: center;
-  }
-  
-  #menu-button {
-    display: none;
-  }
+  display: block;
+  padding: 20px 30px;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Viga', sans-serif;
+  flex-grow: 2;
+  text-align: center;
+}
 
-  label:hover{
-    cursor: pointer;
-    background: rgba(13, 192, 224, 0.705);
-  }
-  #hamburguer-menu {
-    color: #000;
-    z-index: 10; 
-  }
-  .icon {
-    height: 80px;
-  }
+
+label:hover {
+  cursor: pointer;
+  background: rgba(13, 192, 224, 0.705);
+}
+
+#hamburguer-menu {
+  color: #000;
+  z-index: 10;
+}
+
+.icon {
+  height: 80px;
+}
