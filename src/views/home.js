@@ -1,11 +1,7 @@
 // import { imgToStorage } from '../firebase-controllers/storage-controller.js';
 import {
-<<<<<<< HEAD
   deletePost, addPosts, getPosts, updateLike, getUserData, updatePost,
 } from '../firebase-controllers/fireStore-controller.js';
-=======
-  deletePost, addPosts, getPosts, updateLike, getUserData} from '../firebase-controllers/fireStore-controller.js';
->>>>>>> 02d584cdaf00cd8c28db1acf9246615aa516f030
 
 export default (user) => {
   const viewHomePage = document.createElement('section');
