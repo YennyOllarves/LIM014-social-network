@@ -56,14 +56,14 @@ export default (user) => {
             </ul>
             <div class="content-post">
             <p class="text-post">${doc.publication}</p>
-            <div class = "hide edit-text-post modal-window">
+            <div class = "hide edit-text-post" id="modal-window">
               <textarea  id= "editado" class="edit-text"></textarea>
               <div class = "edit-text-btns">
-                <button type="button" data-id= ${doc.id} class="btn-guardar">Guardar</button>
+                <button type="button" class="btn-guardar">Guardar</button>
                 <button type="button" class="btn-cancelar">Cancelar</button>
               </div>
             </div>
-            <div class= "hide button-delete window-delete">
+            <div id= "window-delete" class= "hide button-delete">
               <p id="text-publication">¿Estás segura que quieres eliminar la publicación?</p>
                 <button type="button" class="btn-yes">Si</button>
                 <button type="button" class="btn-no">No</button>
@@ -77,16 +77,6 @@ export default (user) => {
         </div>
     </div>`;
     section.innerHTML = template;
-
-    getUserData(doc.userId)
-      .then((docito) => {
-        console.log(docito.data());
-        const thisName = section.querySelector('#thisName');
-        thisName.textContent = docito.data().username;
-        const pictureName = section.querySelector('#pictureName');
-        pictureName.src = docito.data().picture;
-      });
-
     const likes = section.querySelector('#corazon');
     getUserData(doc.userId)
       .then((docito) => {
@@ -106,7 +96,6 @@ export default (user) => {
         updateLike(doc.id, doc.likes);
       }
     });
-
     // section.querySelector('#edit-post')
     //   .addEventListener('click', () => {
     // li del menu boton
@@ -120,14 +109,13 @@ export default (user) => {
       section.querySelector('.text-post').classList.add('hide');
     });
     buttonDelete.addEventListener('click', () => {
-      section.querySelector('.modal-window').style.display = 'none';
+      document.getElementById('modal-window').style.display = 'none';
     });
     section.querySelector('.btn-guardar')
-      .addEventListener('click', (e) => {
-        const editado = section.querySelector('.edit-text');
-        console.log(doc.id);
-        const idPost = e.target.dataset.id;
-        updatePost(idPost, editado.value)
+      .addEventListener('click', () => {
+        const editado = section.querySelector('#editado');
+        // console.log(editado.value, doc.id)
+        updatePost(doc.id, editado.value)
           .then(() => {
             editado.value = '';
           });
@@ -135,7 +123,7 @@ export default (user) => {
 
     const modal = section.querySelector('#edit-post');
     modal.addEventListener('click', () => {
-      section.querySelector('.modal-window').style.display = 'block';
+      document.getElementById('modal-window').style.display = 'block';
     });
 
     // const buttonYes = section.querySelector('.btn-yes');
@@ -146,12 +134,12 @@ export default (user) => {
     // });
 
     buttonNo.addEventListener('click', () => {
-      section.querySelector('.window-delete').style.display = 'none';
+      document.getElementById('window-delete').style.display = 'none';
     });
 
     const botonEliminar = section.querySelector('#delete-post');
     botonEliminar.addEventListener('click', () => {
-      section.querySelector('.window-delete').style.display = 'block';
+      document.getElementById('window-delete').style.display = 'block';
       // deletePost(doc.id);
     });
 

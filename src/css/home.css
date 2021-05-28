@@ -18,6 +18,7 @@
 }
 
 .name {
+<<<<<<< HEAD
 position: absolute;
 height: 30px;
 left: 129px;
@@ -27,6 +28,17 @@ font-style: normal;
 font-weight: normal;
 font-size: 20px;
 line-height: 30px;
+=======
+    position: absolute;
+    height: 30px;
+    left: 129px;
+    top: 78px;
+    font-family: Reem Kufi;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
+>>>>>>> developer
 }
 
 .this-name {
@@ -43,44 +55,44 @@ line-height: 30px;
 }
 
 #text-post {
-position: absolute;
-width: 264px;
-height: 67px;
-left: 56px;
-top: 163px;
+    position: absolute;
+    width: 264px;
+    height: 67px;
+    left: 56px;
+    top: 163px;
 
-border: 1px solid rgba(0, 0, 0, 0.28);
-box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.28);
+    box-sizing: border-box;
 
 }
 
 #photo {
-position: absolute;
-left: 75px;
-top: 237px;
+    position: absolute;
+    left: 75px;
+    top: 237px;
 }
 
-#buttonImage{
-position: absolute;
-left: 75px;
-top: 260px;
+#buttonImage {
+    position: absolute;
+    left: 75px;
+    top: 260px;
 }
 
 
 
 
 .card {
-display: flex;
-flex-direction: column;
-text-align: center;
-padding: 20px 20px 20px 20px;
-border: gray 3px solid;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 20px 20px 20px;
+    border: gray 3px solid;
 }
 
 
 
 .column {
-padding-top: 50px;
+    padding-top: 50px;
 
 }
 
@@ -89,7 +101,11 @@ padding-top: 50px;
     padding-top: 150px;
 }
 
+<<<<<<< HEAD
 .edit-text-post{
+=======
+.edit-text-post {
+>>>>>>> developer
     background: blue;
     position: absolute;
     left: 30%;
@@ -98,7 +114,11 @@ padding-top: 50px;
 }
 
 
+<<<<<<< HEAD
 #window-delete{
+=======
+#window-delete {
+>>>>>>> developer
     background: green;
     position: absolute;
     left: 30%;
