@@ -1,7 +1,11 @@
 // import { imgToStorage } from '../firebase-controllers/storage-controller.js';
 import {
+<<<<<<< HEAD
   deletePost, addPosts, getPosts, updateLike, getUserData, updatePost,
 } from '../firebase-controllers/fireStore-controller.js';
+=======
+  deletePost, addPosts, getPosts, updateLike, getUserData} from '../firebase-controllers/fireStore-controller.js';
+>>>>>>> 02d584cdaf00cd8c28db1acf9246615aa516f030
 
 export default (user) => {
   const viewHomePage = document.createElement('section');
@@ -77,6 +81,16 @@ export default (user) => {
         </div>
     </div>`;
     section.innerHTML = template;
+
+    getUserData(doc.userId)
+      .then((docito) => {
+        console.log(docito.data());
+        const thisName = section.querySelector('#thisName');
+        thisName.textContent = docito.data().username;
+        const pictureName = section.querySelector('#pictureName');
+        pictureName.src = docito.data().picture;
+      });
+
     const likes = section.querySelector('#corazon');
     getUserData(doc.userId)
       .then((docito) => {
