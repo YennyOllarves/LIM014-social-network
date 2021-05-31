@@ -10,9 +10,11 @@
 }
 
 .default-avatar {
+  position: absolute;
   width: 55px;
   height: 55px;
-  margin-left: -60px;
+  left: 30px;
+  top: 70px;
   border-radius: 100px;
 }
 
@@ -40,18 +42,22 @@
   display: flex;
   width: 35px;
   height: 35px;
-  margin: 2px 5px;
+  margin: 8px 8px 8px 30px;
   border-radius: 100px;
 }
 
 .namePost {
-  margin: 20px 0px 20px 50px;
-  font-size: 20px;
+  margin: 20px 0px 0px 10px;
+  font-size: 18px;
+  padding: 0px 30px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 
 .name {
-  margin: 20px 0px 20px -120px;
-  font-family: Reem Kufi;
+  margin: 20px 0px 20px 120px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
   font-size: 20px;
 }
 
@@ -61,12 +67,14 @@
   height: 15px;
   left: 129px;
   top: 78px;
-  font-family: Reem Kufi;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
   line-height: 30px;
 }
+
 .division {
   display: flex;
   flex-direction: column;
@@ -78,7 +86,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding: 4px 0px 4px 5pxpx;
+  padding: 4px 0px 4px 5px;
   margin-bottom: 5px;
   border-radius: 8px;
   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
@@ -101,14 +109,27 @@
 .text-post {
   position: absolute;
   margin: 40px 20px 20px 25px;
-  width: 70%;
+  width: 60%;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 6px;
   font-size: 18px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
   background-color: #fdfbfb;
   border: 1px solid rgba(139, 138, 138, 0.28);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: 170px;
+  border: 1px solid rgb(187, 185, 185);
+  border-radius: 10px;
+  box-shadow: 5px 5px 6px #c2ebf5;
+  background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
 }
 
 .new-post {
@@ -143,15 +164,34 @@
   background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
 }
 
+.window-delete {
+  width: 55%;
+  top: 40%;
+  left: 20%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+  position: fixed;
+
+  padding: 10px;
+  display: none;
+}
+
 .column {
   padding-top: 50px;
   display: flex;
   justify-content: center;
 }
 
-.form-group {
-  display: flex;
-  padding-top: 150px;
+#corazon {
+  margin-top: 20px;
+  font-size: 15px;
+  height: 30px;
+  width: 40px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  box-shadow: 4px 4px orange;
+  cursor: pointer;
 }
 
 .edit-text-post {
@@ -164,6 +204,15 @@
 
   padding: 20px;
   display: none;
+}
+
+@media (max-width: 768) {
+  label {
+    display: block;
+  }
+  .menu-post-content {
+    flex-direction: column;
+  }
 }
 
 .window-delete {
@@ -211,177 +260,51 @@
 
 /*Menu de Edita y Eliminar*/
 
-.fa-bars {
-  display: none;
+.editando {
+  width: 4px;
 }
 
-label {
-  display: none;
-  width: 20px;
-  height: 30px;
-  padding: 10px;
+/*----------*/
+
+.btn-menu-post {
+  color: #2cab92;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-menu-post:hover,
+.btn-menu-post:focus {
+  background-color: rgba(44, 171, 146, 0.5);
+  color: #2b7a75;
+  border-radius: 50%;
+  /* display: inline-block; */
+  text-align: center;
+  /* line-height: 1.3rem; */
+  /* width: 1.2rem; */
 }
 
 .menu-post-content {
-  margin: 0;
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-}
-
-#menu-button {
   display: none;
+  position: absolute;
+  background-color: #e6ffff;
+  min-width: 60px;
+  /* overflow: auto; */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.356);
+  right: 0;
+  z-index: 1;
+  font-size: 14px;
 }
 
-#edit-post,
-#delete-post {
+.menu-post-content li {
+  color: #2b7a75;
+  /* padding: 5px 10px; */
   display: block;
-  padding: 20px 30px;
-  color: #000;
-  text-decoration: none;
-  font-family: 'Viga', sans-serif;
-  flex-grow: 2;
-  text-align: center;
+  cursor: pointer;
+  list-style: none;
+  padding: 5px 5px 5px 5px;
 }
 
-@media (max-width: 768) {
-  label {
-    display: block;
-  }
-  .menu-post-content {
-    flex-direction: column;
-  }
-}
-
-@media only screen and (min-width: 770px) {
-  .menuCentral {
-    height: 70px;
-  }
-  .profile {
-    display: block;
-    display: flex;
-  }
-  .profile-- {
-    display: none;
-  }
-  .homePage-container {
-    display: flex;
-    justify-content: flex-end;
-  }
-  .card-- {
-    margin-top: 90px;
-  }
-  #text-post {
-    width: 55%;
-  }
-
-  #buttonImage {
-    margin-left: 50%;
-  }
-
-  .text-post {
-    width: 55%;
-  }
-  .default-avatar {
-    margin-left: -250px;
-    margin-top: 30px;
-  }
-  .name {
-    margin-top: 40px;
-    margin-left: -30px;
-  }
-
-  @media only screen and (min-width: 1070px) {
-    .menuCentral {
-      height: 70px;
-    }
-    .profile {
-      display: block;
-      display: flex;
-      justify-content: space-around;
-      margin-right: 260px;
-    }
-    .profile-- {
-      display: none;
-    }
-    .homePage-container {
-      display: flex;
-      justify-content: flex-end;
-    }
-    .card-- {
-      margin-top: 90px;
-      width: 100%;
-    }
-    .card {
-      width: 100%;
-    }
-    #text-post {
-      width: 41%;
-    }
-
-    #buttonImage {
-      margin-left: 37%;
-      margin-top: -1%;
-    }
-
-    .text-post {
-      width: 41%;
-    }
-    .default-avatar {
-      margin-left: -250px;
-      margin-top: 30px;
-    }
-    .name {
-      margin-top: 40px;
-      margin-left: -30px;
-    }
-  }
-  @media only screen and (max-width: 1220px) and (min-width: 1080px) {
-    .menuCentral {
-      height: 70px;
-    }
-    .profile {
-      display: block;
-      display: flex;
-      justify-content: space-around;
-      margin-right: 260px;
-    }
-    .profile-- {
-      display: none;
-    }
-    .homePage-container {
-      display: flex;
-
-      justify-content: space-evenly;
-    }
-    .card-- {
-      margin-top: 90px;
-      width: 100%;
-    }
-    .card {
-      width: 100%;
-    }
-    #text-post {
-      width: 45%;
-    }
-
-    #buttonImage {
-      margin-left: 37%;
-      margin-top: -1%;
-    }
-
-    .text-post {
-      width: 45%;
-    }
-    .default-avatar {
-      margin-left: -250px;
-      margin-top: 30px;
-    }
-    .name {
-      margin-top: 40px;
-      margin-left: -30px;
-      font-size: 40px;
-    }
-  }
+.show {
+  display: block;
 }

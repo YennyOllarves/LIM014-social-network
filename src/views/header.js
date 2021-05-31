@@ -17,7 +17,7 @@ const menu = () => {
     </ul>
   </nav>
 </header>
-</header>
+
     `;
 
   // Cerrar sesión
