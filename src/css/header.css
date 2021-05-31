@@ -1,130 +1,99 @@
-#menu {
-  top: 0;
-  width: 100%;
-  /* display: flex;  */
-  /* z-index: 2; */
-  border: none;
+
+
+* {
   margin: 0;
-  display: block;
+}
+
+.menuCentral {
+  display:block;
+  width: 100%;
   position: fixed;
-  /* background: linear-gradient(180deg, #F58948 0%, rgba(255, 255, 255, 0) 100%),
-linear-gradient(180deg, #E8B54F 0%, rgba(255, 255, 255, 0) 100%),
-linear-gradient(180deg, #034147 0%, rgba(255, 255, 255, 0) 100%),
-linear-gradient(180deg, #94CBD1 0%, rgba(255, 255, 255, 0) 100%),
-linear-gradient(180deg, #00A1A1 99.99%, rgba(3, 65, 71, 0) 100%); */
-  opacity: 0;
+  height: 80px;
+  color: #fff;
+  z-index: 10;
+  background: linear-gradient(180deg, #F58948 0%, rgba(255, 255, 255, 0) 100%),
+  linear-gradient(180deg, #E8B54F 0%, rgba(255, 255, 255, 0) 100%),
+  linear-gradient(180deg, #034147 0%, rgba(255, 255, 255, 0) 100%),
+  linear-gradient(180deg, #94CBD1 0%, rgba(255, 255, 255, 0) 100%),
+  linear-gradient(180deg, #00A1A1 99.99%, rgba(3, 65, 71, 0) 100%); 
 }
 
-
-
-body {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.topnav {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  max-width: 980px;
-  margin: 0 auto;
-  left: 0;
-  top: 0;
-  width: 100%;
-}
-
-.menu {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.menu li {
-  padding: 0 15px;
-
-}
-
-a {
-  text-decoration: none;
-  color: black;
-  line-height: 50px;
-}
-
-.abrir-menu {
+#menu-button {
   display: none;
-  position: absolute;
-  top: 1.7rem;
-  font-size: 1.8rem;
-  left: 2rem;
-  cursor: pointer;
 }
 
+header label {
+  display: none;
+  width: 20px;
+  height: 30px;
+  padding: 10px;
+}
 
-@media (max-width:950px) {
+li:hover {
+  cursor: pointer;
+  background: rgba(13, 192, 224, 0.705);
+  height: 80px;
+}
+
+.menu ul {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.menu li:hover {
+  background: rgba(13, 192, 224, 0.705);
+
+}
+.menu li a {
+  display: block;
+  padding: 20px 30px;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Viga', sans-serif;
+  flex-grow: 2;
+  text-align: center;
+}
+
+/*RESPONSIVE - MENU*/
+@media (max-width:768px){
+  .menuCentral{
+    height: 50px;
+  }
+  header label {
+    display: block;
+  }
+
   .menu {
+    position: absolute;
+    width: 40%;
+    margin-left: -60%;
+    background: linear-gradient(180deg, #F58948 0%, rgba(255, 255, 255, 0) 100%),
+  linear-gradient(180deg, #E8B54F 0%, rgba(255, 255, 255, 0) 100%),
+  linear-gradient(180deg, #034147 0%, rgba(255, 255, 255, 0) 100%),
+  linear-gradient(180deg, #94CBD1 0%, rgba(255, 255, 255, 0) 100%),
+  linear-gradient(180deg, #00A1A1 99.99%, rgba(3, 65, 71, 0) 100%); 
+  }
+
+  .menu ul {
     flex-direction: column;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    align-items: center;
-    background: chocolate;
-    color: white;
   }
 
   .menu li {
-    padding: 0;
+    border: 1px solid #fff;
   }
 
-  a {
-    text-decoration: none;
-    color: white;
-
-  }
-
-  #abrir-menu {
-    display: block;
-    cursor: pointer;
-    align-self: flex-end;
-    background: none;
-  }
-
-}
-
-/* #menu-button {
-    display: none;
-  }
-#menu nav {
-    width: 100%;
-    display: flex; 
-}
-#menu ul {
+  #menu-button:checked ~ .menu {    /*cuando el menu-button tenga el checked va busca en html, la clase menu y va seleccionar todo lo que contenga esa clase*/
     margin: 0;
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
   }
-#menu li:hover {
-    background: rgba(13, 192, 224, 0.705);
-}
-#menu li a {
-    display: block;
-    padding: 20px 30px;
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Viga', sans-serif;
-    flex-grow: 2;
-    text-align: center;
-  }
-  label:hover{
-    cursor: pointer;
-    background: rgba(13, 192, 224, 0.705);
-  }
-  #hamburguer-menu {
-    color: #000;
-    z-index: 10; 
-  }
-  .icon {
+
+  .icon{
+    position: fixed;
+    top: -2.5px;
+    right: 60px;
     height: 80px;
-  } */
+ }
+}
+

@@ -7,14 +7,12 @@ export default (user) => {
   const viewHomePage = document.createElement('section');
   viewHomePage.classList.add('homePage-container');
   viewHomePage.innerHTML = `
-    <!-- Middle column -->
     <main class='home-column'>
-        <!-- post -->
-        <section class='the-post'>    
-            <section class='the-user'>
-            <img class='default-avatar' src='${user.picture}'>
-           <p class='name'>${user.username}</p>
-           </section>
+    <section class='the-user'>
+        <img class='default-avatar border--avatar' src='${user.picture}'>
+        <p class='name'>${user.username}</p>
+    </section>
+        <section class='the-post'>        
             <section class='new-post'>
               <div class="card">
                 <div class="card-body">
@@ -26,15 +24,11 @@ export default (user) => {
                         <button id="buttonImage">Compartir</button>
                     </div>
                   </form>
-                  <section>
-                  <button id="editar">Guardar</button>
-                  <button id="cancelar">Cancelar</button>
-                  </section>
                 </div>
               </div>
             </section>   
         </section>
-        <section id='postContainer'></section>
+      <section id='postContainer'></section>
     </main>
     `;
 
@@ -43,17 +37,22 @@ export default (user) => {
     const section = document.createElement('section');
     const template = `
     <div class="column">
-        <div class="card">
-          <section class= 'userContent'>
-            <img id="pictureName" class="default-user">
-            <p id='thisName'></p>
-          </section>
-        <p id="text-publication">${doc.publication}</p>
-            <i class="btn-menuPost"></i>
-            <ul id="menu-post-content" class="menu-post-content">
-              <li href="" id="edit-post"><i class="fas fa-edit select"></i>Editar</li>
-              <li id="delete-post"><i class="fas fa-trash-alt select"></i>Eliminar</li>
-            </ul>
+    <div class="division">
+    <div class="user-post">
+    <section class= 'userContent'>
+    <img id="pictureName" class="default-user border--user">
+    <p id='thisName' class= 'namePost'></p>
+    <div class="${(doc.userId !== doc.publication) ? 'hide' : 'show menu-post'}">
+    
+    <i class="fas fa-ellipsis-v btn-menu-post"></i>
+
+    <ul id="menu-post-content" class="menu-post-content">
+      <li id="edit-post"><i class="fas fa-edit select editando"></i></li>
+      <li id="delete-post"><i class="fas fa-trash-alt select"></i></li>
+    </ul> 
+    </div>
+    </section>               
+            <div class="card">
             <div class="content-post">
             <p class="text-post">${doc.publication}</p>
             <div class = "hide edit-text-post" id="modal-window">
@@ -68,15 +67,43 @@ export default (user) => {
                 <button type="button" class="btn-yes">Si</button>
                 <button type="button" class="btn-no">No</button>
             </div>
-            <p class=""${totalLikes === 0 ? 'hide' : 'counter-like'}" > ${totalLikes} ¡Me encanta!
-              <span class = "tooltiptext"><i class="far fa-heart"></i></span>
+            <div class='bottom'>
+            <p class="likes"${totalLikes === 0 ? 'hide' : 'counter-like'}" > ${totalLikes} ¡Me encanta!
+              <span class = "tooltiptext"></i></span>
             </p>
             <p id = "count-comment" class="count-comment"></p>   
-            <hr>
-          <button type="button" id="corazon" ${doc.likes.length === -1 ? 'inactive-reaction' : 'active-reaction'}><i class="far fa-heart"></i>Like</button>
+          
+          <button type="button" id="corazon" ${doc.likes.length === -1 ? 'inactive-reaction' : 'active-reaction'}><i class="far fa-heart"></i></button>
+          </div>
         </div>
-    </div>`;
+      </div>
+    </div>
+    
+
+    `;
     section.innerHTML = template;
+
+    getUserData(doc.userId)
+      .then((docito) => {
+        // console.log(docito.data());
+        const thisName = section.querySelector('#thisName');
+        thisName.textContent = docito.data().username;
+        const pictureName = section.querySelector('#pictureName');
+        pictureName.src = docito.data().picture;
+      });
+
+    // MENU DE EDITAR Y ELIMINAR
+    const btnMenu = section.querySelector('.btn-menu-post');
+    btnMenu.addEventListener('click', () => {
+      section.querySelector('#menu-post-content').classList.toggle('show');
+    });
+    // close menu click outside
+    window.addEventListener('click', (e) => {
+      if (e.target !== btnMenu) {
+        section.querySelector('#menu-post-content').classList.remove('show');
+      }
+    });
+
     const likes = section.querySelector('#corazon');
     getUserData(doc.userId)
       .then((docito) => {
@@ -167,6 +194,7 @@ export default (user) => {
     const publicate = viewHomePage.querySelector('#postContainer');
     publicate.innerHTML = '';
     if (data.length) {
+      // console.log(data);
       data.forEach((doc) => {
         const section = textName(doc);
         publicate.appendChild(section);
