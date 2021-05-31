@@ -45,7 +45,6 @@ export default (user) => {
     <div class="${(doc.userId !== doc.publication) ? 'hide' : 'show menu-post'}">
     
     <i class="fas fa-ellipsis-v btn-menu-post"></i>
-
     <ul id="menu-post-content" class="menu-post-content">
       <li id="edit-post"><i class="fas fa-edit select editando"></i></li>
       <li id="delete-post"><i class="fas fa-trash-alt select"></i></li>
@@ -55,14 +54,14 @@ export default (user) => {
             <div class="card">
             <div class="content-post">
             <p class="text-post">${doc.publication}</p>
-            <div class = "hide edit-text-post" id="modal-window">
+            <div class = "hide edit-text-post modal-window">
               <textarea  id= "editado" class="edit-text"></textarea>
               <div class = "edit-text-btns">
-                <button type="button" class="btn-guardar">Guardar</button>
+                <button type="button" data-id= ${doc.id} class="btn-guardar">Guardar</button>
                 <button type="button" class="btn-cancelar">Cancelar</button>
               </div>
             </div>
-            <div id= "window-delete" class= "hide button-delete">
+            <div class= "hide button-delete window-delete">
               <p id="text-publication">¿Estás segura que quieres eliminar la publicación?</p>
                 <button type="button" class="btn-yes">Si</button>
                 <button type="button" class="btn-no">No</button>
@@ -79,7 +78,6 @@ export default (user) => {
       </div>
     </div>
     
-
     `;
     section.innerHTML = template;
 
@@ -123,6 +121,7 @@ export default (user) => {
         updateLike(doc.id, doc.likes);
       }
     });
+
     // section.querySelector('#edit-post')
     //   .addEventListener('click', () => {
     // li del menu boton
