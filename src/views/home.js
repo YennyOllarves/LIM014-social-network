@@ -7,16 +7,20 @@ export default (user) => {
   const viewHomePage = document.createElement('section');
   viewHomePage.classList.add('homePage-container');
   viewHomePage.innerHTML = `
-    <!-- Middle column -->
+
+  <section class='the-user profile'>
+  <img class='default-avatar border--avatar' src='${user.picture}'>
+  <p class='name'>${user.username}</p>
+</section>
     <main class='home-column'>
-        <!-- post -->
-        <section class='the-post'>    
-            <section class='the-user'>
-            <img class='default-avatar' src='${user.picture}'>
-           <p class='name'>${user.username}</p>
-           </section>
+    <section class= 'container'>
+    <section class='the-user profile--'>
+        <img class='default-avatar border--avatar' src='${user.picture}'>
+        <p class='name'>${user.username}</p>
+    </section>
+        <section class='the-post'>        
             <section class='new-post'>
-              <div class="card">
+              <div class="card card--">
                 <div class="card-body">
                   <form id='postForm'>
                   <div class="form-group">
@@ -26,15 +30,12 @@ export default (user) => {
                         <button id="buttonImage">Compartir</button>
                     </div>
                   </form>
-                  <section>
-                  <button id="editar">Guardar</button>
-                  <button id="cancelar">Cancelar</button>
-                  </section>
                 </div>
               </div>
             </section>   
         </section>
-        <section id='postContainer'></section>
+      <section id='postContainer'></section>
+      </section>
     </main>
     `;
 
@@ -43,17 +44,18 @@ export default (user) => {
     const section = document.createElement('section');
     const template = `
     <div class="column">
-        <div class="card">
+    <div class="division">
           <section class= 'userContent'>
-            <img id="pictureName" class="default-user">
-            <p id='thisName'></p>
-          </section>
-        <p id="text-publication">${doc.publication}</p>
-            <i class="btn-menuPost"></i>
+            <img id="pictureName" class="default-user border--user">
+            <p id='thisName' class= 'namePost'></p>
+            <input type="checkbox" id="menu-button">
+            <label for="menu-button"><i class="fas fa-bars"></i></label>
             <ul id="menu-post-content" class="menu-post-content">
               <li href="" id="edit-post"><i class="fas fa-edit select"></i>Editar</li>
               <li id="delete-post"><i class="fas fa-trash-alt select"></i>Eliminar</li>
             </ul>
+            </section>
+            <div class="card">
             <div class="content-post">
             <p class="text-post">${doc.publication}</p>
             <div class = "hide edit-text-post modal-window">
@@ -68,13 +70,16 @@ export default (user) => {
                 <button type="button" class="btn-yes">Si</button>
                 <button type="button" class="btn-no">No</button>
             </div>
-            <p class=""${totalLikes === 0 ? 'hide' : 'counter-like'}" > ${totalLikes} ¡Me encanta!
-              <span class = "tooltiptext"><i class="far fa-heart"></i></span>
+            <div class='bottom'>
+            <p class="likes"${totalLikes === 0 ? 'hide' : 'counter-like'}" > ${totalLikes} ¡Me encanta!
+              <span class = "tooltiptext"></i></span>
             </p>
             <p id = "count-comment" class="count-comment"></p>   
-            <hr>
-          <button type="button" id="corazon" ${doc.likes.length === -1 ? 'inactive-reaction' : 'active-reaction'}><i class="far fa-heart"></i>Like</button>
+          
+          <button type="button" id="corazon" ${doc.likes.length === -1 ? 'inactive-reaction' : 'active-reaction'}><i class="far fa-heart"></i></button>
+          </div>
         </div>
+      </div>
     </div>`;
     section.innerHTML = template;
 
