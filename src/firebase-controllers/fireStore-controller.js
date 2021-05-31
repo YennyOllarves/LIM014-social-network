@@ -69,64 +69,63 @@ const updatePost = (idPost, updatePublication) => {
   });
 };
 
-// Base de Datos de Comentarios
-const addComment = (UserId, idPost, Comment) => {
-  const dataBase = firebase.firestore();
-  return dataBase.collection('posts').doc(idPost).collection('comentarios').add({
-    userId: UserId,
-    date: new Date().toLocaleString('es-ES'),
-    comment: Comment,
-  });
-};
-
-// Obtener todos los COmentarios onSnapsshot en vez de Get
-const getComment = (idPost, checkComments) => {
-  const dataBase = firebase.firestore();
-  dataBase.collection(`posts/${idPost}/comentarios`).orderBy('date', 'desc')
-    .onSnapshot((querySnapshot) => {
-      const comments = [];
-      querySnapshot.forEach((doc) => {
-        comments.push({ id: doc.id, ...doc.data() });
-      });
-      checkComments(comments);
-    });
-};
-
-// Eliminar COmentarios
-const deleteComment = (idPost, idComment) => {
-  const dataBase = firebase.firestore();
-  return dataBase.collection(`posts/${idPost}/comentarios`).doc(idComment).delete();
-};
-
-// Actualizar Comentarios
-const updateComment = (idPost, idComment, comment) => {
-  const dataBase = firebase.firestore();
-  return dataBase.collection(`posts/${idPost}/comentarios`).doc(idComment).update({ comment });
-};
-
-// Actualizar foto de perfil
-const updateProfilePhoto = (userId, picture) => {
-  const dataBase = firebase.firestore();
-  return dataBase.collection('usuarios').doc(userId).update({ picture });
-};
-
-// Actualizar foto de portada
-const updateCoverPhoto = (userId, photoCover) => {
-  const dataBase = firebase.firestore();
-  return dataBase.collection('usuarios').doc(userId).update({ photoCover });
-};
-
-// Actualizar Provacidad
-const updatePrivacy = (id, privacy) => {
-  const dataBase = firebase.firestore();
-  return dataBase.collection('posts').doc(id).update({ privacy });
-};
-
 // Actualizar Likes
 const updateLike = (id, likes) => {
   const dataBase = firebase.firestore();
   return dataBase.collection('posts').doc(id).update({ likes });
 };
+// // Base de Datos de Comentarios
+// const addComment = (UserId, idPost, Comment) => {
+//   const dataBase = firebase.firestore();
+//   return dataBase.collection('posts').doc(idPost).collection('comentarios').add({
+//     userId: UserId,
+//     date: new Date().toLocaleString('es-ES'),
+//     comment: Comment,
+//   });
+// };
+
+// // Obtener todos los COmentarios onSnapsshot en vez de Get
+// const getComment = (idPost, checkComments) => {
+//   const dataBase = firebase.firestore();
+//   dataBase.collection(`posts/${idPost}/comentarios`).orderBy('date', 'desc')
+//     .onSnapshot((querySnapshot) => {
+//       const comments = [];
+//       querySnapshot.forEach((doc) => {
+//         comments.push({ id: doc.id, ...doc.data() });
+//       });
+//       checkComments(comments);
+//     });
+// };
+
+// // Eliminar COmentarios
+// const deleteComment = (idPost, idComment) => {
+//   const dataBase = firebase.firestore();
+//   return dataBase.collection(`posts/${idPost}/comentarios`).doc(idComment).delete();
+// };
+
+// // Actualizar Comentarios
+// const updateComment = (idPost, idComment, comment) => {
+//   const dataBase = firebase.firestore();
+//   return dataBase.collection(`posts/${idPost}/comentarios`).doc(idComment).update({ comment });
+// };
+
+// // Actualizar foto de perfil
+// const updateProfilePhoto = (userId, picture) => {
+//   const dataBase = firebase.firestore();
+//   return dataBase.collection('usuarios').doc(userId).update({ picture });
+// };
+
+// // Actualizar foto de portada
+// const updateCoverPhoto = (userId, photoCover) => {
+//   const dataBase = firebase.firestore();
+//   return dataBase.collection('usuarios').doc(userId).update({ photoCover });
+// };
+
+// // Actualizar Provacidad
+// const updatePrivacy = (id, privacy) => {
+//   const dataBase = firebase.firestore();
+//   return dataBase.collection('posts').doc(id).update({ privacy });
+// };
 
 export {
   sendGeneralData,
@@ -136,12 +135,12 @@ export {
   getPosts,
   deletePost,
   updatePost,
-  addComment,
-  getComment,
-  deleteComment,
-  updateComment,
-  updateProfilePhoto,
-  updateCoverPhoto,
-  updatePrivacy,
+  // addComment,
+  // getComment,
+  // deleteComment,
+  // updateComment,
+  // updateProfilePhoto,
+  // updateCoverPhoto,
+  // updatePrivacy,
   updateLike,
 };

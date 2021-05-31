@@ -22,7 +22,12 @@
     height: 30px;
     left: 129px;
     top: 78px;
-    font-family: Reem Kufi;
+    font-family: 'Trebuchet MS',
+    'Lucida Sans Unicode',
+    'Lucida Grande',
+    'Lucida Sans',
+    Arial,
+    sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
@@ -35,7 +40,12 @@
     height: 15px;
     left: 129px;
     top: 78px;
-    font-family: Reem Kufi;
+    font-family: 'Trebuchet MS',
+    'Lucida Sans Unicode',
+    'Lucida Grande',
+    'Lucida Sans',
+    Arial,
+    sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
