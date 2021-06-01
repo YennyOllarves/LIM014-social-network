@@ -1,9 +1,16 @@
 .the-user {
-    padding-top: 70px;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 25px;
+    margin-left: -20px;
+    margin-bottom: 18px;
 }
+/* .profile {
+    display: none;
+} */
 
 .default-avatar {
-    position: absolute;
+    /* position: absolute; */
     width: 55px;
     height: 55px;
     left: 30px;
@@ -35,19 +42,19 @@
     display: flex;
     width: 35px;
     height: 35px;
-    margin: 8px 8px 8px 30px;
+    margin: 8px 8px 8px -10px;
     border-radius: 100px;
 }
  
 .namePost {
-    margin: 20px 0px 0px 10px;
+    margin: 20px 0px 0px -20px;
     font-size: 18px;
     padding: 0px 30px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }  
 
 .name {
-    margin: 20px 0px 20px 120px;
+    margin: 20px 0px 20px -100px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
 }
@@ -65,20 +72,24 @@
     font-size: 20px;
     line-height: 30px;
 }
+.user-post{
+    width: 100%;
+}
 .division {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
     align-items: center;
 }  
 
 .userContent {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 95%;
     padding: 4px 0px 4px 5px;
     margin-bottom: 5px;
     border-radius: 8px;
+    justify-content: space-around;
     background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   }
   
@@ -88,7 +99,7 @@
     margin-top: -130px;
     margin-left: 45px;
     width: 70%;
-    height: 18%;
+    height: 10%;
     text-align: center;
     padding: 35px;
     border-radius: 10px;
@@ -99,8 +110,8 @@
 
 .text-post {
     position: absolute;
-    margin: 40px 20px 20px 25px;
-    width: 60%;
+    margin: 40px 20px 20px 35px;
+    width: 70%;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -229,10 +240,11 @@ top: 237px;
 /*----------*/
 
 .btn-menu-post{
-    color: #2CAB92;
+    /* color: #2CAB92;
     font-size: 1rem;
     border: none;
     cursor: pointer;
+    margin-right: 1px; */
 }
 .btn-menu-post:hover, .btn-menu-post:focus{
     background-color: rgba(44, 171, 146, 0.5);
@@ -253,7 +265,7 @@ top: 237px;
     min-width: 60px;
     /* overflow: auto; */
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.356);
-    right: 0;
+    right: 17px;
     z-index: 1;
     font-size: 14px;
 }
@@ -268,3 +280,190 @@ top: 237px;
 }
 
 .show {display: block;}
+
+
+/*----YENN------*/
+
+@media (max-width: 768) {
+    label {
+      display: block;
+    }
+    .menu-post-content {
+      flex-direction: column;
+    }
+    .text-post,
+    .user-post,
+    .division{
+        width: 90%;
+    }
+  }
+  
+  @media only screen and (min-width: 770px) {
+    .menuCentral {
+      height: 70px;
+    }
+    .profile {
+      display: block;
+    }
+   
+    .homePage-container {
+        display: grid;
+        grid-template-columns: 40% 60%;
+    }
+
+    .userContent{
+        width: 100%;
+    }
+    .card-- {
+      margin-top: -150px;
+    }
+    #text-post {
+      width: 40%;
+    }
+  
+    .the-user{
+        padding-top: 30px;
+        margin-bottom: 18px;
+        margin-left: -230px;
+    }
+
+    #buttonImage {
+      margin-left: 35%;
+      margin-top: -14px;
+    }
+  
+    .text-post{
+      width: 45%;
+    }
+
+    .card{
+        width: 100%;
+    }
+    .default-avatar {
+        margin-left: 30px;
+        margin-top: 80px;
+        width: 95px;
+        height: 95px;    
+    }
+    .name {
+      margin-top: 30px;
+      margin-left: -30px;
+      font-size: 24px;
+    }
+  
+    @media only screen and (min-width: 1070px) {
+        .menuCentral {
+            height: 70px;
+          }
+          .profile {
+            display: block;
+          }
+         
+          .homePage-container {
+              display: grid;
+              grid-template-columns: 40% 60%;
+          }
+      
+          .userContent{
+              width: 97%;
+          }
+          .card-- {
+            margin-top: -160px;
+          }
+          #text-post {
+            width: 50%;
+            height: 10%;
+          }
+        
+          .the-user{
+              padding-top: 30px;
+              margin-bottom: 18px;
+              margin-left: -230px;
+          }
+      
+          #buttonImage {
+            margin-left: 46%;
+            margin-top: -15px;
+          }
+        
+          .text-post{
+            width: 50%;
+          }
+      
+          .card{
+              width: 97%;
+          }
+          .default-avatar {
+            margin-left: -70px;
+            margin-top: 80px;   
+          }
+          .name {
+            margin-top: 10px;
+            margin-left: -150px;
+          }
+
+          .default-user {
+            display: flex;
+            width: 40px;
+            height: 40px;
+            margin: 8px 8px 8px -10px;
+            border-radius: 100px;
+        }
+
+        .namePost {
+            margin: 20px 0px 0px -20px;
+            font-size: 22px;
+            padding: 0px 30px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    }
+    /* @media only screen and (max-width: 1220px) and (min-width: 1080px) {
+      .menuCentral {
+        height: 70px;
+      }
+      .profile {
+        display: block;
+        display: flex;
+        justify-content: space-around;
+        margin-right: 260px;
+      }
+      .profile-- {
+        display: none;
+      }
+      .homePage-container {
+        display: flex;
+  
+        justify-content: space-evenly;
+      }
+      .card-- {
+        margin-top: 90px;
+        width: 100%;
+      }
+      .card {
+        width: 100%;
+      }
+      #text-post {
+        width: 45%;
+      }
+  
+      #buttonImage {
+        margin-left: 37%;
+        margin-top: -1%;
+      }
+  
+      .text-post {
+        width: 45%;
+      }
+      .default-avatar {
+        margin-left: -250px;
+        margin-top: 30px;
+      }
+      .name {
+        margin-top: 40px;
+        margin-left: -30px;
+        font-size: 40px;
+      }
+    }
+  }
+
+   */
