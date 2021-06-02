@@ -313,7 +313,7 @@ afrontar de muchas maneras: con archivos HTML independientes (cada uno con su
 URL) y links tradicionales, manteniendo estado en memoria y rederizando
 condicionalmente (sin refrescar la página), [manipulando el historial del
 navegador](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
-con [`window.history`](https://developer.mozilla.org/es/docs/Web/API/Window/history).
+con [`.history`](https://developer.mozilla.org/es/docs/Web/API/Window/history).
 En este proyecto te invitamos a explorar opciones y decidir una opción
 de implementación.
 

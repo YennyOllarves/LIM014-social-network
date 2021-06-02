@@ -17,6 +17,7 @@ const userRegister = (email, password) => { // consulta de agregar name al param
   return auth.createUserWithEmailAndPassword(email, password);
 };
 
+// observador
 const onAuthStateChanged = (callback) => {
   firebase.auth().onAuthStateChanged(callback);
 };
