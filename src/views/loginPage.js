@@ -57,7 +57,7 @@ export default () => {
             <input type='password' id='password' class='form-one' pattern='[a-zA-Z0-9]{6,20}' placeholder='Contraseña' required />
           </section>
           <button type='submit' id='' class='form-one btn-login'>Iniciar sesión</button>
-          <p class='msg-error'></p>
+          <p class='msg-error'></p> <br/>
           <p class='login-options'> También puedes ingresar con... </p>
           <section class='options-login'>
           

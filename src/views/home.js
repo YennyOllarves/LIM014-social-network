@@ -48,7 +48,6 @@ export default (user) => {
     <div class="${(doc.userId !== doc.publication) ? 'hide' : 'show btn-menu-post'}">
     
     <i class="fas fa-ellipsis-v btn-menu-post"></i>
-
     <ul id="menu-post-content" class="menu-post-content">
       <li id="edit-post"><i class="fas fa-edit select editando"></i></li>
       <li id="delete-post"><i class="fas fa-trash-alt select"></i></li>
@@ -82,7 +81,6 @@ export default (user) => {
       </div>
     </div>
     
-
     `;
     section.innerHTML = template;
 

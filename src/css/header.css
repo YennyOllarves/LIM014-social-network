@@ -1,11 +1,9 @@
-
-
 * {
   margin: 0;
 }
 
 .menuCentral {
-  display:block;
+  display: block;
   width: 100%;
   position: fixed;
   height: 80px;
@@ -13,10 +11,10 @@
   z-index: 10;
   margin: auto;
   background: linear-gradient(180deg, #F58948 0%, rgba(255, 255, 255, 0) 100%),
-  linear-gradient(180deg, #E8B54F 0%, rgba(255, 255, 255, 0) 100%),
-  linear-gradient(180deg, #034147 0%, rgba(255, 255, 255, 0) 100%),
-  linear-gradient(180deg, #94CBD1 0%, rgba(255, 255, 255, 0) 100%),
-  linear-gradient(180deg, #00A1A1 99.99%, rgba(3, 65, 71, 0) 100%); 
+    linear-gradient(180deg, #E8B54F 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #034147 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #94CBD1 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #00A1A1 99.99%, rgba(3, 65, 71, 0) 100%);
 }
 
 #menu-button {
@@ -48,6 +46,7 @@ li:hover {
   background: rgba(13, 192, 224, 0.705);
 
 }
+
 .menu li a {
   display: block;
   padding: 20px 30px;
@@ -59,10 +58,11 @@ li:hover {
 }
 
 /*RESPONSIVE - MENU*/
-@media (max-width:768px){
-  .menuCentral{
+@media (max-width:768px) {
+  .menuCentral {
     height: 50px;
   }
+
   header label {
     display: block;
   }
@@ -72,10 +72,10 @@ li:hover {
     width: 40%;
     margin-left: -60%;
     background: linear-gradient(180deg, #F58948 0%, rgba(255, 255, 255, 0) 100%),
-  linear-gradient(180deg, #E8B54F 0%, rgba(255, 255, 255, 0) 100%),
-  linear-gradient(180deg, #034147 0%, rgba(255, 255, 255, 0) 100%),
-  linear-gradient(180deg, #94CBD1 0%, rgba(255, 255, 255, 0) 100%),
-  linear-gradient(180deg, #00A1A1 99.99%, rgba(3, 65, 71, 0) 100%); 
+      linear-gradient(180deg, #E8B54F 0%, rgba(255, 255, 255, 0) 100%),
+      linear-gradient(180deg, #034147 0%, rgba(255, 255, 255, 0) 100%),
+      linear-gradient(180deg, #94CBD1 0%, rgba(255, 255, 255, 0) 100%),
+      linear-gradient(180deg, #00A1A1 99.99%, rgba(3, 65, 71, 0) 100%);
   }
 
   .menu ul {
@@ -86,15 +86,17 @@ li:hover {
     border: 1px solid #fff;
   }
 
-  #menu-button:checked ~ .menu {    /*cuando el menu-button tenga el checked va busca en html, la clase menu y va seleccionar todo lo que contenga esa clase*/
+  #menu-button:checked~.menu {
+    /*cuando el menu-button tenga el checked va busca en html, la clase menu y va seleccionar todo lo que contenga esa clase*/
     margin: 0;
   }
 
-  .icon{
+  .icon {
     position: fixed;
     top: -2.5px;
     right: 60px;
     height: 80px;
+
  }
 }
 
@@ -103,3 +105,4 @@ li:hover {
     font-size: 24px;
   }
 }
+

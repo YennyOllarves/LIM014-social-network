@@ -16,20 +16,18 @@
     left: 30px;
     top: 70px;
     border-radius: 100px;
-}  
+}
 
 .border--avatar {
     border: solid 3px transparent;
     border-radius: 100px;
-    background-image: linear-gradient(
-      to right,
-      #e4afcb 0%,
-      #b8cbb8 0%,
-      #b8cbb8 0%,
-      #e2c58b 30%,
-      #c2ce9c 64%,
-      #7edbdc 100%
-    );
+    background-image: linear-gradient(to right,
+            #e4afcb 0%,
+            #b8cbb8 0%,
+            #b8cbb8 0%,
+            #e2c58b 30%,
+            #c2ce9c 64%,
+            #7edbdc 100%);
 }
 
 .border--user {
@@ -37,7 +35,7 @@
     border-radius: 100px;
     background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }
-  
+
 .default-user {
     display: flex;
     width: 35px;
@@ -45,20 +43,20 @@
     margin: 8px 8px 8px -10px;
     border-radius: 100px;
 }
- 
+
 .namePost {
     margin: 20px 0px 0px -20px;
     font-size: 18px;
     padding: 0px 30px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}  
+}
 
 .name {
     margin: 20px 0px 20px -100px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
 }
-  
+
 
 .this-name {
     display: flex;
@@ -72,15 +70,17 @@
     font-size: 20px;
     line-height: 30px;
 }
+
 .user-post{
     width: 100%;
 }
+
 .division {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
-}  
+}
 
 .userContent {
     display: flex;
@@ -91,8 +91,8 @@
     border-radius: 8px;
     justify-content: space-around;
     background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-  }
-  
+}
+
 
 #text-post {
     position: absolute;
@@ -120,18 +120,18 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: #fdfbfb;
     border: 1px solid rgba(139, 138, 138, 0.28);
-  }
-  
+}
+
 
 .new-post {
     display: flex;
     justify-content: center;
-}  
+}
 
 #photo {
-position: absolute;
-left: 75px;
-top: 237px;
+    position: absolute;
+    left: 75px;
+    top: 237px;
 }
 
 #buttonImage {
@@ -154,7 +154,7 @@ top: 237px;
     box-shadow: 5px 5px 6px #c2ebf5;
     background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
 }
-  
+
 
 
 
@@ -162,7 +162,7 @@ top: 237px;
     padding-top: 50px;
     display: flex;
     justify-content: center;
-}  
+}
 
 .form-group {
     display: flex;
@@ -176,11 +176,11 @@ top: 237px;
     border-radius: 5px;
     background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
     position: fixed;
-  
+
     padding: 20px;
     display: none;
 }
-  
+
 
 
 .window-delete {
@@ -191,11 +191,11 @@ top: 237px;
     border-radius: 5px;
     background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
     position: fixed;
-  
+
     padding: 10px;
     display: none;
-  }
-  
+}
+
 
 .likes {
     display: flex;
@@ -221,9 +221,9 @@ top: 237px;
     border-radius: 4px;
     box-shadow: 4px 4px orange;
     cursor: pointer;
-}  
+}
 
-#corazon:hover{
+#corazon:hover {
     background-color: #fda085;
 }
 
@@ -233,13 +233,23 @@ top: 237px;
 
 
 
-.editando{
+.editando {
     width: 4px;
 }
 
 /*----------*/
 
-.btn-menu-post:hover, .btn-menu-post:focus{
+
+.btn-menu-post {
+    color: #2CAB92;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-menu-post:hover,
+.btn-menu-post:focus {
+
     background-color: rgba(44, 171, 146, 0.5);
     color: #2b7a75;
     border-radius: 50%;
@@ -251,7 +261,7 @@ top: 237px;
 .menu-post-content {
     display: none;
     position: absolute;
-    background-color:  #E6FFFF;
+    background-color: #E6FFFF;
     min-width: 60px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.356);
     right: 17px;
@@ -259,13 +269,14 @@ top: 237px;
     font-size: 14px;
 }
 
-.menu-post-content li{
+.menu-post-content li {
     color: #2b7a75;
     display: block;
     cursor: pointer;
     list-style: none;
     padding: 5px 5px 5px 5px;
 }
+
 
 .show {display: block;}
 
@@ -406,3 +417,4 @@ top: 237px;
         }
     }
   }
+
