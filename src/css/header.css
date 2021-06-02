@@ -9,6 +9,7 @@
   height: 80px;
   color: #fff;
   z-index: 10;
+  margin: auto;
   background: linear-gradient(180deg, #F58948 0%, rgba(255, 255, 255, 0) 100%),
     linear-gradient(180deg, #E8B54F 0%, rgba(255, 255, 255, 0) 100%),
     linear-gradient(180deg, #034147 0%, rgba(255, 255, 255, 0) 100%),
@@ -95,5 +96,13 @@ li:hover {
     top: -2.5px;
     right: 60px;
     height: 80px;
+
+ }
+}
+
+@media only screen and (min-width: 1070px){
+  .menuCentral{
+    font-size: 24px;
   }
 }
+
