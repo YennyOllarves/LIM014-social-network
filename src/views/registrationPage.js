@@ -8,8 +8,6 @@ export default () => {
   const viewRegister = document.createElement('section');
   viewRegister.classList.add('login-container');
   viewRegister.innerHTML = ` 
-
-
   <div class="header">
   
   <!--Content before waves-->
@@ -35,7 +33,6 @@ export default () => {
   <!--Waves end-->
   
   </div>
-
     <section class='login-pages'>
     <header class= 'newRegister'>
         <img src='../img/foto1.jpg' class='header--register border--img'>
@@ -99,7 +96,7 @@ export default () => {
         // const userDisplayName = googleate.displayName;
         sendGeneralData(googleate.email, googleate.displayName, googleate.uid, googleate.photoURL);
         // sendGeneralData(currentUser().displayName);
-      })
+      });
   });
   // creación de usuarios
   const userSingUp = viewRegister.querySelector('#boxForm-Register');
