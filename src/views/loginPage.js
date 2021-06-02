@@ -6,12 +6,46 @@ export default () => {
   const viewLogin = document.createElement('section');
   viewLogin.classList.add('login-container');
   viewLogin.innerHTML = ` 
+
+  
+  <div class="header">
+  
+  <!--Content before waves-->
+  <div class="inner-header flex">
+  <h1 class= 'titulo'>¡Bienvenidas a Traveling Soul!</h1>
+  </div>
+  
+  <!--Waves Container-->
+  <div>
+  <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+  <defs>
+  <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+  </defs>
+  <g class="parallax">
+  <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+  <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+  <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+  <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+  </g>
+  </svg>
+  </div>
+  <!--Waves end-->
+  
+  </div>
+  
+  
+  
+
+
     <section class='login-page'>
       <section class='boxLogin-page'>
         <header>
+        <section class='left'> 
         <img src='../img/foto1.jpg' class='header--img border--img'>
         <img src='../img/logo.svg' class='header-logo '>
-          <h1 class='title-h1'> ¡Bienvenidas Viajeras! </h1>
+        </section>
+        
         </header>
         <form class='boxForm--login' id='formLogin'>
           <section class='email-login'>
@@ -28,7 +62,6 @@ export default () => {
           <section class='options-login'>
           
           <a hrf="" id='loginOptions' class="icon--login" > <img src="./img/google.svg" /> </a>
-          <a hrf="" class="icon--login" > <img src="./img/facebook.svg" /> </a>
             <!-- imagen de google -->
           </section>
           <div class='end'>
@@ -58,19 +91,6 @@ export default () => {
           alert('Revisa tu conexión de internet');
         }
       }).catch(console.log);
-
-    // getUserData(currentUser().userIdentity)
-    //   .then((doc) => {
-    //     if (doc.exists) {
-    //       window.location.hash = '#/home';
-    //     } else { // consulta de promesa
-    //       sendGeneralData(currentUser())
-    //         .then(() => {
-    //           window.location.hash = '#/home';
-    //         });
-    //     }
-    //   });
-    // });
   });
   // Inicio de sesión con correo electrónico
   const loginEmailForm = viewLogin.querySelector('#formLogin');

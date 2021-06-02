@@ -8,14 +8,43 @@ export default () => {
   const viewRegister = document.createElement('section');
   viewRegister.classList.add('login-container');
   viewRegister.innerHTML = ` 
-    <section class='login-page'>
-      <section class='boxLogin-page'>
-        <header>
-        <img src='../img/foto1.jpg' class='header--img border--img'>
-        <img src='../img/logoRegister.svg' class='header--logo '>
+
+
+  <div class="header">
+  
+  <!--Content before waves-->
+  <div class="inner-header flex">
+  <h1 class= 'titulos'>¡Bienvenidas a Traveling Soul!</h1>
+  </div>
+  
+  <!--Waves Container-->
+  <div>
+  <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+  <defs>
+  <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+  </defs>
+  <g class="parallax">
+  <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+  <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+  <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+  <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+  </g>
+  </svg>
+  </div>
+  <!--Waves end-->
+  
+  </div>
+
+    <section class='login-pages'>
+    <header class= 'newRegister'>
+        <img src='../img/foto1.jpg' class='header--register border--img'>
+        <img src='../img/logoRegister.svg' class='header--register--logo '>
           <h1 class='title-h1'>¡Regístrate!</h1>
         </header>
-        <form class='boxLogin-page' id='boxForm-Register'>
+      <section class='boxRegister-page'>
+        
+        <form class='boxRegister-page' id='boxForm-Register'>
         <section class='input-initial' >
         <i class='user-icon'></i>
         <input type='text' class='form-one' id='theName' placeholder='Nombres y Apellidos' required autocomplete='off' spellcheck='false'/>
@@ -28,16 +57,16 @@ export default () => {
         <i class='password-icon'></i>
         <input type='password' id='password' class='form-one' pattern='[a-zA-Z0-9]{6,20}' placeholder='Crea una contraseña' required />
       </section>
-      <section class="boxLogin-page" >
+      <section class="boxRegister-page" >
       <input type="checkbox" />
-      <label class="boxLogin-page" for="termConditions">Acepto los <a  href="./docs/terms-and-conditions.pdf" target="_blank" class="boxLogin-page">Términos, Condiciones y Política de Privacidad.</a></label>
+      <label class="boxRegister-page" for="termConditions">Acepto los <a  href="./docs/terms-and-conditions.pdf" target="_blank" class="boxRegister-page">Términos, Condiciones <br>y Política de Privacidad.</a></label>
     </section>
     <button type='submit' class='form-one btn-login'>Continuar</button>
     <p class='msg-error'></p>
     <p class='login-options'> o bien regístrate con... </p>
     <section class='options-login'>
         
-        <a hrf="" id='loginOptionsRegister' class="icon-login" > <img src="./img/google.svg" /> </a>
+        <a hrf="" id='loginOptionsRegister' class="icon-logins" > <img src="./img/google.svg" /> </a>
         <a hrf="" class="icon-login" > <img src="./img/facebook.svg" /> </a>
           <!-- imagen de google -->
         </section>
@@ -70,22 +99,7 @@ export default () => {
         // const userDisplayName = googleate.displayName;
         sendGeneralData(googleate.email, googleate.displayName, googleate.uid, googleate.photoURL);
         // sendGeneralData(currentUser().displayName);
-      });
-
-    // }).catch(console.log);
-    // .then(() => {
-    //   getUserData(currentUser().userId)
-    //     .then((doc) => {
-    //       if (doc.exists) {
-    //         window.location.hash = '#/home';
-    //       } else { // consulta de promesa
-    //         sendGeneralData(currentUser())
-    //           .then(() => {
-    //             window.location.hash = '#/home';
-    //           });
-    //       }
-    //     });
-    // });
+      })
   });
   // creación de usuarios
   const userSingUp = viewRegister.querySelector('#boxForm-Register');
