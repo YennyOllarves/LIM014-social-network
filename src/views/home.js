@@ -9,7 +9,6 @@ export default (user) => {
   viewHomePage.innerHTML = `
   <section class='the-user profile'>
   </section>
-
     <main class='home-column'>
     <section class='the-user profile'>
         <img class='default-avatar border--avatar' src='${user.picture}'>
