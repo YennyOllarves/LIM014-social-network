@@ -3,7 +3,7 @@ import { logOut } from '../firebase-controllers/auth-controller.js';
 const menu = () => {
   const viewMenu = document.createElement('section');
   viewMenu.innerHTML = `
-  <section class='header'>
+  
   <header class= "menuCentral">
   <input type="checkbox" id="menu-button">
   <label for="menu-button"><i class="fas fa-bars"></i>
@@ -17,7 +17,6 @@ const menu = () => {
     </ul>
   </nav>
 </header>
-
     `;
 
   // Cerrar sesión

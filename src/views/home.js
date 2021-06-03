@@ -7,8 +7,10 @@ export default (user) => {
   const viewHomePage = document.createElement('section');
   viewHomePage.classList.add('homePage-container');
   viewHomePage.innerHTML = `
+  <section class='the-user profile'>
+  </section>
     <main class='home-column'>
-    <section class='the-user'>
+    <section class='the-user profile'>
         <img class='default-avatar border--avatar' src='${user.picture}'>
         <p class='name'>${user.username}</p>
     </section>
@@ -42,7 +44,7 @@ export default (user) => {
     <section class= 'userContent'>
     <img id="pictureName" class="default-user border--user">
     <p id='thisName' class= 'namePost'></p>
-    <div class="${(doc.userId !== doc.publication) ? 'hide' : 'show menu-post'}">
+    <div class="${(doc.userId !== doc.publication) ? 'hide' : 'show btn-menu-post'}">
     
     <i class="fas fa-ellipsis-v btn-menu-post"></i>
     <ul id="menu-post-content" class="menu-post-content">
