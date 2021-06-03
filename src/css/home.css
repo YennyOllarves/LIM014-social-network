@@ -1,387 +1,419 @@
 .the-user {
-  display: flex;
-  justify-content: space-around;
-
-  padding-top: 70px;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 25px;
+    margin-left: -20px;
+    margin-bottom: 18px;
 }
-
-.profile {
-  display: none;
-}
+/* .profile {
+    display: none;
+} */
 
 .default-avatar {
-  width: 55px;
-  height: 55px;
-  margin-left: -60px;
-  border-radius: 100px;
+    /* position: absolute; */
+    width: 55px;
+    height: 55px;
+    left: 30px;
+    top: 70px;
+    border-radius: 100px;
 }
 
 .border--avatar {
-  border: solid 3px transparent;
-  border-radius: 100px;
-  background-image: linear-gradient(
-    to right,
-    #e4afcb 0%,
-    #b8cbb8 0%,
-    #b8cbb8 0%,
-    #e2c58b 30%,
-    #c2ce9c 64%,
-    #7edbdc 100%
-  );
+    border: solid 3px transparent;
+    border-radius: 100px;
+    background-image: linear-gradient(to right,
+            #e4afcb 0%,
+            #b8cbb8 0%,
+            #b8cbb8 0%,
+            #e2c58b 30%,
+            #c2ce9c 64%,
+            #7edbdc 100%);
 }
 
 .border--user {
-  border: solid 2px transparent;
-  border-radius: 100px;
-  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    border: solid 2px transparent;
+    border-radius: 100px;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }
 
 .default-user {
-  display: flex;
-  width: 35px;
-  height: 35px;
-  margin: 2px 5px;
-  border-radius: 100px;
+    display: flex;
+    width: 35px;
+    height: 35px;
+    margin: 8px 8px 8px -10px;
+    border-radius: 100px;
 }
 
 .namePost {
-  margin: 20px 0px 20px 50px;
-  font-size: 20px;
+    margin: 20px 0px 0px -20px;
+    font-size: 18px;
+    padding: 0px 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .name {
-  margin: 20px 0px 20px -120px;
-  font-family: Reem Kufi;
-  font-size: 20px;
+    margin: 20px 0px 20px -100px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
 }
 
+
 .this-name {
-  display: flex;
-  flex-wrap: wrap;
-  height: 15px;
-  left: 129px;
-  top: 78px;
-  font-family: Reem Kufi;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 15px;
+    left: 129px;
+    top: 78px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
 }
+
+.user-post{
+    width: 100%;
+}
+
 .division {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
 }
 
 .userContent {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 4px 0px 4px 5pxpx;
-  margin-bottom: 5px;
-  border-radius: 8px;
-  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    padding: 4px 0px 4px 5px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    justify-content: space-around;
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 }
 
+
 #text-post {
-  position: absolute;
-  margin-top: -130px;
-  margin-left: 45px;
-  width: 70%;
-  height: 18%;
-  text-align: center;
-  padding: 35px;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.28);
-  box-sizing: border-box;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    position: absolute;
+    margin-top: -130px;
+    margin-left: 45px;
+    width: 70%;
+    height: 10%;
+    text-align: center;
+    padding: 35px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.28);
+    box-sizing: border-box;
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
 .text-post {
-  position: absolute;
-  margin: 40px 20px 20px 25px;
-  width: 70%;
-  text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 6px;
-  font-size: 18px;
-  background-color: #fdfbfb;
-  border: 1px solid rgba(139, 138, 138, 0.28);
+    position: absolute;
+    margin: 40px 20px 20px 35px;
+    width: 70%;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #fdfbfb;
+    border: 1px solid rgba(139, 138, 138, 0.28);
 }
 
+
 .new-post {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 #photo {
-  position: absolute;
-  left: 75px;
-  top: 237px;
+    position: absolute;
+    left: 75px;
+    top: 237px;
 }
 
 #buttonImage {
-  position: absolute;
-  margin-top: -4%;
-  margin-left: 65%;
-  border: rgb(162, 200, 243) 2px solid;
-  border-radius: 10px;
-  font-size: 16px;
-  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    position: absolute;
+    margin-top: -4%;
+    margin-left: 65%;
+    border: rgb(162, 200, 243) 2px solid;
+    border-radius: 10px;
+    font-size: 16px;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  width: 95%;
-  height: 170px;
-  border: 1px solid rgb(187, 185, 185);
-  border-radius: 10px;
-  box-shadow: 5px 5px 6px #c2ebf5;
-  background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: 170px;
+    border: 1px solid rgb(187, 185, 185);
+    border-radius: 10px;
+    box-shadow: 5px 5px 6px #c2ebf5;
+    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
 }
 
+
+
+
 .column {
-  padding-top: 50px;
-  display: flex;
-  justify-content: center;
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 .form-group {
-  display: flex;
-  padding-top: 150px;
+    display: flex;
+    padding-top: 150px;
 }
 
 .edit-text-post {
-  top: 50%;
-  left: 20%;
-  border: 1px solid gray;
-  border-radius: 5px;
-  background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
-  position: fixed;
+    top: 50%;
+    left: 20%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+    position: fixed;
 
-  padding: 20px;
-  display: none;
+    padding: 20px;
+    display: none;
 }
+
+
 
 .window-delete {
-  width: 55%;
-  top: 40%;
-  left: 20%;
-  border: 1px solid gray;
-  border-radius: 5px;
-  background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
-  position: fixed;
+    width: 55%;
+    top: 40%;
+    left: 20%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+    position: fixed;
 
-  padding: 10px;
-  display: none;
+    padding: 10px;
+    display: none;
 }
 
+
 .likes {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 30px;
-  font-size: 18px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    font-size: 18px;
 }
 
 .bottom {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 110px;
-  margin-left: 20px;
-  margin-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 110px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 #corazon {
-  margin-top: 20px;
-  font-size: 15px;
-  height: 30px;
-  width: 40px;
-  border: 1px solid grey;
-  border-radius: 4px;
-  box-shadow: 4px 4px orange;
-  cursor: pointer;
+    margin-top: 20px;
+    font-size: 15px;
+    height: 30px;
+    width: 40px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    box-shadow: 4px 4px orange;
+    cursor: pointer;
 }
 
 #corazon:hover {
-  background-color: #fda085;
+    background-color: #fda085;
 }
+
+
 
 /*Menu de Edita y Eliminar*/
 
-.fa-bars {
-  display: none;
+
+
+.editando {
+    width: 4px;
 }
 
-label {
-  display: none;
-  width: 20px;
-  height: 30px;
-  padding: 10px;
+/*----------*/
+
+
+.btn-menu-post {
+    color: #2CAB92;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
 }
+
+.btn-menu-post:hover,
+.btn-menu-post:focus {
+
+    background-color: rgba(44, 171, 146, 0.5);
+    color: #2b7a75;
+    border-radius: 50%;
+    text-align: center;
+}
+
+
 
 .menu-post-content {
-  margin: 0;
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
+    display: none;
+    position: absolute;
+    background-color: #E6FFFF;
+    min-width: 60px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.356);
+    right: 17px;
+    z-index: 1;
+    font-size: 14px;
 }
 
-#menu-button {
-  display: none;
+.menu-post-content li {
+    color: #2b7a75;
+    display: block;
+    cursor: pointer;
+    list-style: none;
+    padding: 5px 5px 5px 5px;
 }
 
-#edit-post,
-#delete-post {
-  display: block;
-  padding: 20px 30px;
-  color: #000;
-  text-decoration: none;
-  font-family: 'Viga', sans-serif;
-  flex-grow: 2;
-  text-align: center;
-}
+
+.show {display: block;}
+
+
+/*----RESPONSIVE------*/
 
 @media (max-width: 768) {
-  label {
-    display: block;
+    label {
+      display: block;
+    }
+    .menu-post-content {
+      flex-direction: column;
+    }
+    .text-post,
+    .user-post,
+    .division{
+        width: 90%;
+    }
   }
-  .menu-post-content {
-    flex-direction: column;
-  }
-}
-
-@media only screen and (min-width: 770px) {
-  .menuCentral {
-    height: 70px;
-  }
-  .profile {
-    display: block;
-    display: flex;
-  }
-  .profile-- {
-    display: none;
-  }
-  .homePage-container {
-    display: flex;
-    justify-content: flex-end;
-  }
-  .card-- {
-    margin-top: 90px;
-  }
-  #text-post {
-    width: 55%;
-  }
-
-  #buttonImage {
-    margin-left: 50%;
-  }
-
-  .text-post {
-    width: 55%;
-  }
-  .default-avatar {
-    margin-left: -250px;
-    margin-top: 30px;
-  }
-  .name {
-    margin-top: 40px;
-    margin-left: -30px;
-  }
-
-  @media only screen and (min-width: 1070px) {
+  
+  @media only screen and (min-width: 770px) {
     .menuCentral {
       height: 70px;
     }
     .profile {
       display: block;
-      display: flex;
-      justify-content: space-around;
-      margin-right: 260px;
     }
-    .profile-- {
-      display: none;
-    }
+   
     .homePage-container {
-      display: flex;
-      justify-content: flex-end;
+        display: grid;
+        grid-template-columns: 40% 60%;
+    }
+
+    .userContent{
+        width: 100%;
     }
     .card-- {
-      margin-top: 90px;
-      width: 100%;
-    }
-    .card {
-      width: 100%;
+      margin-top: -150px;
     }
     #text-post {
-      width: 41%;
+      width: 40%;
+    }
+  
+    .the-user{
+        padding-top: 30px;
+        margin-bottom: 18px;
+        margin-left: -230px;
     }
 
     #buttonImage {
-      margin-left: 37%;
-      margin-top: -1%;
+      margin-left: 35%;
+      margin-top: -14px;
     }
-
-    .text-post {
-      width: 41%;
-    }
-    .default-avatar {
-      margin-left: -250px;
-      margin-top: 30px;
-    }
-    .name {
-      margin-top: 40px;
-      margin-left: -30px;
-    }
-  }
-  @media only screen and (max-width: 1220px) and (min-width: 1080px) {
-    .menuCentral {
-      height: 70px;
-    }
-    .profile {
-      display: block;
-      display: flex;
-      justify-content: space-around;
-      margin-right: 260px;
-    }
-    .profile-- {
-      display: none;
-    }
-    .homePage-container {
-      display: flex;
-
-      justify-content: space-evenly;
-    }
-    .card-- {
-      margin-top: 90px;
-      width: 100%;
-    }
-    .card {
-      width: 100%;
-    }
-    #text-post {
+  
+    .text-post{
       width: 45%;
     }
 
-    #buttonImage {
-      margin-left: 37%;
-      margin-top: -1%;
-    }
-
-    .text-post {
-      width: 45%;
+    .card{
+        width: 100%;
     }
     .default-avatar {
-      margin-left: -250px;
-      margin-top: 30px;
+        margin-left: 30px;
+        margin-top: 80px;
+        width: 95px;
+        height: 95px;    
     }
     .name {
-      margin-top: 40px;
+      margin-top: 30px;
       margin-left: -30px;
-      font-size: 40px;
+      font-size: 24px;
+    }
+  
+    @media only screen and (min-width: 1070px) {
+        .menuCentral {
+            height: 70px;
+          }
+          .profile {
+            display: block;
+          }
+         
+          .homePage-container {
+              display: grid;
+              grid-template-columns: 40% 60%;
+          }
+      
+          .userContent{
+              width: 97%;
+          }
+          .card-- {
+            margin-top: -160px;
+          }
+          #text-post {
+            width: 50%;
+            height: 10%;
+          }
+        
+          .the-user{
+              padding-top: 30px;
+              margin-bottom: 18px;
+              margin-left: -230px;
+          }
+      
+          #buttonImage {
+            margin-left: 46%;
+            margin-top: -15px;
+          }
+        
+          .text-post{
+            width: 50%;
+          }
+      
+          .card{
+              width: 97%;
+          }
+          .default-avatar {
+            margin-left: -70px;
+            margin-top: 80px;   
+          }
+          .name {
+            margin-top: 10px;
+            margin-left: -150px;
+          }
+
+          .default-user {
+            display: flex;
+            width: 40px;
+            height: 40px;
+            margin: 8px 8px 8px -10px;
+            border-radius: 100px;
+        }
+
+        .namePost {
+            margin: 20px 0px 0px -20px;
+            font-size: 22px;
+            padding: 0px 30px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
     }
   }
-}

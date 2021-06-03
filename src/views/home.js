@@ -7,14 +7,10 @@ export default (user) => {
   const viewHomePage = document.createElement('section');
   viewHomePage.classList.add('homePage-container');
   viewHomePage.innerHTML = `
-
   <section class='the-user profile'>
-  <img class='default-avatar border--avatar' src='${user.picture}'>
-  <p class='name'>${user.username}</p>
-</section>
+  </section>
     <main class='home-column'>
-    <section class= 'container'>
-    <section class='the-user profile--'>
+    <section class='the-user profile'>
         <img class='default-avatar border--avatar' src='${user.picture}'>
         <p class='name'>${user.username}</p>
     </section>
@@ -35,7 +31,6 @@ export default (user) => {
             </section>   
         </section>
       <section id='postContainer'></section>
-      </section>
     </main>
     `;
 
@@ -45,16 +40,19 @@ export default (user) => {
     const template = `
     <div class="column">
     <div class="division">
-          <section class= 'userContent'>
-            <img id="pictureName" class="default-user border--user">
-            <p id='thisName' class= 'namePost'></p>
-            <input type="checkbox" id="menu-button">
-            <label for="menu-button"><i class="fas fa-bars"></i></label>
-            <ul id="menu-post-content" class="menu-post-content">
-              <li href="" id="edit-post"><i class="fas fa-edit select"></i>Editar</li>
-              <li id="delete-post"><i class="fas fa-trash-alt select"></i>Eliminar</li>
-            </ul>
-            </section>
+    <div class="user-post">
+    <section class= 'userContent'>
+    <img id="pictureName" class="default-user border--user">
+    <p id='thisName' class= 'namePost'></p>
+    <div class="${(doc.userId !== doc.publication) ? 'hide' : 'show btn-menu-post'}">
+    
+    <i class="fas fa-ellipsis-v btn-menu-post"></i>
+    <ul id="menu-post-content" class="menu-post-content">
+      <li id="edit-post"><i class="fas fa-edit select editando"></i></li>
+      <li id="delete-post"><i class="fas fa-trash-alt select"></i></li>
+    </ul> 
+    </div>
+    </section>               
             <div class="card">
             <div class="content-post">
             <p class="text-post">${doc.publication}</p>
@@ -80,17 +78,31 @@ export default (user) => {
           </div>
         </div>
       </div>
-    </div>`;
+    </div>
+    
+    `;
     section.innerHTML = template;
 
     getUserData(doc.userId)
       .then((docito) => {
-        console.log(docito.data());
+        // console.log(docito.data());
         const thisName = section.querySelector('#thisName');
         thisName.textContent = docito.data().username;
         const pictureName = section.querySelector('#pictureName');
         pictureName.src = docito.data().picture;
       });
+
+    // MENU DE EDITAR Y ELIMINAR
+    const btnMenu = section.querySelector('.btn-menu-post');
+    btnMenu.addEventListener('click', () => {
+      section.querySelector('#menu-post-content').classList.toggle('show');
+    });
+    // close menu click outside
+    window.addEventListener('click', (e) => {
+      if (e.target !== btnMenu) {
+        section.querySelector('#menu-post-content').classList.remove('show');
+      }
+    });
 
     const likes = section.querySelector('#corazon');
     getUserData(doc.userId)
@@ -130,7 +142,6 @@ export default (user) => {
     section.querySelector('.btn-guardar')
       .addEventListener('click', (e) => {
         const editado = section.querySelector('.edit-text');
-        console.log(doc.id);
         const idPost = e.target.dataset.id;
         updatePost(idPost, editado.value)
           .then(() => {
@@ -184,7 +195,7 @@ export default (user) => {
     const publicate = viewHomePage.querySelector('#postContainer');
     publicate.innerHTML = '';
     if (data.length) {
-      console.log(data);
+      // console.log(data);
       data.forEach((doc) => {
         const section = textName(doc);
         publicate.appendChild(section);
