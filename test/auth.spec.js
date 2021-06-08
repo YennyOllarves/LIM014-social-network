@@ -73,7 +73,11 @@ describe('checkmail', () => {
   it('Debería ser una función', () => {
     expect(typeof checkMail).toBe('function');
   });
-  // it('Debería checkear el mail', () => {
-  //   expect().toBe();
-  // });
+  it('Debería enviar un email de verificación', () => {
+    const mockSendEmail = jest.fn();
+    firebase.auth().currentUser.sendEmailVerification = mockSendEmail;
+    checkMail();
+    expect(mockSendEmail).toHaveBeenCalled();
+    expect(mockSendEmail.mock.calls).toHaveLength(1);
+  });
 });

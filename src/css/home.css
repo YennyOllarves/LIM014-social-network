@@ -6,7 +6,7 @@
   margin-bottom: 18px;
 }
 /* .profile {
-    display: none;
+  display: none;
 } */
 
 .default-avatar {
@@ -147,149 +147,199 @@
   background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: 170px;
+  border: 1px solid rgb(187, 185, 185);
+  border-radius: 10px;
+  box-shadow: 5px 5px 6px #c2ebf5;
+  background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+}
+
+.column {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-group {
+  display: flex;
+  padding-top: 150px;
+}
+
+.edit-text-post {
+  top: 50%;
+  left: 20%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+  position: fixed;
+
+  padding: 20px;
+  display: none;
+}
+
+.window-delete {
+  width: 55%;
+  top: 40%;
+  left: 20%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+  position: fixed;
+
+  padding: 10px;
+  display: none;
+}
+
+.likes {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 110px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#corazon {
+  margin-top: 20px;
+  font-size: 15px;
+  height: 30px;
+  width: 40px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  box-shadow: 4px 4px orange;
+  cursor: pointer;
+}
+
+#corazon:hover {
+  background-color: #fda085;
+}
+
+/*Menu de Edita y Eliminar*/
+
+.editando {
+  width: 4px;
+}
+
+/*----------*/
+
+.btn-menu-post {
+  color: #2cab92;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-menu-post:hover,
+.btn-menu-post:focus {
+  background-color: rgba(44, 171, 146, 0.5);
+  color: #2b7a75;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.menu-post-content {
+  display: none;
+  position: absolute;
+  background-color: #e6ffff;
+  min-width: 60px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.356);
+  right: 17px;
+  z-index: 1;
+  font-size: 14px;
+}
+
+.menu-post-content li {
+  color: #2b7a75;
+  display: block;
+  cursor: pointer;
+  list-style: none;
+  padding: 5px 5px 5px 5px;
+}
+
+.show {
+  display: block;
+}
+
+/*----RESPONSIVE------*/
+
 @media (max-width: 768) {
   label {
     display: block;
   }
   .menu-post-content {
     flex-direction: column;
-    width: 95%;
-    height: 170px;
-    border: 1px solid rgb(187, 185, 185);
-    border-radius: 10px;
-    box-shadow: 5px 5px 6px #c2ebf5;
-    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+  }
+  .text-post,
+  .user-post,
+  .division {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 770px) {
+  .menuCentral {
+    height: 70px;
+  }
+  .profile {
+    display: block;
   }
 
-  .column {
-    padding-top: 50px;
-    display: flex;
-    justify-content: center;
+  .homePage-container {
+    display: grid;
+    grid-template-columns: 40% 60%;
   }
 
-  .form-group {
-    display: flex;
-    padding-top: 150px;
+  .userContent {
+    width: 100%;
+  }
+  .card-- {
+    margin-top: -150px;
+  }
+  #text-post {
+    width: 40%;
   }
 
-  .edit-text-post {
-    top: 50%;
-    left: 20%;
-    border: 1px solid gray;
-    border-radius: 5px;
-    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
-    position: fixed;
-
-    padding: 20px;
-    display: none;
+  .the-user {
+    padding-top: 30px;
+    margin-bottom: 18px;
+    margin-left: -230px;
   }
 
-  .window-delete {
-    width: 55%;
-    top: 40%;
-    left: 20%;
-    border: 1px solid gray;
-    border-radius: 5px;
-    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
-    position: fixed;
-
-    padding: 10px;
-    display: none;
+  #buttonImage {
+    margin-left: 35%;
+    margin-top: -14px;
   }
 
-  .likes {
-    display: flex;
-    justify-content: space-around;
+  .text-post {
+    width: 45%;
+  }
+
+  .card {
+    width: 100%;
+  }
+  .default-avatar {
+    margin-left: 30px;
+    margin-top: 80px;
+    width: 95px;
+    height: 95px;
+  }
+  .name {
     margin-top: 30px;
-    font-size: 18px;
+    margin-left: -30px;
+    font-size: 24px;
   }
 
-  .bottom {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 110px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  #corazon {
-    margin-top: 20px;
-    font-size: 15px;
-    height: 30px;
-    width: 40px;
-    border: 1px solid grey;
-    border-radius: 4px;
-    box-shadow: 4px 4px orange;
-    cursor: pointer;
-  }
-
-  #corazon:hover {
-    background-color: #fda085;
-  }
-
-  /*Menu de Edita y Eliminar*/
-
-  .editando {
-    width: 4px;
-  }
-
-  /*----------*/
-
-  .btn-menu-post {
-    color: #2cab92;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-  }
-
-  .btn-menu-post:hover,
-  .btn-menu-post:focus {
-    background-color: rgba(44, 171, 146, 0.5);
-    color: #2b7a75;
-    border-radius: 50%;
-    text-align: center;
-  }
-
-  .menu-post-content {
-    display: none;
-    position: absolute;
-    background-color: #e6ffff;
-    min-width: 60px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.356);
-    right: 17px;
-    z-index: 1;
-    font-size: 14px;
-  }
-
-  .menu-post-content li {
-    color: #2b7a75;
-    display: block;
-    cursor: pointer;
-    list-style: none;
-    padding: 5px 5px 5px 5px;
-  }
-
-  .show {
-    display: block;
-  }
-
-  /*----RESPONSIVE------*/
-
-  @media (max-width: 768) {
-    label {
-      display: block;
-    }
-    .menu-post-content {
-      flex-direction: column;
-    }
-    .text-post,
-    .user-post,
-    .division {
-      width: 90%;
-    }
-  }
-
-  @media only screen and (min-width: 770px) {
+  @media only screen and (min-width: 1070px) {
     .menuCentral {
       height: 70px;
     }
@@ -303,13 +353,14 @@
     }
 
     .userContent {
-      width: 100%;
+      width: 97%;
     }
     .card-- {
-      margin-top: -150px;
+      margin-top: -160px;
     }
     #text-post {
-      width: 40%;
+      width: 50%;
+      height: 10%;
     }
 
     .the-user {
@@ -319,95 +370,40 @@
     }
 
     #buttonImage {
-      margin-left: 35%;
-      margin-top: -14px;
+      margin-left: 46%;
+      margin-top: -15px;
     }
 
     .text-post {
-      width: 45%;
+      width: 50%;
     }
 
     .card {
-      width: 100%;
+      width: 97%;
     }
     .default-avatar {
-      margin-left: 30px;
+      margin-left: -70px;
       margin-top: 80px;
-      width: 95px;
-      height: 95px;
     }
     .name {
-      margin-top: 30px;
-      margin-left: -30px;
-      font-size: 24px;
+      margin-top: 10px;
+      margin-left: -150px;
     }
 
-    @media only screen and (min-width: 1070px) {
-      .menuCentral {
-        height: 70px;
-      }
-      .profile {
-        display: block;
-      }
+    .default-user {
+      display: flex;
+      width: 40px;
+      height: 40px;
+      margin: 8px 8px 8px -10px;
+      border-radius: 100px;
+    }
 
-      .homePage-container {
-        display: grid;
-        grid-template-columns: 40% 60%;
-      }
-
-      .userContent {
-        width: 97%;
-      }
-      .card-- {
-        margin-top: -160px;
-      }
-      #text-post {
-        width: 50%;
-        height: 10%;
-      }
-
-      .the-user {
-        padding-top: 30px;
-        margin-bottom: 18px;
-        margin-left: -230px;
-      }
-
-      #buttonImage {
-        margin-left: 46%;
-        margin-top: -15px;
-      }
-
-      .text-post {
-        width: 50%;
-      }
-
-      .card {
-        width: 97%;
-      }
-      .default-avatar {
-        margin-left: -70px;
-        margin-top: 80px;
-      }
-      .name {
-        margin-top: 10px;
-        margin-left: -150px;
-      }
-
-      .default-user {
-        display: flex;
-        width: 40px;
-        height: 40px;
-        margin: 8px 8px 8px -10px;
-        border-radius: 100px;
-      }
-
-      .namePost {
-        margin: 20px 0px 0px -20px;
-        font-size: 22px;
-        padding: 0px 30px;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-          'Lucida Sans', Arial, sans-serif;
-      }
+    .namePost {
+      margin: 20px 0px 0px -20px;
+      font-size: 22px;
+      padding: 0px 30px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+        'Lucida Sans', Arial, sans-serif;
     }
   }
 }
