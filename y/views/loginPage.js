@@ -6,10 +6,7 @@ export default () => {
   const viewLogin = document.createElement('section');
   viewLogin.classList.add('login-container');
   viewLogin.innerHTML = ` 
-<<<<<<< HEAD
-=======
 
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
   
   <div class="header">
   
@@ -37,11 +34,6 @@ export default () => {
   
   </div>
   
-<<<<<<< HEAD
-  
-  
-=======
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
     <section class='login-page'>
       <section class='boxLogin-page'>
         <header>
@@ -94,11 +86,7 @@ export default () => {
         } else {
           alert('Revisa tu conexión de internet');
         }
-<<<<<<< HEAD
-      });
-=======
       }).catch(console.log);
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
   });
   // Inicio de sesión con correo electrónico
   const loginEmailForm = viewLogin.querySelector('#formLogin');

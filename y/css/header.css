@@ -10,11 +10,11 @@
   color: #fff;
   z-index: 10;
   margin: auto;
-  background: linear-gradient(180deg, #f58948 0%, rgba(255, 255, 255, 0) 100%),
-    linear-gradient(180deg, #e8b54f 0%, rgba(255, 255, 255, 0) 100%),
+  background: linear-gradient(180deg, #F58948 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #E8B54F 0%, rgba(255, 255, 255, 0) 100%),
     linear-gradient(180deg, #034147 0%, rgba(255, 255, 255, 0) 100%),
-    linear-gradient(180deg, #94cbd1 0%, rgba(255, 255, 255, 0) 100%),
-    linear-gradient(180deg, #00a1a1 99.99%, rgba(3, 65, 71, 0) 100%);
+    linear-gradient(180deg, #94CBD1 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #00A1A1 99.99%, rgba(3, 65, 71, 0) 100%);
 }
 
 #menu-button {
@@ -44,6 +44,7 @@ li:hover {
 
 .menu li:hover {
   background: rgba(13, 192, 224, 0.705);
+
 }
 
 .menu li a {
@@ -57,7 +58,7 @@ li:hover {
 }
 
 /*RESPONSIVE - MENU*/
-@media (max-width: 768px) {
+@media (max-width:768px) {
   .menuCentral {
     height: 50px;
   }
@@ -70,11 +71,11 @@ li:hover {
     position: absolute;
     width: 40%;
     margin-left: -60%;
-    background: linear-gradient(180deg, #f58948 0%, rgba(255, 255, 255, 0) 100%),
-      linear-gradient(180deg, #e8b54f 0%, rgba(255, 255, 255, 0) 100%),
+    background: linear-gradient(180deg, #F58948 0%, rgba(255, 255, 255, 0) 100%),
+      linear-gradient(180deg, #E8B54F 0%, rgba(255, 255, 255, 0) 100%),
       linear-gradient(180deg, #034147 0%, rgba(255, 255, 255, 0) 100%),
-      linear-gradient(180deg, #94cbd1 0%, rgba(255, 255, 255, 0) 100%),
-      linear-gradient(180deg, #00a1a1 99.99%, rgba(3, 65, 71, 0) 100%);
+      linear-gradient(180deg, #94CBD1 0%, rgba(255, 255, 255, 0) 100%),
+      linear-gradient(180deg, #00A1A1 99.99%, rgba(3, 65, 71, 0) 100%);
   }
 
   .menu ul {
@@ -85,7 +86,7 @@ li:hover {
     border: 1px solid #fff;
   }
 
-  #menu-button:checked ~ .menu {
+  #menu-button:checked~.menu {
     /*cuando el menu-button tenga el checked va busca en html, la clase menu y va seleccionar todo lo que contenga esa clase*/
     margin: 0;
   }
@@ -95,20 +96,13 @@ li:hover {
     top: -2.5px;
     right: 60px;
     height: 80px;
-<<<<<<< HEAD
-  }
-=======
 
  }
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
 }
 
-@media only screen and (min-width: 1070px) {
-  .menuCentral {
+@media only screen and (min-width: 1070px){
+  .menuCentral{
     font-size: 24px;
   }
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d

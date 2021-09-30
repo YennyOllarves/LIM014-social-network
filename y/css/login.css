@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-#container {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-}
-
-=======
 #container{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
 header {
   position: relative;
   display: flex;
@@ -46,17 +38,10 @@ header {
 }
 
 .header-logo {
-<<<<<<< HEAD
-  width: 250px;
-  height: 180px;
-  padding-left: 50px;
-  margin-bottom: -40px;
-=======
     width: 250px;
     height: 180px;
     padding-left: 50px;
     margin-bottom: -40px;
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
 }
 .title-h1 {
   margin-top: -40px;
@@ -66,12 +51,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-<<<<<<< HEAD
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-=======
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
   margin-top: 190px;
 }
 .form-one {
@@ -120,53 +100,23 @@ header {
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
 body {
-<<<<<<< HEAD
-  margin: 0;
-=======
   margin:0;
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
 }
 
 h1 {
   font-family: 'Lato', sans-serif;
-<<<<<<< HEAD
-  font-weight: 300;
-  letter-spacing: 2px;
-  font-size: 48px;
-=======
   font-weight:300;
   letter-spacing: 2px;
   font-size:48px;
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
 }
 p {
   font-family: 'Lato', sans-serif;
   letter-spacing: 1px;
-<<<<<<< HEAD
-  font-size: 14px;
-=======
   font-size:14px;
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
   color: #333333;
 }
 
 .header {
-<<<<<<< HEAD
-  position: relative;
-  text-align: center;
-  background: linear-gradient(
-    60deg,
-    rgba(245, 137, 72, 1) 0%,
-    rgba(0, 161, 161, 1) 100%
-  );
-  color: white;
-}
-.logo {
-  width: 50px;
-  fill: white;
-  padding-right: 15px;
-  display: inline-block;
-=======
   position:relative;
   text-align:center;
   background: linear-gradient(60deg, rgba(245, 137, 72, 1) 0%, rgba(0, 161, 161, 1) 100%);
@@ -177,37 +127,21 @@ p {
   fill:white;
   padding-right:15px;
   display:inline-block;
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
   vertical-align: middle;
 }
 
 .inner-header {
-<<<<<<< HEAD
-  height: 25vh;
-  width: 100%;
-=======
   height:25vh;
   width:100%;
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
   margin: 0;
   padding: 0;
 }
 
-<<<<<<< HEAD
-.titulo {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-}
-
-.flex {
-  /*Flexbox for containers*/
-=======
 .titulo{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .flex { /*Flexbox for containers*/
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
   display: flex;
   justify-content: center;
   align-items: center;
@@ -215,20 +149,6 @@ p {
 }
 
 .waves {
-<<<<<<< HEAD
-  position: relative;
-  width: 100%;
-  height: 15vh;
-  margin-bottom: -7px; /*Fix for safari gap*/
-  min-height: 100px;
-  max-height: 150px;
-}
-
-.content {
-  position: relative;
-  height: 20vh;
-  text-align: center;
-=======
   position:relative;
   width: 100%;
   height:15vh;
@@ -241,18 +161,13 @@ p {
   position:relative;
   height:20vh;
   text-align:center;
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
   background-color: white;
 }
 
 /* Animation */
 
 .parallax > use {
-<<<<<<< HEAD
-  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
-=======
   animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
 }
 .parallax > use:nth-child(1) {
   animation-delay: -2s;
@@ -272,27 +187,6 @@ p {
 }
 @keyframes move-forever {
   0% {
-<<<<<<< HEAD
-    transform: translate3d(-90px, 0, 0);
-  }
-  100% {
-    transform: translate3d(85px, 0, 0);
-  }
-}
-
-@media only screen and (max-width: 1366px) and (min-width: 710px) {
-  .waves {
-    height: 40px;
-    min-height: 40px;
-  }
-  .inner-header {
-    height: 30vh;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  .left {
-=======
    transform: translate3d(-90px,0,0);
   }
   100% { 
@@ -313,24 +207,15 @@ p {
     padding: 0;
   }
   .left{
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
     margin-left: 70px;
   }
   .boxForm--login {
     margin-top: 190px;
-<<<<<<< HEAD
-  }
-
-  .header-logo {
-    margin-left: -55px;
-  }
-=======
  }
 
  .header-logo {
   margin-left: -55px;
 }
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
 
   .boxLogin-page {
     position: relative;
@@ -338,16 +223,6 @@ p {
     flex-direction: row;
     align-items: center;
     margin-top: -150px;
-<<<<<<< HEAD
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
-    justify-content: space-evenly;
-  }
-}
-
-@media only screen and (max-width: 709px) and (min-width: 440px) {
-  .left {
-=======
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     justify-content: space-evenly;
 }  
@@ -357,36 +232,10 @@ p {
 
 @media only screen and (max-width: 709px) and (min-width: 440px) {  
   .left{
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
     margin-left: 120px;
   }
   .boxForm--login {
     margin-top: 10px;
-<<<<<<< HEAD
-  }
-
-  .header-logo {
-    margin-left: -55px;
-    padding-left: 60px;
-  }
-  .inner-header {
-    height: 14vh;
-  }
-  .titulo {
-    font-size: 22px;
-  }
-
-  .header--img {
-    width: 140px;
-    height: 140px;
-    margin-top: 20px;
-    margin-left: 15px;
-  }
-}
-
-@media only screen and (max-width: 439px) and (min-width: 375px) {
-  .left {
-=======
  }
 
  .header-logo {
@@ -414,32 +263,10 @@ p {
 
 @media only screen and (max-width: 439px) and (min-width: 375px) {  
   .left{
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
     margin-left: 100px;
   }
   .boxForm--login {
     margin-top: 0px;
-<<<<<<< HEAD
-  }
-
-  .header-logo {
-    margin-left: -55px;
-  }
-  .inner-header {
-    height: 14vh;
-  }
-  .titulo {
-    font-size: 20px;
-  }
-
-  .header--img {
-    width: 140px;
-    height: 140px;
-    margin-top: 20px;
-    margin-left: 10px;
-  }
-}
-=======
  }
 
  .header-logo {
@@ -465,4 +292,3 @@ p {
 
 
 
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d

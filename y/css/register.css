@@ -1,15 +1,8 @@
 #container {
-<<<<<<< HEAD
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-}
-
-=======
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
 header {
   position: relative;
   display: flex;
@@ -58,12 +51,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-<<<<<<< HEAD
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-=======
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
   margin-top: 190px;
 }
 
@@ -143,15 +131,7 @@ p {
 .header {
   position: relative;
   text-align: center;
-<<<<<<< HEAD
-  background: linear-gradient(
-    60deg,
-    rgba(245, 137, 72, 1) 0%,
-    rgba(0, 161, 161, 1) 100%
-  );
-=======
   background: linear-gradient(60deg, rgba(245, 137, 72, 1) 0%, rgba(0, 161, 161, 1) 100%);
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
   color: white;
 }
 
@@ -171,12 +151,7 @@ p {
 }
 
 .titulos {
-<<<<<<< HEAD
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
-=======
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
 }
 
 .flex {
@@ -206,46 +181,26 @@ p {
 
 /* Animation */
 
-<<<<<<< HEAD
-.parallax > use {
-  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
-}
-
-.parallax > use:nth-child(1) {
-=======
 .parallax>use {
   animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
 }
 
 .parallax>use:nth-child(1) {
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
   animation-delay: -2s;
   animation-duration: 7s;
 }
 
-<<<<<<< HEAD
-.parallax > use:nth-child(2) {
-=======
 .parallax>use:nth-child(2) {
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
   animation-delay: -3s;
   animation-duration: 10s;
 }
 
-<<<<<<< HEAD
-.parallax > use:nth-child(3) {
-=======
 .parallax>use:nth-child(3) {
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
   animation-delay: -4s;
   animation-duration: 13s;
 }
 
-<<<<<<< HEAD
-.parallax > use:nth-child(4) {
-=======
 .parallax>use:nth-child(4) {
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
   animation-delay: -5s;
   animation-duration: 20s;
 }
@@ -308,12 +263,7 @@ p {
     flex-direction: column;
     align-items: center;
     margin-top: 30px;
-<<<<<<< HEAD
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-      'Lucida Sans', Arial, sans-serif;
-=======
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
     justify-content: space-evenly;
   }
 
@@ -329,10 +279,7 @@ p {
   }
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
 @media only screen and (max-width: 709px) and (min-width: 440px) {
   .left {
     margin-left: 120px;
@@ -361,17 +308,12 @@ p {
     margin-top: 20px;
     margin-left: 15px;
   }
-<<<<<<< HEAD
-}
-
-=======
 
 }
 
 
 
 
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d
 @media only screen and (max-width: 439px) and (min-width: 375px) {
   .left {
     margin-left: 100px;
@@ -399,9 +341,6 @@ p {
     margin-top: -10px;
     margin-left: 10px;
   }
-<<<<<<< HEAD
-}
-=======
 
 }
 
@@ -409,4 +348,3 @@ p {
 
 
 
->>>>>>> 822a7cdc0d517c047dbea8101fa37503d938b19d

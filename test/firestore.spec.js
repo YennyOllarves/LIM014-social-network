@@ -47,7 +47,7 @@ describe('sendGeneralData', () => {
     sendGeneralData(currentUser).then(() => {
       getUserData('uid_002')
         .then((doc) => {
-          expect(doc().userId.set.email).toEqual('wenclive7@gmail.com');
+          expect(doc().userId.set.email).toEqual('sulclive7@gmail.com');
           expect(doc().userId.set.username).toEqual('Jake');
         });
     });
@@ -79,19 +79,20 @@ describe('updatePost', () => {
   it('Debería ser una función', () => {
     expect(typeof updatePost).toBe('function');
   });
-  it('Debería editar un post', (done) => updatePost('my post', 'post editado').then(() => getPosts((data) => {
-    const result = data.find((posts) => posts.publication === 'post editado');
-    expect(result.publication).toBe('post editado');
-    done();
-  })));
+  it('Debería editar un post', (done) => updatePost('id_001', 'post editado')
+    .then(() => getPosts((data) => {
+      const result = data.find((posts) => posts.publication === 'post editado');
+      expect(result.publication).toBe('post editado');
+      done();
+    })));
 });
 
 describe('deletePost', () => {
   it('Debería ser una función', () => {
     expect(typeof deletePost).toBe('function');
   });
-  it('Debería eliminar un post', (done) => deletePost('my post').then(() => getPosts((posts) => {
-    const result = posts.find((element) => element.id === 'my post');
+  it('Debería eliminar un post', (done) => deletePost('id_001').then(() => getPosts((posts) => {
+    const result = posts.find((element) => element.id === 'id_001');
     expect(result).toBe(undefined);
     done();
   })));
@@ -117,7 +118,7 @@ describe('getUserData', () => {
     .then(() => {
       getUserData('uid_002')
         .then((doc) => {
-          expect(doc().userId.get.email).toEqual('wenclive7@gmail.com');
+          expect(doc().userId.get.email).toEqual('sulclive7@gmail.com');
           expect(doc().userId.get.username).toEqual('Jake');
         });
       done();

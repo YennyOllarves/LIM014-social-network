@@ -112,6 +112,10 @@ export default () => {
 
       .then(() => {
         const user = firebase.auth().currentUser;
+        // Actualizar datos del perfil
+        // user.updateProfile({
+        //   displayName: usernameInput,
+        // });
         sendGeneralData(emailInput, user.uid);
         checkMail()
 
